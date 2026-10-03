@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Five Pins | NB6015CEM Research Project Preparation</title>
+<link rel="stylesheet" href="../../assets/css/portal.css">
+<style>
+.fp-map { display: block; width: 100%; height: auto; background: var(--white); border: 1px solid var(--steel-blue); border-radius: 8px; }
+.fp-map .r { fill: none; stroke: var(--steel-blue); stroke-width: 6; stroke-linecap: round; transition: opacity 0.3s; }
+.fp-map .r.gone { opacity: 0.1; }
+.fp-map .r.kept { stroke: var(--orange); stroke-width: 8; }
+.fp-map .pin { fill: var(--ink-blue); }
+.fp-map .pole { fill: var(--near-black); } .fp-map .flag { fill: var(--green); } .fp-map .start { fill: var(--ink-blue); }
+.slot { border-bottom: 3px dotted var(--dark-grey); color: var(--dark-grey); }
+.slot.set { border-bottom: 3px solid var(--orange); color: var(--near-black); font-weight: 600; }
+.pane.done { border-color: var(--green); border-width: 2px; }
+.fp-opts { display: grid; gap: 8px; margin: 8px 0; }
+.fp-sticky { position: sticky; top: 0; z-index: 2; background: var(--white); padding: 6px 0; border-bottom: 3px solid var(--steel-blue); }
+.fp-sticky .fp-map { max-height: 150px; }
+.fp-sticky p { margin: 4px 0 0; font-size: 0.92rem; font-weight: 600; }
+.fp-opts button { text-align: left; }
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap">
+<div class="inst">National Institute of Business Management (NIBM) | Coventry University (CU)</div>
+<div class="mod"><a href="../../index.html">NB6015CEM Research Project Preparation</a></div>
+<div class="prog">BSc (Hons) Ethical Hacking &amp; Network Security</div>
+</div></header>
+<nav class="site" aria-label="Portal"><div class="wrap"><a href="../../index.html">Home</a><a href="../../map.html">Module map</a><a href="../../licence.html">Licence</a></div></nav>
+<main><div class="wrap">
+<p class="crumb"><a href="../../notes/s1.html">Back to the Session 1 notes</a></p>
+<h1>Five Pins</h1>
+<div class="bars"><span class="a"></span><span class="b"></span></div>
+<p class="label">[Illustrative example - do not cite] Kavindu is an invented student, and the wrong choices offered for each pin are invented too.</p>
+<div class="box learn" data-nb-concept><span class="tag">One idea</span><p>A research question is a topic with five things pinned: technique, threat, environment, metric and baseline. Each pin removes projects that the question could have meant.</p></div>
+<figure class="sect" data-nb-opening><img class="scene" src="../../assets/illus/s1_a_fivepins.svg" alt="A person points at a map with three roads to a green flag. One road is orange and carries two orange pins. Three blue pins wait below the map."><figcaption>The picture: a map with several roads to one flag. Two pins are already in the orange road, and three more wait to be placed.</figcaption></figure>
+<div class="box notice" data-nb-not-a-grader><span class="tag">Not a grader</span><p>This tool does not read, judge or mark what you type. In the second part it only counts how many pins you have filled. A filled pin is not always a good pin: compare yours with Kavindu's.</p></div>
+<div class="art" data-nb-artefact><div class="btns">
+  <button type="button" class="btn" id="tab-kavindu" aria-pressed="true">1. Pin Kavindu's question</button>
+  <button type="button" class="btn alt" id="tab-own" aria-pressed="false">2. Pin your own topic</button>
+</div>
+<section id="view-kavindu">
+  <h2>Kavindu's weak question</h2>
+  <p class="quoteq" id="fp-weak"></p>
+  <p>His topic is <span id="fp-topic"></span>. Many different projects could answer the question above. On the map, each line is one of those projects, and the flag is the topic.</p>
+  <div class="fp-sticky">
+    <svg class="fp-map" id="fp-map" viewBox="0 0 360 170" role="img" aria-label="A map with several routes from one starting point to one flag"></svg>
+    <p id="fp-status" aria-live="polite"></p>
+  </div>
+  <h2>The question so far</h2>
+  <p class="quoteq" id="fp-q" aria-live="polite"></p>
+  <h2>Set the five pins</h2>
+  <p>For each pin, choose the wording that names one exact thing. You can set the pins in any order.</p>
+  <div id="fp-pins"></div>
+  <div class="fb ok" id="fp-done" hidden></div>
+  <div class="btns"><button type="button" class="btn alt" id="fp-restart">Start again</button></div>
+</section>
+<section id="view-own" hidden>
+  <h2>Pin your own topic</h2>
+  <p>Write your topic, then fill each pin with one exact thing. Use Kavindu's five pins as your model.</p>
+  <label for="own-topic">Your topic</label>
+  <input type="text" id="own-topic" autocomplete="off">
+  <div id="own-fields"></div>
+  <svg class="fp-map" id="own-map" viewBox="0 0 360 170" role="img" aria-label="A map with several routes from one starting point to one flag"></svg>
+  <p id="own-status" aria-live="polite"></p>
+  <h2>Your pins, side by side</h2>
+  <ul id="own-list"></ul>
+  <p>When all five are filled, write them as one question and test it in the <a href="NB6015CEM_S1_RQ_SelfCheck.html">Research Question Self-Check</a>.</p>
+</section></div>
+<div class="box store" data-nb-store-notice><p>What you type here stays on this device. It is never sent anywhere.</p><div class="btns"><button type="button" class="btn alt" id="nb-reset" data-nb-reset>Clear my answers from this device</button></div></div>
+<p class="crumb"><a href="../../notes/s1.html">Back to the Session 1 notes</a></p>
+<script type="application/json" id="nb-data">{"weak": {"t": "How can machine learning be used to improve intrusion detection?"}, "topic": {"t": "intrusion detection in enterprise networks"}, "strong_parts": [{"t": "To what extent can"}, {"t": "a tree-based classifier trained on flow-level features"}, {"t": "detect"}, {"t": "lateral-movement traffic"}, {"t": "within an enterprise LAN"}, {"t": "at"}, {"t": "a false-positive rate suitable for analyst review,"}, {"t": "compared with"}, {"t": "a signature-based IDS baseline?"}], "pins": [{"id": "technique", "slot": 1, "name": "Pin 1: the technique", "blank": "some technique", "ask": "What exactly will Kavindu build?", "own_hint": "The exact method or tool you will build or apply. Not a whole field.", "options": [{"text": "machine learning", "ok": false, "why": "Not pinned. This is a whole field, not a technique. The notes say that it covers hundreds of distinct approaches, so many projects still fit."}, {"t": "a tree-based classifier trained on flow-level features", "ok": true, "why": "Pinned. This names one kind of model and the data it learns from. One road on the map is gone."}, {"text": "an AI model", "ok": false, "why": "Not pinned. This is even wider than machine learning. It names no technique at all."}]}, {"id": "threat", "slot": 3, "name": "Pin 2: the threat", "blank": "some threat", "ask": "What exactly should it detect?", "own_hint": "One class of attack or one kind of problem. Not every attack.", "options": [{"t": "lateral-movement traffic", "ok": true, "why": "Pinned. This is one class of threat. The notes ask: what kind of intrusion? This answers it."}, {"text": "intrusions", "ok": false, "why": "Not pinned. The notes ask: what kind of intrusion? This wording does not say."}, {"text": "cyber attacks", "ok": false, "why": "Not pinned. This covers every attack there is, so it removes no project from the map."}]}, {"id": "environment", "slot": 4, "name": "Pin 3: the environment", "blank": "somewhere", "ask": "Where exactly will it be tested?", "own_hint": "The one system or network you will test in. It must be something you can build yourself.", "options": [{"text": "in networks", "ok": false, "why": "Not pinned. The notes ask: what scale, what network architecture? This wording names neither."}, {"text": "in organisations", "ok": false, "why": "Not pinned. This is a whole population of organisations, not a setting that one student can build and test."}, {"t": "within an enterprise LAN", "ok": true, "why": "Pinned. One kind of network. Another road is gone."}]}, {"id": "metric", "slot": 6, "name": "Pin 4: the metric", "blank": "some measure", "ask": "What exactly will be measured?", "own_hint": "The number you will report: a rate, a time or a count.", "options": [{"text": "better detection", "ok": false, "why": "Not pinned. Better by what measure? The notes ask the same about the word improve."}, {"t": "a false-positive rate suitable for analyst review,", "ok": true, "why": "Pinned. This names what is measured, and how good it must be to be useful."}, {"text": "high accuracy", "ok": false, "why": "Not pinned. The notes say of Ruwan's draft that high accuracy is undefined. High compared with what?"}]}, {"id": "baseline", "slot": 8, "name": "Pin 5: the baseline", "blank": "something else", "ask": "What exactly is it compared with?", "own_hint": "The alternative you will compare your result with. Without one, nobody can say whether the result is good.", "options": [{"text": "current tools", "ok": false, "why": "Not pinned. Which tools? A comparison needs one named alternative."}, {"text": "nothing, it is new", "ok": false, "why": "Not pinned. The notes say that a question without a baseline is not evaluable: there is no way to assess whether the result is good or bad."}, {"t": "a signature-based IDS baseline?", "ok": true, "why": "Pinned. One named alternative. Now the result can be judged."}]}], "status": ["No pins are set. Many different projects fit this question, so it is still a topic.", "1 of 5 pins is set. One road has gone. Many projects still fit.", "2 of 5 pins are set. Fewer projects fit the question now.", "3 of 5 pins are set. The question is taking a definite shape.", "4 of 5 pins are set. Two roads are left. One more pin decides."], "status_done": "All five pins are set. One road is left: only one project fits this question.", "done_head": "This is Kavindu's strong question, word for word. The notes say:", "done_taught": {"t": "Once all five are pinned, the question defines a complete experiment."}, "done_tail": "The map is a picture, not a count. It shows the idea: each pin leaves fewer projects that the question could mean.", "own_status": "You have filled {n} of 5 pins. This tool only counts them. It does not read your words.", "own_empty": "not pinned yet"}</script>
+<script data-nb-storage-helper>
+(function () {
+  var NS = "nb6015cem.s1.five_pins.";
+  function store() { try { return window.localStorage; } catch (e) { return null; } }
+  window.NBStore = {
+    ns: NS,
+    get: function (k) { var s = store(); if (!s) return null; try { return JSON.parse(s.getItem(NS + k)); } catch (e) { return null; } },
+    set: function (k, v) { var s = store(); if (!s) return false; try { s.setItem(NS + k, JSON.stringify(v)); return true; } catch (e) { return false; } },
+    reset: function () { var s = store(); if (!s) return; var d = []; for (var i = 0; i < s.length; i++) { var k = s.key(i); if (k && k.indexOf(NS) === 0) d.push(k); } d.forEach(function (k) { s.removeItem(k); }); }
+  };
+  document.addEventListener('click', function (e) { var b = e.target.closest ? e.target.closest('[data-nb-reset]') : null; if (b) { window.NBStore.reset(); document.dispatchEvent(new CustomEvent('nb-reset')); } });
+})();
+</script>
+<script>
+(function () {
+  var D = JSON.parse(document.getElementById('nb-data').textContent);
+  var $ = function (id) { return document.getElementById(id); };
+  var ORDER = D.pins.map(function (p) { return p.id; });
+  var ROUTES = ['M24,146 C90,120 120,60 190,70 S290,60 330,36', 'M24,146 C60,40 200,20 330,36', 'M24,146 C140,160 300,150 330,36',
+                'M24,146 C40,90 150,130 200,110 S300,120 330,36', 'M24,146 C100,150 110,100 150,40 S280,10 330,36', 'M24,146 C200,170 250,90 250,70 S310,60 330,36'];
+  var PINXY = [[72, 126], [128, 84], [190, 70], [250, 62], [300, 50]];
+  var set = {};
+  function clean(s) { return s.replace(/[,?]$/, ''); }
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  function count(o) { return ORDER.filter(function (k) { return o[k]; }).length; }
+  function drawMap(svg, n) {
+    var h = '';
+    ROUTES.forEach(function (d, i) { if (i > 0) h += '<path class="r' + (i <= n ? ' gone' : '') + '" d="' + d + '"/>'; });
+    h += '<path class="r' + (n === 5 ? ' kept' : '') + '" d="' + ROUTES[0] + '"/>';
+    for (var i = 0; i < n; i++) h += '<circle class="pin" cx="' + PINXY[i][0] + '" cy="' + PINXY[i][1] + '" r="7"/>';
+    h += '<circle class="start" cx="24" cy="146" r="8"/><rect class="pole" x="328" y="8" width="5" height="30"/><path class="flag" d="M333,8 l24,9 l-24,9 Z"/>';
+    svg.innerHTML = h;
+    svg.setAttribute('aria-label', 'A map from one starting point to one flag. ' + (n === 5 ? 'One route remains, drawn in orange, with five pins along it.' : (6 - n) + ' routes are still open and ' + n + ' of five pins are set.'));
+  }
+  function status(n) { return n === 5 ? D.status_done : D.status[n]; }
+  // ---- Kavindu's question ----
+  function drawQuestion() {
+    var h = D.strong_parts.map(function (part, i) {
+      var pin = D.pins.filter(function (p) { return p.slot === i; })[0];
+      if (!pin) return esc(part.t);
+      return set[pin.id] ? '<span class="slot set">' + esc(part.t) + '</span>' : '<span class="slot">' + esc(pin.blank) + '</span>';
+    }).join(' ');
+    $('fp-q').innerHTML = h;
+  }
+  function drawPins() {
+    $('fp-pins').innerHTML = D.pins.map(function (p) {
+      var opts = p.options.map(function (o, j) {
+        return '<button type="button" class="btn alt" id="opt-' + p.id + '-' + j + '" data-pin="' + p.id + '" data-j="' + j + '">' + esc(o.t ? clean(o.t) : o.text) + '</button>';
+      }).join('');
+      return '<div class="pane" id="pane-' + p.id + '"><h3>' + esc(p.name) + '</h3><p>' + esc(p.ask) + '</p><div class="fp-opts">' + opts + '</div><div class="fb" id="fb-' + p.id + '" aria-live="polite"></div></div>';
+    }).join('');
+  }
+  function refresh() {
+    var n = count(set);
+    drawMap($('fp-map'), n); drawQuestion(); $('fp-status').textContent = status(n);
+    $('fp-done').hidden = n !== 5;
+    if (n === 5) $('fp-done').innerHTML = '<p><strong>' + esc(D.done_head) + '</strong></p><p>' + esc(D.done_taught.t) + '</p><p>' + esc(D.done_tail) + '</p>';
+  }
+  $('fp-pins').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-pin]'); if (!b) return;
+    var p = D.pins.filter(function (x) { return x.id === b.getAttribute('data-pin'); })[0], o = p.options[+b.getAttribute('data-j')], fb = $('fb-' + p.id);
+    fb.className = 'fb ' + (o.ok ? 'ok' : 'no'); fb.textContent = o.why;
+    if (o.ok) { set[p.id] = true; $('pane-' + p.id).classList.add('done'); }
+    refresh();
+  });
+  $('fp-restart').addEventListener('click', function () { set = {}; drawPins(); refresh(); });
+  // ---- the learner's own topic: nothing is read or judged, only counted; kept on the device through NBStore ----
+  var own = window.NBStore.get('own') || {};
+  function drawOwn() {
+    var n = count(own);
+    drawMap($('own-map'), n);
+    $('own-status').textContent = D.own_status.replace('{n}', n);
+    $('own-list').innerHTML = D.pins.map(function (p) { return '<li><strong>' + esc(p.name) + ':</strong> ' + (own[p.id] ? esc(own[p.id]) : '<span class="hint">' + esc(D.own_empty) + '</span>') + '</li>'; }).join('');
+  }
+  $('own-fields').innerHTML = D.pins.map(function (p) {
+    return '<label for="own-' + p.id + '">' + esc(p.name) + '</label><p class="hint">' + esc(p.own_hint) + '</p><input type="text" id="own-' + p.id + '" data-own="' + p.id + '" autocomplete="off">';
+  }).join('');
+  function fill() { $('own-topic').value = own.topic || ''; ORDER.forEach(function (k) { $('own-' + k).value = own[k] || ''; }); drawOwn(); }
+  $('view-own').addEventListener('input', function (e) {
+    var k = e.target.id === 'own-topic' ? 'topic' : e.target.getAttribute('data-own'); if (!k) return;
+    own[k] = e.target.value.trim(); window.NBStore.set('own', own); drawOwn();
+  });
+  document.addEventListener('nb-reset', function () { own = {}; fill(); });
+  // ---- the two views ----
+  function show(which) {
+    $('view-kavindu').hidden = which !== 'kavindu'; $('view-own').hidden = which !== 'own';
+    [['tab-kavindu', 'kavindu'], ['tab-own', 'own']].forEach(function (t) { var on = t[1] === which; $(t[0]).className = 'btn' + (on ? '' : ' alt'); $(t[0]).setAttribute('aria-pressed', on ? 'true' : 'false'); });
+  }
+  $('tab-kavindu').addEventListener('click', function () { show('kavindu'); });
+  $('tab-own').addEventListener('click', function () { show('own'); });
+  $('fp-weak').textContent = D.weak.t; $('fp-topic').textContent = D.topic.t;
+  drawPins(); refresh(); fill();
+})();
+</script>
+</div></main>
+<footer class="site"><div class="wrap"><p>NB6015CEM Research Project Preparation. BSc (Hons) Ethical Hacking &amp; Network Security.</p><p>Niranga Dharmaratna, <a href="mailto:niranga@nibm.lk">niranga@nibm.lk</a>.</p><p>&copy; 2026 Niranga Dharmaratna. Content licensed under CC BY-NC-ND 4.0; code under MIT. <a href="../../licence.html">Licence and use</a>.</p></div></footer>
+</body>
+</html>

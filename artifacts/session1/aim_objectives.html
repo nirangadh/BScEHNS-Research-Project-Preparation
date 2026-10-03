@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One Aim, Three Objectives | NB6015CEM Research Project Preparation</title>
+<link rel="stylesheet" href="../../assets/css/portal.css">
+<style>
+.ao-card { border: 1px solid var(--steel-blue); border-radius: 8px; padding: 10px 12px; margin: 10px 0; background: var(--white); }
+.ao-card.right { border: 2px solid var(--green); }
+.ao-card p.s { margin: 0 0 6px; font-weight: 600; }
+.ao-row { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: center; border: 1px solid var(--steel-blue); border-radius: 8px; padding: 8px 10px; margin: 8px 0; background: var(--white); }
+.ao-row p { margin: 0; }
+.ao-move { display: grid; gap: 6px; }
+.ao-move button { padding: 4px 12px; min-width: 64px; }
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap">
+<div class="inst">National Institute of Business Management (NIBM) | Coventry University (CU)</div>
+<div class="mod"><a href="../../index.html">NB6015CEM Research Project Preparation</a></div>
+<div class="prog">BSc (Hons) Ethical Hacking &amp; Network Security</div>
+</div></header>
+<nav class="site" aria-label="Portal"><div class="wrap"><a href="../../index.html">Home</a><a href="../../map.html">Module map</a><a href="../../licence.html">Licence</a></div></nav>
+<main><div class="wrap">
+<p class="crumb"><a href="../../notes/s1.html">Back to the Session 1 notes</a></p>
+<h1>One Aim, Three Objectives</h1>
+<div class="bars"><span class="a"></span><span class="b"></span></div>
+<p class="label">[Illustrative example - do not cite] Chathura and Pahana Retail are invented, and so are the two reworded aims.</p>
+<div class="box learn" data-nb-concept><span class="tag">One idea</span><p>A project has one aim. Its objectives are different, measurable steps, in order, that together deliver the aim. An objective is never the aim in other words.</p></div>
+<figure class="sect" data-nb-opening><img class="scene" src="../../assets/illus/s1_a_aim.svg" alt="A person points at three steps that rise from left to right. A single target stands on top of the highest step."><figcaption>The picture: three steps, one after another, lead up to a single target. The steps are the objectives, and the target is the aim.</figcaption></figure>
+<div class="art" data-nb-artefact><div class="pane">
+  <h2>Part 1. Aim, objective, or the aim again?</h2>
+  <p>Six statements about Chathura's project. One is his aim. Three are his objectives. Two are the aim said again in other words. Decide what each one is.</p>
+  <div id="ao-cards"></div>
+  <p id="ao-score" aria-live="polite"></p>
+</div>
+<div class="pane">
+  <h2>Part 2. Put the objectives in order</h2>
+  <p>The three objectives are steps. Move them into the order in which Chathura must do them. Then check.</p>
+  <div id="ao-order"></div>
+  <div class="btns"><button type="button" class="btn" id="check-order">Check the order</button></div>
+  <div class="fb" id="fb-order" aria-live="polite"></div>
+</div></div>
+<p class="crumb"><a href="../../notes/s1.html">Back to the Session 1 notes</a></p>
+<script type="application/json" id="nb-data">{"kind_names": {"aim": "The aim", "obj": "An objective", "re": "The aim again"}, "score": "{n} of {of} sorted correctly.", "wrong": {"aim": "Not this one. The aim is the one result that the whole project works towards. Read the statement again: is it the whole result, or one step?", "obj": "Not an objective. An objective is one step that you can carry out and measure. This statement does not name a step.", "re": "This is not the aim again. Look at what it does: it names one action, or the whole result."}, "cards": [{"t": "Apply the CIS Windows configuration baseline to the testbed.", "kind": "obj", "why": "An objective. It is one action, and you can tell when it is done."}, {"text": "To investigate whether the CIS Windows baseline makes a small Active Directory testbed harder to exploit.", "kind": "re", "why": "The aim again. It says what the aim says, in other words, and it names no step. The notes warn about sentences that begin with to investigate."}, {"t": "To evaluate whether applying the CIS Windows secure-configuration baseline reduces the exploitability of a small Active Directory testbed.", "kind": "aim", "why": "The aim. It states the one result that the whole project works towards."}, {"t": "Measure the change in attack-technique success rate against the hardened state versus the baseline, and report the difference with supporting evidence.", "kind": "obj", "why": "An objective. It is one action with a measurable result."}, {"text": "To examine how applying the CIS Windows baseline affects the exploitability of the testbed.", "kind": "re", "why": "The aim again. To examine sounds like work, but no action is named. The notes call this one aim stated more than once."}, {"t": "Establish an unhardened baseline testbed and document its attack surface using a defined set of common attack techniques.", "kind": "obj", "why": "An objective. It is one action, and it produces something that the later steps need."}], "objectives": [{"t": "Establish an unhardened baseline testbed and document its attack surface using a defined set of common attack techniques."}, {"t": "Apply the CIS Windows configuration baseline to the testbed."}, {"t": "Measure the change in attack-technique success rate against the hardened state versus the baseline, and report the difference with supporting evidence."}], "start_order": [2, 0, 1], "order_right": "Yes. Each step needs the one before it. The baseline cannot be applied to a testbed that does not exist yet, and a change cannot be measured until both states exist. The notes call this a logical sequence.", "order_wrong": "Not yet. Ask of each step: what must already exist before I can do this?"}</script>
+<script>
+(function () {
+  var D = JSON.parse(document.getElementById('nb-data').textContent);
+  var $ = function (id) { return document.getElementById(id); };
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  var txt = function (c) { return c.t || c.text; };
+  var KINDS = [['aim', D.kind_names.aim], ['obj', D.kind_names.obj], ['re', D.kind_names.re]];
+  var solved = {};
+  $('ao-cards').innerHTML = D.cards.map(function (c, i) {
+    return '<div class="ao-card" id="card-' + i + '"><p class="s">' + esc(txt(c)) + '</p><div class="btns">' +
+      KINDS.map(function (k) { return '<button type="button" class="btn alt" id="c' + i + '-' + k[0] + '" data-card="' + i + '" data-kind="' + k[0] + '">' + esc(k[1]) + '</button>'; }).join('') +
+      '</div><div class="fb" id="fb-card-' + i + '" aria-live="polite"></div></div>';
+  }).join('');
+  function score() { var n = Object.keys(solved).length; $('ao-score').textContent = D.score.replace('{n}', n).replace('{of}', D.cards.length); }
+  $('ao-cards').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-card]'); if (!b) return;
+    var i = +b.getAttribute('data-card'), c = D.cards[i], ok = b.getAttribute('data-kind') === c.kind, fb = $('fb-card-' + i);
+    fb.className = 'fb ' + (ok ? 'ok' : 'no'); fb.textContent = ok ? c.why : D.wrong[b.getAttribute('data-kind')];
+    if (ok) { solved[i] = true; $('card-' + i).classList.add('right'); }
+    score();
+  });
+  // Part 2: the three objectives, shown out of order; position buttons move a row up or down
+  var order = D.start_order.slice();
+  function drawOrder() {
+    $('ao-order').innerHTML = order.map(function (k, pos) {
+      return '<div class="ao-row"><p>' + esc(D.objectives[k].t) + '</p><div class="ao-move">' +
+        (pos === 0 ? '' : '<button type="button" class="btn alt" id="up-' + pos + '" data-pos="' + pos + '" data-dir="-1" aria-label="Move this objective up">Up</button>') +
+        (pos === order.length - 1 ? '' : '<button type="button" class="btn alt" id="down-' + pos + '" data-pos="' + pos + '" data-dir="1" aria-label="Move this objective down">Down</button>') + '</div></div>';
+    }).join('');
+  }
+  $('ao-order').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-pos]'); if (!b) return;
+    var p = +b.getAttribute('data-pos'), q = p + (+b.getAttribute('data-dir'));
+    var t = order[p]; order[p] = order[q]; order[q] = t; drawOrder(); $('fb-order').className = 'fb'; $('fb-order').textContent = '';
+  });
+  $('check-order').addEventListener('click', function () {
+    var ok = order.every(function (k, i) { return k === i; });
+    $('fb-order').className = 'fb ' + (ok ? 'ok' : 'no'); $('fb-order').textContent = ok ? D.order_right : D.order_wrong;
+  });
+  score(); drawOrder();
+})();
+</script>
+</div></main>
+<footer class="site"><div class="wrap"><p>NB6015CEM Research Project Preparation. BSc (Hons) Ethical Hacking &amp; Network Security.</p><p>Niranga Dharmaratna, <a href="mailto:niranga@nibm.lk">niranga@nibm.lk</a>.</p><p>&copy; 2026 Niranga Dharmaratna. Content licensed under CC BY-NC-ND 4.0; code under MIT. <a href="../../licence.html">Licence and use</a>.</p></div></footer>
+</body>
+</html>

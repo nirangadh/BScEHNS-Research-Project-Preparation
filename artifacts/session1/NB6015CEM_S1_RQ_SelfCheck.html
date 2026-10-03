@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research Question Self-Check | NB6015CEM Research Project Preparation</title>
+<link rel="stylesheet" href="../../assets/css/portal.css">
+<style>
+.nb-tool {
+    --ink-blue:   #1B3A6B;
+    --orange:     #E0701A;
+    --steel-blue: #C5D6E8;
+    --near-black: #1A1A1A;
+    --pale-grey:  #EDF1F5;
+    --green:      #2E9E5C;
+    --crimson:    #B11E2A;
+    --sand:       #F0EAE0;
+    --sand-acc:   #977F5A;
+    --azure:      #3E6FA8;
+    --dark-grey:  #595959;
+    --white:      #FFFFFF;
+    --mist:       #E3E9EF;
+  }
+.nb-tool, .nb-tool * { box-sizing: border-box; margin: 0; padding: 0; }
+.nb-tool {
+    font-family: 'Open Sans', 'Segoe UI', Arial, sans-serif;
+    font-size: 14px;
+    color: var(--near-black);
+    background: var(--pale-grey);
+    min-height: 100vh;
+  }
+.nb-tool .header {
+    background: var(--ink-blue);
+    color: var(--white);
+    padding: 24px 32px 20px;
+  }
+.nb-tool .header h1 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+.nb-tool .header .sub { font-size: 13px; opacity: 0.85; margin-bottom: 10px; }
+.nb-tool .header .note {
+    font-size: 12px;
+    background: rgba(255,255,255,0.12);
+    border-left: 3px solid var(--orange);
+    padding: 8px 12px;
+    border-radius: 2px;
+    line-height: 1.5;
+  }
+.nb-tool .main { max-width: 860px; margin: 0 auto; padding: 28px 24px 60px; }
+.nb-tool .input-card {
+    background: var(--white);
+    border-radius: 4px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+.nb-tool .input-card label {
+    display: block;
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: var(--ink-blue);
+  }
+.nb-tool .input-card textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 12px;
+    border: 1.5px solid var(--steel-blue);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--near-black);
+    resize: vertical;
+    line-height: 1.5;
+    transition: border-color 0.2s;
+  }
+.nb-tool .input-card textarea:focus { outline: none; border-color: var(--ink-blue); }
+.nb-tool .btn-row { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+.nb-tool .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+.nb-tool .btn:hover { opacity: 0.88; }
+.nb-tool .btn-primary { background: var(--ink-blue); color: var(--white); }
+.nb-tool .btn-secondary { background: var(--mist); color: var(--ink-blue); }
+.nb-tool .btn-orange { background: var(--orange); color: var(--white); }
+.nb-tool .btn-small {
+    padding: 5px 12px; font-size: 12px; background: var(--pale-grey);
+    color: var(--dark-grey); border: 1px solid var(--steel-blue);
+    border-radius: 3px; cursor: pointer;
+  }
+.nb-tool .btn-small:hover { background: var(--steel-blue); }
+.nb-tool .panels { display: none; }
+.nb-tool .panels.visible { display: block; }
+.nb-tool .panel {
+    background: var(--white);
+    border-radius: 4px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+    overflow: hidden;
+  }
+.nb-tool .panel-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    background: var(--pale-grey);
+    cursor: pointer;
+    user-select: none;
+  }
+.nb-tool .panel-header:hover { background: var(--steel-blue); }
+.nb-tool .panel-badge {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 12px; color: var(--white);
+    flex-shrink: 0;
+  }
+.nb-tool .panel-header h3 { font-size: 14px; font-weight: 700; flex: 1; }
+.nb-tool .panel-status {
+    font-size: 12px; font-weight: 600;
+    padding: 3px 8px; border-radius: 10px;
+    background: var(--mist); color: var(--dark-grey);
+  }
+.nb-tool .panel-status.met { background: #d4edda; color: #155724; }
+.nb-tool .panel-status.partly { background: #fff3cd; color: #856404; }
+.nb-tool .panel-status.notyet { background: #f8d7da; color: #721c24; }
+.nb-tool .chevron { font-size: 12px; color: var(--dark-grey); }
+.nb-tool .panel-body { padding: 16px 18px; border-top: 1px solid var(--mist); }
+.nb-tool .panel-body.hidden { display: none; }
+.nb-tool .panel-description { margin-bottom: 10px; line-height: 1.6; color: var(--near-black); }
+.nb-tool .hint-box {
+    background: var(--sand);
+    border-left: 3px solid var(--sand-acc);
+    padding: 10px 12px;
+    border-radius: 2px;
+    margin-bottom: 14px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--near-black);
+  }
+.nb-tool .hint-box strong { color: var(--sand-acc); }
+.nb-tool .hint-triggered {
+    background: #fff3cd;
+    border-left: 3px solid var(--orange);
+    padding: 8px 12px;
+    border-radius: 2px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    color: var(--near-black);
+    display: none;
+  }
+.nb-tool .hint-triggered.show { display: block; }
+.nb-tool .rating-group { display: flex; gap: 10px; flex-wrap: wrap; }
+.nb-tool .rating-option { display: flex; align-items: center; gap: 6px; cursor: pointer; }
+.nb-tool .rating-option input { margin: 0; cursor: pointer; }
+.nb-tool .rating-option.met-opt    label { color: #155724; font-weight: 600; }
+.nb-tool .rating-option.partly-opt label { color: #856404; font-weight: 600; }
+.nb-tool .rating-option.notyet-opt label { color: #721c24; font-weight: 600; }
+.nb-tool .band-card {
+    background: var(--white);
+    border-radius: 4px;
+    padding: 22px;
+    margin-top: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+    display: none;
+  }
+.nb-tool .band-card.visible { display: block; }
+.nb-tool .band-card h2 { font-size: 16px; font-weight: 700; margin-bottom: 14px; color: var(--ink-blue); }
+.nb-tool .band-indicator {
+    padding: 14px 16px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+.nb-tool .band-distinction { background: #d4edda; color: #155724; border-left: 4px solid #28a745; }
+.nb-tool .band-merit { background: #d1ecf1; color: #0c5460; border-left: 4px solid #17a2b8; }
+.nb-tool .band-pass { background: #fff3cd; color: #856404; border-left: 4px solid #ffc107; }
+.nb-tool .band-fail { background: #f8d7da; color: #721c24; border-left: 4px solid #dc3545; }
+.nb-tool .top-edit {
+    background: var(--ink-blue);
+    color: var(--white);
+    padding: 12px 16px;
+    border-radius: 4px;
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+.nb-tool .top-edit strong { color: var(--orange); }
+.nb-tool .mirror-note { font-size: 12px; color: var(--dark-grey); font-style: italic; }
+.nb-tool .exemplar-card {
+    background: var(--white);
+    border-radius: 4px;
+    padding: 20px;
+    margin-top: 16px;
+    border-left: 4px solid var(--ink-blue);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+    display: none;
+  }
+.nb-tool .exemplar-card.visible { display: block; }
+.nb-tool .exemplar-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 10px; color: var(--ink-blue); }
+.nb-tool .exemplar-q {
+    font-style: italic;
+    background: var(--pale-grey);
+    padding: 10px 14px;
+    border-radius: 3px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+.nb-tool .exemplar-why { font-size: 13px; color: var(--dark-grey); line-height: 1.5; margin-bottom: 6px; }
+.nb-tool .exemplar-nav { display: flex; gap: 8px; margin-top: 10px; align-items: center; }
+.nb-tool .exemplar-count { font-size: 12px; color: var(--dark-grey); }
+.nb-tool .page-footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    color: var(--dark-grey);
+    border-top: 1px solid var(--steel-blue);
+    margin-top: 40px;
+  }
+.nb-tool .header .programme { font-size: 13px; opacity: .9; margin-top: 4px; }
+.nb-tool .identity-row { display: flex; gap: 18px; align-items: center; }
+.nb-tool .identity-row .note { flex: 1 1 auto; }
+.nb-tool .hero { width: 120px; height: auto; flex: 0 0 120px; }
+@media (max-width: 640px) { .nb-tool .hero { display: none; } }
+.nb-tool .rights-foot { max-width: 860px; margin: 0 auto; padding: 0 24px 40px; font-size: 12.5px; color: #595959; }
+.nb-tool .rights { margin-top: 8px; line-height: 1.55; }
+.nb-tool { min-height: 0; background: transparent; }
+.nb-tool .main { max-width: none; padding: 0; }
+.nb-tool h2, .nb-tool h3 { border: 0; }
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap">
+<div class="inst">National Institute of Business Management (NIBM) | Coventry University (CU)</div>
+<div class="mod"><a href="../../index.html">NB6015CEM Research Project Preparation</a></div>
+<div class="prog">BSc (Hons) Ethical Hacking &amp; Network Security</div>
+</div></header>
+<nav class="site" aria-label="Portal"><div class="wrap"><a href="../../index.html">Home</a><a href="../../map.html">Module map</a><a href="../../licence.html">Licence</a></div></nav>
+<main><div class="wrap">
+<p class="crumb"><a href="../../notes/s1.html">Back to the Session 1 notes</a></p>
+<h1>Research Question Self-Check</h1>
+<div class="bars"><span class="a"></span><span class="b"></span></div>
+<p class="label">[Illustrative example - do not cite] The example questions in this tool belong to invented students.</p>
+<div class="box learn" data-nb-concept><span class="tag">One idea</span><p>A strong question meets five dimensions at once. This tool helps you to see which one your draft misses first.</p></div>
+<figure class="sect" data-nb-opening><img class="scene" src="../../assets/illus/s1_cover.svg" alt="A person points at a funnel. Scattered coloured dots enter the wide top of the funnel, and a dashed line leads down from it to a single target."><figcaption>The picture: many loose ideas go in, and one sharp target comes out. That is the work you do on your draft here.</figcaption></figure>
+<div class="box notice" data-nb-not-a-grader><span class="tag">Not a grader</span><p>This tool is a <strong>thinking mirror, not an automated grader.</strong> It surfaces gaps for you to reflect on - a green light is not a guarantee of a strong question. Bring your question to the Week 2 clinic regardless of the result. All data stays in this browser tab; nothing is sent anywhere.</p></div>
+<div class="art" data-nb-artefact><div class="nb-tool"><div class="main">
+
+  <!-- ── INPUT ─────────────────────────────────────────────────── -->
+  <div class="input-card">
+    <label for="rq-input">Paste or type your draft research question:</label>
+    <textarea id="rq-input" placeholder="Type or paste your draft research question here..."></textarea>
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="runCheck()">Check my question</button>
+      <button class="btn btn-secondary" onclick="clearAll()">Clear</button>
+      <button class="btn btn-orange" onclick="showExemplarPanel()">Show a strong example</button>
+    </div>
+  </div>
+
+  <!-- ── 5 DIMENSION PANELS ──────────────────────────────────── -->
+  <div class="panels" id="panels">
+
+    <!-- Panel A: Specific -->
+    <div class="panel" id="panel-a">
+      <div class="panel-header" onclick="togglePanel('panel-a')">
+        <div class="panel-badge" style="background:var(--ink-blue)">A</div>
+        <h3>Specific - does the question name technique, threat, and system?</h3>
+        <span class="panel-status" id="status-a">not yet rated</span>
+        <span class="chevron" id="chev-a">&#9660;</span>
+      </div>
+      <div class="panel-body" id="body-a">
+        <p class="panel-description">
+          A specific research question names <strong>the technique</strong> (not just a category),
+          <strong>the threat class or problem type</strong>, and <strong>the system or protocol</strong> it addresses.
+          "Machine learning" is a category covering hundreds of approaches.
+          "A tree-based classifier trained on flow-level features" is specific.
+          "Intrusion" is a category. "Lateral-movement traffic in an enterprise LAN" is specific.
+        </p>
+        <div class="hint-box">
+          <strong>Heuristic hint:</strong> if your question contains generic terms like
+          "machine learning", "AI", "deep learning", "data science", or "intrusion detection"
+          without naming a specific algorithm, model type, or threat sub-class,
+          it is likely still at the topic level.
+        </div>
+        <div class="hint-triggered" id="hint-a">
+          <strong>Possible gap detected:</strong> your question may contain a generic category term
+          without a specific named technique or approach. Consider pinning the exact algorithm,
+          method, or tool you will use.
+        </div>
+        <div class="rating-group">
+          <div class="rating-option met-opt"><input type="radio" name="r-a" value="met" onchange="rate('a','met')"><label>Met - technique, threat, and system are all named specifically</label></div>
+          <div class="rating-option partly-opt"><input type="radio" name="r-a" value="partly" onchange="rate('a','partly')"><label>Partly - some specificity, but at least one element is still generic</label></div>
+          <div class="rating-option notyet-opt"><input type="radio" name="r-a" value="notyet" onchange="rate('a','notyet')"><label>Not yet - the question names a topic area, not a specific claim</label></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel B: Technically grounded -->
+    <div class="panel" id="panel-b">
+      <div class="panel-header" onclick="togglePanel('panel-b')">
+        <div class="panel-badge" style="background:var(--azure)">B</div>
+        <h3>Technically grounded - would a security practitioner recognise this language?</h3>
+        <span class="panel-status" id="status-b">not yet rated</span>
+        <span class="chevron" id="chev-b">&#9660;</span>
+      </div>
+      <div class="panel-body hidden" id="body-b">
+        <p class="panel-description">
+          The question should use language that a security practitioner would recognise - specific protocols,
+          attack techniques, detection approaches, configuration standards.
+          If the question could have been written by someone with no security expertise,
+          it is probably not technically grounded. Value words like "good", "better", "effective",
+          or "secure" without a defined measure are the most common symptom of this failure.
+        </p>
+        <div class="hint-box">
+          <strong>Heuristic hint:</strong> flag any of these words in your question: "good", "better",
+          "best", "effective", "efficient", "secure", "safe", "optimal".
+          Each one should be replaced with a named, measurable technical criterion.
+        </div>
+        <div class="hint-triggered" id="hint-b">
+          <strong>Possible gap detected:</strong> your question may contain a value word that is not
+          defined in measurable technical terms. Replace it with a specific metric or property.
+        </div>
+        <div class="rating-group">
+          <div class="rating-option met-opt"><input type="radio" name="r-b" value="met" onchange="rate('b','met')"><label>Met - the question uses domain-specific language throughout</label></div>
+          <div class="rating-option partly-opt"><input type="radio" name="r-b" value="partly" onchange="rate('b','partly')"><label>Partly - mostly technical, but contains at least one value word or generic term</label></div>
+          <div class="rating-option notyet-opt"><input type="radio" name="r-b" value="notyet" onchange="rate('b','notyet')"><label>Not yet - the question uses generic or value-laden language throughout</label></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel C: Achievable at Level 6 -->
+    <div class="panel" id="panel-c">
+      <div class="panel-header" onclick="togglePanel('panel-c')">
+        <div class="panel-badge" style="background:var(--orange)">C</div>
+        <h3>Achievable at Level 6 - can this be built and tested in a self-built testbed?</h3>
+        <span class="panel-status" id="status-c">not yet rated</span>
+        <span class="chevron" id="chev-c">&#9660;</span>
+      </div>
+      <div class="panel-body hidden" id="body-c">
+        <p class="panel-description">
+          The question must be evaluable in a self-built virtualised or laboratory environment within
+          the project timeline. Nothing in the question should require access to a live production
+          system, a third-party network you are not authorised to test, or classified data.
+          Words like "prevent", "eliminate", or "all organisations" are almost always red flags
+          at Level 6; they imply a scope or certainty that is not achievable.
+        </p>
+        <div class="hint-box">
+          <strong>Heuristic hint:</strong> flag any of these patterns: "prevent", "eliminate",
+          "completely", "all hospitals", "all universities", "all organisations", "the internet".
+          Also flag: testing against "a real company", "the university network", or "live systems"
+          without mention of authorisation, a lab, or a testbed.
+        </div>
+        <div class="hint-triggered" id="hint-c">
+          <strong>Possible gap detected:</strong> your question may contain an absolute term
+          ("prevent", "eliminate") or an unscoped population. Consider replacing it with
+          a bounded testbed environment and a directional claim ("reduce", "detect").
+        </div>
+        <div class="rating-group">
+          <div class="rating-option met-opt"><input type="radio" name="r-c" value="met" onchange="rate('c','met')"><label>Met - evaluable in a self-built authorised testbed within the timeline</label></div>
+          <div class="rating-option partly-opt"><input type="radio" name="r-c" value="partly" onchange="rate('c','partly')"><label>Partly - mostly scoped, but has at least one overreach or unachievable claim</label></div>
+          <div class="rating-option notyet-opt"><input type="radio" name="r-c" value="notyet" onchange="rate('c','notyet')"><label>Not yet - scope is unachievable as stated or requires live third-party access</label></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel D: Aims differentiated -->
+    <div class="panel" id="panel-d">
+      <div class="panel-header" onclick="togglePanel('panel-d')">
+        <div class="panel-badge" style="background:var(--dark-grey)">D</div>
+        <h3>Aims differentiated from objectives - one aim, distinct measurable objectives</h3>
+        <span class="panel-status" id="status-d">not yet rated</span>
+        <span class="chevron" id="chev-d">&#9660;</span>
+      </div>
+      <div class="panel-body hidden" id="body-d">
+        <p class="panel-description">
+          This dimension cannot be assessed from the research question alone -
+          it requires checking your separate aims and objectives section.
+          An aim is the <strong>single overarching outcome</strong> the project is working toward.
+          Objectives are the <strong>differentiated, measurable steps</strong> that together deliver the aim.
+          The most common error: listing three sentences all phrased "to investigate X", "to examine Y",
+          "to explore Z" - that is one aim stated three times, not three objectives.
+        </p>
+        <div class="hint-box">
+          <strong>Check your aims and objectives document: </strong>
+          (1) Do you have exactly one aim? (2) Do your objectives each describe a <em>different</em> action?
+          (3) Could each objective be completed independently, and does completing all of them deliver the aim?
+          If your objectives all use the same verb ("to investigate..."), that is a warning sign.
+        </div>
+        <div class="rating-group">
+          <div class="rating-option met-opt"><input type="radio" name="r-d" value="met" onchange="rate('d','met')"><label>Met - one clear aim; objectives are distinct, measurable, and sequential</label></div>
+          <div class="rating-option partly-opt"><input type="radio" name="r-d" value="partly" onchange="rate('d','partly')"><label>Partly - aim is clear but objectives overlap or are paraphrases of each other</label></div>
+          <div class="rating-option notyet-opt"><input type="radio" name="r-d" value="notyet" onchange="rate('d','notyet')"><label>Not yet - aim and objectives conflated, or objectives read as one aim repeated</label></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel E: Evaluable -->
+    <div class="panel" id="panel-e">
+      <div class="panel-header" onclick="togglePanel('panel-e')">
+        <div class="panel-badge" style="background:var(--green)">E</div>
+        <h3>Evaluable - metric, baseline, and environment all present?</h3>
+        <span class="panel-status" id="status-e">not yet rated</span>
+        <span class="chevron" id="chev-e">&#9660;</span>
+      </div>
+      <div class="panel-body hidden" id="body-e">
+        <p class="panel-description">
+          An evaluable question includes three things:
+          a <strong>measurable outcome</strong> (detection rate, false-positive rate, attack success rate,
+          login completion time, hosts encrypted...),
+          a <strong>comparison or baseline</strong> ("compared with", "versus", "relative to",
+          "against a baseline of..."),
+          and a <strong>defined environment</strong> (a testbed, a lab, a VM environment,
+          a controlled network segment).
+          Without all three, there is no way to assess whether the result is good, bad, or expected.
+        </p>
+        <div class="hint-box">
+          <strong>Heuristic hint:</strong> does your question contain:
+          (1) a measurable term (rate, percentage, time, count, accuracy, precision, recall)?
+          (2) a comparison phrase ("compared with", "versus", "relative to")?
+          (3) an environment reference (testbed, lab, VM, VLAN, controlled environment)?
+          If any of these is missing, it is the first thing to add.
+        </div>
+        <div class="hint-triggered" id="hint-e">
+          <strong>Possible gap detected:</strong> your question may be missing a comparison/baseline,
+          a measurable outcome, or an environment reference.
+          Try adding "compared with [alternative or baseline]" and naming the testbed environment.
+        </div>
+        <div class="rating-group">
+          <div class="rating-option met-opt"><input type="radio" name="r-e" value="met" onchange="rate('e','met')"><label>Met - metric, comparison/baseline, and environment are all present</label></div>
+          <div class="rating-option partly-opt"><input type="radio" name="r-e" value="partly" onchange="rate('e','partly')"><label>Partly - at least one of the three elements is present but at least one is missing</label></div>
+          <div class="rating-option notyet-opt"><input type="radio" name="r-e" value="notyet" onchange="rate('e','notyet')"><label>Not yet - metric, comparison, and environment are all absent or undefined</label></div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /.panels -->
+
+  <!-- ── BAND READ ──────────────────────────────────────────────── -->
+  <div class="band-card" id="band-card">
+    <h2>Indicative position against Criterion 1</h2>
+    <div class="band-indicator" id="band-indicator"></div>
+    <div class="top-edit" id="top-edit"></div>
+    <p class="mirror-note">
+      This is a mirror, not a grade. It reflects where your question appears to sit based on
+      your own self-ratings. The Week 2 clinic and your supervisor's feedback are the definitive guide.
+    </p>
+  </div>
+
+  <!-- ── EXEMPLAR CARD ─────────────────────────────────────────── -->
+  <div class="exemplar-card" id="exemplar-card">
+    <h3>Strong exemplar question <span class="exemplar-count" id="ex-count"></span></h3>
+    <div class="exemplar-q" id="ex-q"></div>
+    <div class="exemplar-why" id="ex-why"></div>
+    <div class="exemplar-nav">
+      <button class="btn-small" onclick="prevEx()">&#8592; Previous</button>
+      <button class="btn-small" onclick="nextEx()">Next &#8594;</button>
+      <button class="btn-small" onclick="hideExemplar()">Close</button>
+    </div>
+  </div>
+
+</div><!-- /.main --><p class="tool-foot">Works offline. No data is collected or transmitted. All state is in this browser tab only.</p></div></div>
+<p class="crumb"><a href="../../notes/s1.html">Back to the Session 1 notes</a></p>
+<script>
+// ── STATE ──────────────────────────────────────────────────────
+const ratings = { a: null, b: null, c: null, d: null, e: null };
+let exIdx = 0;
+
+// ── EXEMPLARS ─────────────────────────────────────────────────
+const EXEMPLARS = [
+  {
+    name: 'Exemplar A - Detection tool (Tharindu / Sevana Bank)',
+    q: 'To what extent can an unsupervised, feature-based model detect distributed credential-stuffing against a mobile-banking authentication endpoint at a false-positive rate low enough for SOC triage, compared with a rate-limiting baseline?',
+    why: 'All five properties pinned: technique (unsupervised, feature-based model), threat (distributed credential-stuffing), environment (mobile-banking authentication endpoint, VM testbed), metric (false-positive rate at SOC-triage threshold), baseline (rate-limiting).'
+  },
+  {
+    name: 'Exemplar B - Hardening framework (Chathura / Pahana Retail)',
+    q: 'To what extent does applying the CIS Windows secure-configuration baseline reduce the success rate of a defined set of common attack techniques in a small Active Directory testbed, compared with an out-of-the-box default configuration?',
+    why: 'Control named (CIS Windows baseline), threat class (common attack techniques, defined set), environment (small Active Directory testbed), metric (attack-technique success rate), baseline (out-of-the-box default). Evaluates measured exploitability, not a compliance score.'
+  },
+  {
+    name: 'Exemplar C - Testing methodology (Dilini / Suwa Sevana Hospital)',
+    q: 'Can a structured object-level-authorisation testing methodology, applied to a controlled FHIR-style patient-records API, detect a higher proportion of seeded authorisation flaws than unstructured manual testing within a comparable time budget?',
+    why: 'Approach named (structured OLA testing methodology), environment (controlled FHIR-like API in a lab), metric (proportion of seeded flaws detected), baseline (unstructured manual testing), time constraint explicit. Security-testing methodology archetype.'
+  },
+  {
+    name: 'Steered-up version - Ruwan (from Discussion slide)',
+    q: 'To what extent can a URL-feature-based classifier detect phishing pages impersonating a retail-banking brand at a precision suitable for an email-gateway block decision, compared with a blocklist baseline?',
+    why: 'Transformed from "develop a phishing-detection system using ML aiming for high accuracy." The steer adds: specific technique (URL-feature-based classifier), specific threat type (phishing pages impersonating a brand), operationalised metric (precision at email-gateway threshold), named baseline (blocklist).'
+  },
+];
+
+// ── HEURISTICS ────────────────────────────────────────────────
+const GENERIC_TERMS = /\b(machine learning|artificial intelligence|AI|deep learning|neural network|data science|intrusion detection|blockchain|IoT|big data)\b/i;
+const VALUE_WORDS   = /\b(good|better|best|effective|efficient|secure|safe|optimal|improve|improve the|superior)\b/i;
+const ABS_WORDS     = /\b(prevent|eliminate|completely|all hospitals|all universities|all organisations|all organizations|prevent all|stop all)\b/i;
+const COMPARE_WORDS = /\b(compared with|compared to|versus|relative to|against a baseline|vs\.?\s|against an? .{1,30}baseline)\b/i;
+const METRIC_WORDS  = /\b(rate|percentage|%|accuracy|precision|recall|f1|throughput|latency|count|time-to|time to|success rate|false.positive|true.positive|detection rate|hosts encrypted|coverage)\b/i;
+const ENV_WORDS     = /\b(testbed|test bed|lab(oratory)?|VM|virtual machine|VLAN|virtualised|virtualized|controlled environment|controlled network|simulated|sandbox)\b/i;
+
+function runCheck() {
+  const q = document.getElementById('rq-input').value.trim();
+  if (!q) { alert('Please enter a research question first.'); return; }
+
+  // Show panels
+  document.getElementById('panels').classList.add('visible');
+
+  // Run heuristics and show hints
+  document.getElementById('hint-a').className = 'hint-triggered' + (GENERIC_TERMS.test(q) ? ' show' : '');
+  document.getElementById('hint-b').className = 'hint-triggered' + (VALUE_WORDS.test(q)   ? ' show' : '');
+  document.getElementById('hint-c').className = 'hint-triggered' + (ABS_WORDS.test(q)     ? ' show' : '');
+
+  // Panel E: hint if comparison or metric or env is missing
+  const missingE = !COMPARE_WORDS.test(q) || !METRIC_WORDS.test(q) || !ENV_WORDS.test(q);
+  document.getElementById('hint-e').className = 'hint-triggered' + (missingE ? ' show' : '');
+
+  // Open panel A by default
+  document.getElementById('body-a').classList.remove('hidden');
+  document.getElementById('chev-a').innerHTML = '&#9650;';
+
+  updateBandRead();
+}
+
+function togglePanel(id) {
+  const body = document.getElementById('body-' + id.slice(-1).toLowerCase());
+  const chev = document.getElementById('chev-' + id.slice(-1).toLowerCase());
+  const hidden = body.classList.contains('hidden');
+  body.classList.toggle('hidden');
+  chev.innerHTML = hidden ? '&#9650;' : '&#9660;';
+}
+
+function rate(dim, value) {
+  ratings[dim] = value;
+  const el = document.getElementById('status-' + dim);
+  const labels = { met: 'Met', partly: 'Partly', notyet: 'Not yet' };
+  const cls    = { met: 'met', partly: 'partly', notyet: 'notyet' };
+  el.textContent = labels[value];
+  el.className = 'panel-status ' + cls[value];
+  updateBandRead();
+}
+
+function updateBandRead() {
+  const vals = Object.values(ratings).filter(v => v !== null);
+  if (vals.length === 0) return;
+
+  const metCount    = vals.filter(v => v === 'met').length;
+  const partlyCount = vals.filter(v => v === 'partly').length;
+  const ratedCount  = vals.length;
+
+  const bandCard = document.getElementById('band-card');
+  const indicator = document.getElementById('band-indicator');
+  const topEdit   = document.getElementById('top-edit');
+  bandCard.classList.add('visible');
+
+  // Determine band
+  let bandClass, bandText;
+  if (ratedCount === 5 && metCount === 5) {
+    bandClass = 'band-distinction';
+    bandText  = 'Distinction read - all five dimensions appear met. Every key Criterion 1 property looks present. Confirm with your supervisor before Week 3 - a green light here is a thinking prompt, not a guarantee.';
+  } else if (ratedCount >= 4 && metCount >= 4) {
+    bandClass = 'band-merit';
+    bandText  = 'Merit read - most dimensions are met. At least one is partly there or missing. Close that gap and you have a strong Week 3 submission.';
+  } else if (metCount >= 2 || (metCount >= 1 && partlyCount >= 2)) {
+    bandClass = 'band-pass';
+    bandText  = 'Pass read - some dimensions are met but there are meaningful gaps. Use the highest-value edit below before the Week 2 clinic.';
+  } else {
+    bandClass = 'band-fail';
+    bandText  = 'Topic or Fail read - the question currently reads as a topic, not an evaluable research question. Use the three transformations in your student notes as templates to rebuild it. The clinic in Week 2 is there exactly for this.';
+  }
+
+  indicator.className = 'band-indicator ' + bandClass;
+  indicator.textContent = bandText;
+
+  // Highest-value edit
+  let editText = '';
+  if (ratings.e === 'notyet' || ratings.e === 'partly') {
+    editText = '<strong>Highest-value edit:</strong> add "compared with [named baseline or alternative]" and name a measurable outcome (rate, time, count). Then name the testbed or lab environment where you will test it.';
+  } else if (ratings.a === 'notyet' || ratings.a === 'partly') {
+    editText = '<strong>Highest-value edit:</strong> name the specific technique (not "machine learning" but the exact algorithm or model type), the specific threat class, and the specific system or protocol. Use Transformation 1 in your student notes as the template.';
+  } else if (ratings.c === 'notyet' || ratings.c === 'partly') {
+    editText = '<strong>Highest-value edit:</strong> bound your scope to one system, one threat class, and one testbed environment. Replace "prevent" or "all [sector]" with "reduce [measurable direction]" in a named, bounded lab or VM setup.';
+  } else if (ratings.b === 'notyet' || ratings.b === 'partly') {
+    editText = '<strong>Highest-value edit:</strong> remove value words ("good", "effective", "secure") and replace each one with a named, measurable technical criterion. Use Transformation 2 in your notes as the template.';
+  } else if (ratings.d === 'notyet' || ratings.d === 'partly') {
+    editText = '<strong>Highest-value edit:</strong> separate your single aim from your specific, measurable objectives in your proposal document. Each objective should describe a different action. If they all use the same verb, rewrite.';
+  } else if (metCount === 5) {
+    editText = '<strong>Next step:</strong> run your question past the Self-Check tool again after any revision, then bring it to the Week 2 clinic for supervisor confirmation.';
+  } else {
+    editText = '<strong>Next step:</strong> complete the rating for all five dimensions to see the highest-value edit.';
+  }
+  topEdit.innerHTML = editText;
+}
+
+// ── EXEMPLAR ─────────────────────────────────────────────────
+function showExemplarPanel() {
+  renderExemplar();
+  document.getElementById('exemplar-card').classList.add('visible');
+  document.getElementById('exemplar-card').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+function hideExemplar() { document.getElementById('exemplar-card').classList.remove('visible'); }
+function prevEx() { exIdx = (exIdx - 1 + EXEMPLARS.length) % EXEMPLARS.length; renderExemplar(); }
+function nextEx() { exIdx = (exIdx + 1) % EXEMPLARS.length; renderExemplar(); }
+
+function renderExemplar() {
+  const ex = EXEMPLARS[exIdx];
+  document.getElementById('ex-q').textContent = '\u201c' + ex.q + '\u201d';
+  document.getElementById('ex-why').textContent = ex.why;
+  document.getElementById('ex-count').textContent =
+    '(' + (exIdx + 1) + ' of ' + EXEMPLARS.length + ') - ' + ex.name;
+}
+
+// ── CLEAR ────────────────────────────────────────────────────
+function clearAll() {
+  document.getElementById('rq-input').value = '';
+  document.getElementById('panels').classList.remove('visible');
+  document.getElementById('band-card').classList.remove('visible');
+  document.getElementById('exemplar-card').classList.remove('visible');
+  ['a','b','c','d','e'].forEach(d => {
+    ratings[d] = null;
+    document.getElementById('status-' + d).textContent = 'not yet rated';
+    document.getElementById('status-' + d).className = 'panel-status';
+    document.querySelectorAll('input[name="r-' + d + '"]').forEach(r => r.checked = false);
+    if (document.getElementById('hint-' + d))
+      document.getElementById('hint-' + d).classList.remove('show');
+    const body = document.getElementById('body-' + d);
+    if (d !== 'a') body.classList.add('hidden');
+    document.getElementById('chev-' + d).innerHTML = d === 'a' ? '&#9650;' : '&#9660;';
+  });
+}
+
+// ── KEYBOARD SHORTCUT ────────────────────────────────────────
+document.getElementById('rq-input').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) runCheck();
+});
+</script>
+</div></main>
+<footer class="site"><div class="wrap"><p>NB6015CEM Research Project Preparation. BSc (Hons) Ethical Hacking &amp; Network Security.</p><p>Niranga Dharmaratna, <a href="mailto:niranga@nibm.lk">niranga@nibm.lk</a>.</p><p>&copy; 2026 Niranga Dharmaratna. Content licensed under CC BY-NC-ND 4.0; code under MIT. <a href="../../licence.html">Licence and use</a>.</p></div></footer>
+</body>
+</html>

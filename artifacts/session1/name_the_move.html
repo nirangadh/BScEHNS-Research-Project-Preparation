@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Name the Move | NB6015CEM Research Project Preparation</title>
+<link rel="stylesheet" href="../../assets/css/portal.css">
+<style>
+.nm-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.nm-chips button { font: inherit; padding: 8px 10px; min-height: 44px; border-radius: 6px; border: 2px solid var(--steel-blue); background: var(--white); color: var(--near-black); cursor: pointer; }
+.nm-chips button[aria-pressed="true"] { border-color: var(--orange); background: var(--sand); font-weight: 600; }
+.nm-moves { display: grid; gap: 8px; margin: 10px 0; } .nm-moves button { text-align: left; }
+.nm-part { border-left: 6px solid var(--orange); padding: 6px 12px; margin: 8px 0; background: var(--pale-grey); border-radius: 0 6px 6px 0; }
+.nm-part .w { font-weight: 600; display: block; } .nm-part .f { font-size: 0.92rem; }
+ul.nm-why { margin: 6px 0 0; }
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap">
+<div class="inst">National Institute of Business Management (NIBM) | Coventry University (CU)</div>
+<div class="mod"><a href="../../index.html">NB6015CEM Research Project Preparation</a></div>
+<div class="prog">BSc (Hons) Ethical Hacking &amp; Network Security</div>
+</div></header>
+<nav class="site" aria-label="Portal"><div class="wrap"><a href="../../index.html">Home</a><a href="../../map.html">Module map</a><a href="../../licence.html">Licence</a></div></nav>
+<main><div class="wrap">
+<p class="crumb"><a href="../../notes/s1.html">Back to the Session 1 notes</a></p>
+<h1>Name the Move</h1>
+<div class="bars"><span class="a"></span><span class="b"></span></div>
+<p class="label">[Illustrative example - do not cite] Kavindu, Pasan and Ishara are invented students.</p>
+<div class="box learn" data-nb-concept><span class="tag">One idea</span><p>A weak question fails in a way that has a name, and one named editing move repairs it. Learn the move, not only the before and after.</p></div>
+<figure class="sect" data-nb-opening><img class="scene" src="../../assets/illus/s1_a_move.svg" alt="A person points at two speech bubbles joined by an orange arrow. The grey bubble on the left carries a red cross. The dark blue bubble on the right carries a green tick."><figcaption>The picture: a weak question on the left, a strong question on the right. The arrow between them is the move.</figcaption></figure>
+<div class="art" data-nb-artefact><div class="btns" id="nm-cases"></div>
+<p class="hint" id="nm-topic"></p>
+<div class="pane">
+  <h2>Step 1. Find the weak parts</h2>
+  <p>Tap every part of the question that makes it weak. Then check.</p>
+  <div class="nm-chips" id="nm-weak"></div>
+  <div class="btns"><button type="button" class="btn" id="check-weak">Check the weak parts</button></div>
+  <div class="fb" id="fb-weak" aria-live="polite"></div>
+</div>
+<div class="pane">
+  <h2>Step 2. Name the move</h2>
+  <p>Which editing move repairs this question? The three moves are the ones the notes name.</p>
+  <div class="nm-moves" id="nm-moves"></div>
+  <div class="fb" id="fb-move" aria-live="polite"></div>
+</div>
+<div class="pane">
+  <h2>Step 3. Watch the move work</h2>
+  <p>The strong question is built one part at a time. Each part repairs one weakness.</p>
+  <div id="nm-parts" aria-live="polite"></div>
+  <div class="btns"><button type="button" class="btn" id="next-part">Show the next part</button></div>
+  <p class="quoteq" id="nm-strong" hidden></p>
+</div></div>
+<p class="crumb"><a href="../../notes/s1.html">Back to the Session 1 notes</a></p>
+<script type="application/json" id="nb-data">{"topic_label": "Topic:", "not_weak": "this part is not the problem. It names nothing wrong by itself.", "weak_right": "Yes. These are the weak parts.", "weak_wrong": "Not quite. Here are the weak parts, and why.", "move_wrong": "That move repairs a different kind of weak question. Look again at what is wrong with this one.", "moves": [{"t": "pin all five - technique, threat, environment, metric, baseline."}, {"t": "from \"is X good\" to \"how does design choice X affect measurable outcome Y against alternative Z.\""}, {"t": "from \"prevent X everywhere\" to \"reduce measurable spread of X under a defined control versus a baseline in a bounded testbed.\""}], "cases": [{"who": "Kavindu", "topic": {"t": "intrusion detection in enterprise networks."}, "move": 0, "weak": [{"t": "How can"}, {"t": "machine learning", "bad": true, "why": "a whole field, not a technique. The notes say that it covers hundreds of distinct approaches."}, {"t": "be used to"}, {"t": "improve", "bad": true, "why": "improve by what measure? No metric is named."}, {"t": "intrusion detection?", "bad": true, "why": "what kind of intrusion? No threat class is named."}], "missing": "Two more things are missing altogether, so there is nothing to tap: the environment and the baseline.", "move_right": "Yes. Kavindu's question names nothing exactly, so the repair is to pin all five.", "strong": [{"t": "To what extent can", "fix": "Opens a question about how much, which a measurement can answer."}, {"t": "a tree-based classifier trained on flow-level features", "fix": "The technique, pinned. It replaces machine learning."}, {"t": "detect lateral-movement traffic", "fix": "The threat, pinned. It replaces intrusion."}, {"t": "within an enterprise LAN", "fix": "The environment, pinned. The weak question had none."}, {"t": "at a false-positive rate suitable for analyst review,", "fix": "The metric, pinned. It replaces improve."}, {"t": "compared with a signature-based IDS baseline?", "fix": "The baseline, pinned. The weak question had none."}]}, {"who": "Pasan", "topic": {"t": "securing a citizen e-services login portal"}, "move": 1, "weak": [{"t": "Is", "bad": true, "why": "the question can be answered yes or no. The notes say that a literature search resolves it."}, {"t": "multi-factor authentication"}, {"t": "good", "bad": true, "why": "a value word. Good by whose measure, and compared with what?"}, {"t": "for government web portals?"}], "missing": "One more thing is missing altogether: there is nothing to build or measure in a testbed.", "move_right": "Yes. Pasan's question asks whether something is good, so the repair is to ask how a design choice changes a measurable outcome against an alternative.", "strong": [{"t": "How does", "fix": "No longer a yes or no question."}, {"t": "adding a phishing-resistant WebAuthn second factor to a citizen e-services portal", "fix": "The design choice, X. It is also the thing being built."}, {"t": "affect account-takeover success rate and login completion time,", "fix": "The measurable outcome, Y. Two named metrics replace the value word good."}, {"t": "compared with OTP-based MFA,", "fix": "The alternative, Z. This is the comparison condition."}, {"t": "in a security-and-usability testbed?", "fix": "Where it is built and measured."}]}, {"who": "Ishara", "topic": {"t": "ransomware resilience in a campus network."}, "move": 2, "weak": [{"t": "How can we"}, {"t": "prevent", "bad": true, "why": "an absolute. The notes say that it is unachievable as stated, at Level 6 or anywhere."}, {"t": "ransomware"}, {"t": "in universities?", "bad": true, "why": "an unscoped population. No one environment is named."}], "missing": "Three more things are missing altogether: a method, a metric and a comparison.", "move_right": "Yes. Ishara's question promises to prevent something everywhere, so the repair is to reduce it measurably, under a defined control, against a baseline, in a bounded testbed.", "strong": [{"t": "To what extent does", "fix": "Opens a question about how much."}, {"t": "application allowlisting combined with network micro-segmentation", "fix": "The controls being evaluated. The weak question had no method."}, {"t": "reduce the simulated spread of commodity ransomware", "fix": "Reduce replaces prevent: a direction that can be measured."}, {"t": "across a campus VLAN testbed,", "fix": "The environment, scoped exactly. It replaces universities."}, {"t": "compared with endpoint antivirus alone,", "fix": "The baseline."}, {"t": "measured by hosts encrypted and time-to-containment?", "fix": "Two concrete metrics."}]}]}</script>
+<script>
+(function () {
+  var D = JSON.parse(document.getElementById('nb-data').textContent);
+  var $ = function (id) { return document.getElementById(id); };
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  var cur = 0, shown = 0;
+  $('nm-cases').innerHTML = D.cases.map(function (c, i) { return '<button type="button" class="btn alt" id="case-' + i + '" data-case="' + i + '" aria-pressed="false">' + esc(c.who) + '</button>'; }).join('');
+  $('nm-moves').innerHTML = D.moves.map(function (m, i) { return '<button type="button" class="btn alt" id="move-' + i + '" data-move="' + i + '">' + esc(m.t) + '</button>'; }).join('');
+  function load(i) {
+    cur = i; shown = 0; var c = D.cases[i];
+    D.cases.forEach(function (_, j) { $('case-' + j).className = 'btn' + (j === i ? '' : ' alt'); $('case-' + j).setAttribute('aria-pressed', j === i ? 'true' : 'false'); });
+    $('nm-topic').textContent = D.topic_label + ' ' + c.topic.t;
+    $('nm-weak').innerHTML = c.weak.map(function (s, j) { return '<button type="button" id="seg-' + j + '" data-seg="' + j + '" aria-pressed="false">' + esc(s.t) + '</button>'; }).join('');
+    $('fb-weak').className = 'fb'; $('fb-weak').innerHTML = ''; $('fb-move').className = 'fb'; $('fb-move').innerHTML = '';
+    $('nm-parts').innerHTML = ''; $('nm-strong').hidden = true; $('next-part').disabled = false;
+  }
+  $('nm-cases').addEventListener('click', function (e) { var b = e.target.closest('button[data-case]'); if (b) load(+b.getAttribute('data-case')); });
+  $('nm-weak').addEventListener('click', function (e) { var b = e.target.closest('button[data-seg]'); if (b) b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'); });
+  $('check-weak').addEventListener('click', function () {
+    var c = D.cases[cur], right = true, items = '';
+    c.weak.forEach(function (s, j) {
+      var picked = $('seg-' + j).getAttribute('aria-pressed') === 'true';
+      if (picked !== !!s.bad) right = false;
+      if (s.bad) items += '<li><strong>' + esc(s.t.replace(/\?$/, '')) + '</strong>: ' + esc(s.why) + '</li>';
+      else if (picked) items += '<li><strong>' + esc(s.t.replace(/\?$/, '')) + '</strong>: ' + esc(D.not_weak) + '</li>';
+    });
+    $('fb-weak').className = 'fb ' + (right ? 'ok' : 'no');
+    $('fb-weak').innerHTML = '<p><strong>' + esc(right ? D.weak_right : D.weak_wrong) + '</strong></p><ul class="nm-why">' + items + '</ul>' + (c.missing ? '<p>' + esc(c.missing) + '</p>' : '');
+  });
+  $('nm-moves').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-move]'); if (!b) return;
+    var c = D.cases[cur], ok = +b.getAttribute('data-move') === c.move;
+    $('fb-move').className = 'fb ' + (ok ? 'ok' : 'no'); $('fb-move').textContent = ok ? c.move_right : D.move_wrong;
+  });
+  $('next-part').addEventListener('click', function () {
+    var c = D.cases[cur]; if (shown >= c.strong.length) return;
+    var s = c.strong[shown]; shown += 1;
+    $('nm-parts').insertAdjacentHTML('beforeend', '<div class="nm-part"><span class="w">' + esc(s.t) + '</span><span class="f">' + esc(s.fix) + '</span></div>');
+    if (shown === c.strong.length) { $('next-part').disabled = true; $('nm-strong').hidden = false; $('nm-strong').textContent = c.strong.map(function (x) { return x.t; }).join(' '); }
+  });
+  load(0);
+})();
+</script>
+</div></main>
+<footer class="site"><div class="wrap"><p>NB6015CEM Research Project Preparation. BSc (Hons) Ethical Hacking &amp; Network Security.</p><p>Niranga Dharmaratna, <a href="mailto:niranga@nibm.lk">niranga@nibm.lk</a>.</p><p>&copy; 2026 Niranga Dharmaratna. Content licensed under CC BY-NC-ND 4.0; code under MIT. <a href="../../licence.html">Licence and use</a>.</p></div></footer>
+</body>
+</html>

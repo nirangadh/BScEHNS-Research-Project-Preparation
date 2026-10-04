@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evaluation Design Mirror | NB6015CEM Research Project Preparation</title>
+<link rel="stylesheet" href="../../assets/css/portal.css?v=d3ad175228c5">
+<style>
+.nb-tool {
+    --ink:#1B3A6B; --orange:#E0701A; --steel:#C5D6E8; --near:#1A1A1A;
+    --pale:#EDF1F5; --green:#2E9E5C; --crimson:#B11E2A; --sand:#F0EAE0;
+    --azure:#3E6FA8; --grey:#595959; --mist:#E3E9EF;
+  }
+.nb-tool, .nb-tool * {box-sizing:border-box}
+.nb-tool {
+    margin:0; background:#fff; color:var(--near);
+    font-family:"Open Sans","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:15px; line-height:1.55;
+  }
+.nb-tool header {background:var(--ink); color:#fff; padding:22px 26px}
+.nb-tool header .inner {max-width:1028px; margin:0 auto}
+.nb-tool header h1 {margin:0 0 4px; font-size:23px; letter-spacing:.2px}
+.nb-tool header p {margin:0; font-size: 14px; opacity:.92}
+.nb-tool .bars {margin-top:12px}
+.nb-tool .bars i {display:inline-block; height:5px; vertical-align:middle}
+.nb-tool .bars i:first-child {width:44px; background:#fff}
+.nb-tool .bars i:last-child {width:22px; background:var(--orange); margin-left:6px}
+.nb-tool main {max-width:1080px; margin:0 auto; padding:22px 26px 60px}
+.nb-tool .notice {
+    background:var(--sand); border-left:5px solid #977F5A;
+    padding:12px 14px; font-size: 14px; margin:0 0 20px
+  }
+.nb-tool .grid {display:grid; grid-template-columns:1fr 1fr; gap:16px}
+@media (max-width:820px) { .nb-tool .grid {grid-template-columns:1fr} }
+.nb-tool label {display:block; font-weight:700; font-size: 14px; margin:0 0 6px; color:var(--ink)}
+.nb-tool label span {font-weight:400; color:var(--grey)}
+.nb-tool textarea {
+    width:100%; min-height:118px; padding:10px 12px; font:inherit; font-size: 16px;
+    border:1.5px solid var(--steel); border-radius:3px; resize:vertical; background:#fff; color:var(--near)
+  }
+.nb-tool textarea:focus {outline:none; border-color:var(--azure)}
+.nb-tool .actions {margin:16px 0 6px; display:flex; gap:10px; flex-wrap:wrap; align-items:center}
+.nb-tool button {
+    font:inherit; font-weight:700; font-size: 16px; padding:9px 18px; border:none;
+    border-radius:3px; cursor:pointer
+  }
+.nb-tool .primary {background:var(--ink); color:#fff}
+.nb-tool .primary:hover {background:#1B3A6B}
+.nb-tool .ghost {background:#fff; color:var(--ink); border:1.5px solid var(--steel)}
+.nb-tool .ghost:hover {border-color:var(--azure)}
+.nb-tool .hint {font-size: 14px; color:var(--grey)}
+.nb-tool h2 {font-size:17px; color:var(--ink); margin:26px 0 10px}
+.nb-tool h3 {font-size:14px; margin:16px 0 8px; color:var(--ink)}
+.nb-tool .panel {border:1.5px solid var(--steel); border-radius:3px; padding:14px 16px; background:#fff}
+.nb-tool .panel.head {background:var(--pale)}
+.nb-tool .row {display:flex; gap:10px; align-items:flex-start; padding:8px 0; border-bottom:1px solid var(--pale)}
+.nb-tool .row:last-child {border-bottom:none}
+.nb-tool .chip {
+    flex:0 0 auto; font-size: 14px; font-weight:700; letter-spacing:.4px;
+    padding:3px 9px; border-radius:2px; color:#fff; text-transform:uppercase; margin-top:2px
+  }
+.nb-tool .yes {background:var(--green)}
+.nb-tool .no {background:var(--crimson)}
+.nb-tool .part {font-weight:700}
+.nb-tool .ev {color:var(--grey); font-size: 14px}
+.nb-tool .finding {padding:12px 14px; margin:10px 0; border-left:5px solid var(--steel); background:var(--pale)}
+.nb-tool .finding.high {border-left-color:var(--crimson); background:#F7E4E6}
+.nb-tool .finding.mid {border-left-color:var(--orange); background:#FFF5E8}
+.nb-tool .finding.low {border-left-color:var(--azure)}
+.nb-tool .finding .lab {font-size: 14px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; color:var(--grey)}
+.nb-tool .edit {background:var(--ink); color:#fff; padding:16px 18px; border-radius:3px; margin:18px 0}
+.nb-tool .edit .lab {font-size: 14px; font-weight:700; letter-spacing:.6px; text-transform:uppercase; opacity:.85}
+.nb-tool .edit p {margin:6px 0 0; font-size:15.5px; font-weight:600}
+.nb-tool details {border:1.5px solid var(--steel); border-radius:3px; margin:10px 0; background:#fff}
+.nb-tool summary {cursor:pointer; padding:11px 14px; font-weight:700; font-size:14px; color:var(--ink); background:var(--pale)}
+.nb-tool details[open] summary {border-bottom:1.5px solid var(--steel)}
+.nb-tool .body {padding:14px 16px}
+.nb-tool blockquote {
+    margin:10px 0; padding:10px 14px; background:var(--mist);
+    border-left:4px solid var(--grey); font-size: 14px
+  }
+.nb-tool table {border-collapse:collapse; width:100%; font-size: 14px; margin-top:8px}
+.nb-tool th, .nb-tool td {border:1px solid var(--steel); padding:7px 9px; text-align:left; vertical-align:top}
+.nb-tool th {background:var(--ink); color:#fff; font-weight:700}
+.nb-tool tbody tr:nth-child(even) {background:var(--pale)}
+.nb-tool .illus {font-style:italic; color:var(--grey); font-size: 14px}
+.nb-tool .tablewrap {overflow-x:auto}
+@media (max-width:600px) { .nb-tool table.derive, .nb-tool table.derive tbody, .nb-tool table.derive tr, .nb-tool table.derive td {display:block; width:100%}
+.nb-tool table.derive thead {display:none}
+.nb-tool table.derive tr {border:1px solid var(--steel); margin:0 0 10px; background:#fff}
+.nb-tool table.derive tbody tr:nth-child(even) {background:#fff}
+.nb-tool table.derive td {border:none; border-top:1px solid var(--pale); padding:6px 10px}
+.nb-tool table.derive td:first-child {border-top:none; background:var(--ink); color:#fff; font-weight:700}
+.nb-tool table.derive td:not(:first-child)::before {
+      content:attr(data-label); display:block; font-size: 14px; font-weight:700;
+      letter-spacing:.4px; text-transform:uppercase; color:var(--grey)
+    } }
+.nb-tool footer {border-top:1px solid var(--steel); margin-top:34px; padding-top:14px; font-size: 14px; color:var(--grey)}
+.nb-tool .hidden {display:none}
+.nb-tool .intro {display:flex; gap:24px; align-items:center}
+.nb-tool .intro p {flex:1}
+.nb-tool .hero {width:150px; height:auto; flex:0 0 150px}
+@media(max-width:640px) { .nb-tool .hero {display:none} }
+.nb-tool .rights {margin-top:8px; line-height:1.55}
+.nb-tool { min-height: 0; background: transparent; }
+.nb-tool .tool-foot { font-size: 14px; color: var(--dark-grey); }
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap">
+<div class="inst">National Institute of Business Management (NIBM) | Coventry University (CU)</div>
+<div class="mod"><a href="../../index.html">NB6015CEM Research Project Preparation</a></div>
+<div class="prog">BSc (Hons) Ethical Hacking &amp; Network Security</div>
+</div></header>
+<nav class="site" aria-label="Portal"><div class="wrap"><a href="../../index.html">Home</a><a href="../../map.html">Module map</a><a href="../../licence.html">Licence</a></div></nav>
+<main><div class="wrap">
+<p class="crumb"><a href="../../notes/s3.html">Back to the Session 3 notes</a></p>
+<h1>Evaluation Design Mirror</h1>
+<div class="bars"><span class="a"></span><span class="b"></span></div>
+<p class="label">[Illustrative example - do not cite] The worked design in this tool is Dilini's. Dilini is an invented student, and her project and its hospital are invented too.</p>
+<div class="box learn" data-nb-concept><span class="tag">One idea</span><p>An evaluation design needs a metric, a baseline and an environment, and all three should already be in your research question. This tool shows which of them it can find in your own two texts, and names one edit to try first.</p></div>
+<figure class="sect" data-nb-opening><img class="scene" src="../../assets/illus/s3_cover.svg" alt="A person points at a chart with two bars. The first bar is tall and grey and reaches a dashed line. The second bar is shorter and orange. A green arrow points down from the dashed line to the top of the orange bar. A server rack stands beside the person."><figcaption>The picture: a researcher reads a result against its baseline. The dashed line is the baseline, the orange bar is the result, and the arrow is the difference between them.</figcaption></figure>
+<div class="box notice" data-nb-not-a-grader><span class="tag">Not a grader</span><p><strong>This is a thinking mirror, not a grader.</strong> It reads your text for the surface signals of a testable design and reports what it can and cannot find. It cannot judge whether your metric is the right metric or whether your baseline is a fair comparison. A clean result here is not a mark and should not be over-trusted. Everything runs in your browser: nothing is uploaded, saved or sent anywhere.</p></div>
+<div class="art" data-nb-artefact><div class="nb-tool">  <div class="grid">
+    <div>
+      <label for="q">Your research question <span>(paste it exactly as written)</span></label>
+      <textarea id="q" placeholder="Example: To what extent does a graph-based detection technique reduce the false-positive rate for distributed credential stuffing, compared with rate limiting, in a virtualised authentication testbed?"></textarea>
+    </div>
+    <div>
+      <label for="e">Your draft evaluation design <span>(how you will know it worked)</span></label>
+      <textarea id="e" placeholder="Example: The detector and the rate-limiting baseline are each run against the same replayed traffic set, with attack sessions labelled in advance. False positives per hour are recorded for both..."></textarea>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="primary" id="run">Check my design</button>
+    <button class="ghost" id="demo">Load a worked example</button>
+    <button class="ghost" id="clear">Clear</button>
+    <span class="hint">Nothing leaves this page.</span>
+  </div>
+
+  <div id="out" class="hidden"></div>
+
+  <h2>Reference material</h2>
+
+  <details>
+    <summary data-ctl="summary-1">The question-to-evaluation derivation, on the three module projects</summary>
+    <div class="body">
+      <p>In each case the comparison clause of the research question already contained the evaluation design.
+      Your job in the methodology chapter is to make it explicit and operational, not to invent it.</p>
+      <div class="tablewrap"><table class="derive">
+        <thead><tr><th>Project</th><th>Metric</th><th>Baseline</th><th>Environment</th></tr></thead>
+        <tbody>
+          <tr><td>Tharindu, detection</td><td data-label="Metric">False-positive rate at a level suitable for SOC triage</td><td data-label="Baseline">Rate limiting</td><td data-label="Environment">Virtualised testbed, replayed and synthetic authentication traffic</td></tr>
+          <tr><td>Chathura, hardening</td><td data-label="Metric">Success rate of a defined set of common attack techniques</td><td data-label="Baseline">Out-of-the-box default configuration</td><td data-label="Environment">Small Active Directory testbed</td></tr>
+          <tr><td>Dilini, methodology</td><td data-label="Metric">Proportion of seeded authorisation flaws detected</td><td data-label="Baseline">Unstructured manual testing</td><td data-label="Environment">Controlled patient-records API, comparable time budget</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </details>
+
+  <details>
+    <summary data-ctl="summary-2">A worked evaluation design at the top band</summary>
+    <div class="body">
+      <p class="illus">Dilini, Suwa Sevana Teaching Hospital. [Illustrative example - do not cite]</p>
+      <blockquote id="dilini1"></blockquote>
+      <blockquote id="dilini2"></blockquote>
+      <p><strong>Why this sits at the top band.</strong> It names a metric, a baseline and a controlled condition;
+      it establishes ground truth deliberately rather than assuming it; it reports a secondary observation that
+      would make a null result informative; and it states its own limits in terms of what claim the result will
+      and will not support.</p>
+    </div>
+  </details><p class="tool-foot">NB6015CEM | Session 3 | Criterion 3, Methodology and Technical Rigour.</p></div></div>
+<p class="crumb"><a href="../../notes/s3.html">Back to the Session 3 notes</a></p>
+<script>
+"use strict";
+
+var DILINI = [
+ "The evaluation compares a structured object-level-authorisation testing methodology against unstructured manual testing on a controlled FHIR-style patient-records API. Ground truth is established by seeding a fixed set of authorisation flaws into the API before testing begins: a mixture of horizontal cases, where one patient's record is reachable by another patient's token, and vertical cases, where a clinician role reaches a record outside its assigned care relationship. The seeded set is fixed in advance and is not visible to the tester during the run. The primary metric is the proportion of seeded flaws detected. The controlled condition is a comparable time budget for both approaches, so that the comparison measures the methodology rather than the effort spent. A secondary observation records which flaw classes each approach missed, because a methodology that detects a different distribution of flaws is a more interesting result than one that simply detects more.",
+ "Three threats to validity are acknowledged. Seeded flaws may be easier to find than naturally occurring ones, which would inflate both arms and narrow the difference between them. A single tester introduces a learning effect across runs, mitigated by running the unstructured arm first. And a controlled API is simpler than a production portal, so the result supports a claim about relative detection rates under controlled conditions rather than a claim about absolute readiness for deployment."
+];
+document.getElementById('dilini1').textContent = DILINI[0];
+document.getElementById('dilini2').textContent = DILINI[1];
+
+var SIGNALS = {
+  metric: {
+    label: "Metric",
+    gloss: "what you count",
+    re: /\b(false[\s-]?positive|false[\s-]?negative|detection rate|success rate|precision|recall|f1|throughput|latency|time[\s-]to[\s-]\w+|coverage|proportion|percentage|rate of|\w+ rate|number of|count of|how many|score)\b/gi
+  },
+  baseline: {
+    label: "Baseline",
+    gloss: "what you compare against",
+    re: /\b(compared (?:with|to|against)|in comparison (?:with|to)|versus|vs\.?|relative to|benchmarked against|measured against|rather than|instead of|baseline|control group|before and after)\b/gi
+  },
+  environment: {
+    label: "Environment",
+    gloss: "where it runs",
+    re: /\b(testbed|test bed|laboratory|lab environment|virtualised|virtualized|simulated|simulation|emulated|sandbox|isolated network|controlled (?:environment|condition|setting|api|network)|virtual machine)\b/gi
+  }
+};
+var EXTRA = {
+  threat: {
+    label: "Stated threat to validity",
+    re: /\b(threats? to validity|limitation|limitations|may not generalise|does not generalise|not generalisable|constrained by|caveat|scoped to|does not support a claim)\b/gi
+  },
+  ground: {
+    label: "Ground truth",
+    re: /\b(seeded|seeding|labelled|labeled|ground truth|known set|fixed in advance|annotated|gold standard|pre[\s-]?defined set)\b/gi
+  }
+};
+
+function find(text, re) {
+  re.lastIndex = 0;
+  var hits = [], m, guard = 0;
+  while ((m = re.exec(text)) !== null && guard++ < 50) {
+    if (hits.indexOf(m[0].toLowerCase()) === -1) hits.push(m[0].toLowerCase());
+    if (m.index === re.lastIndex) re.lastIndex++;
+  }
+  return hits;
+}
+
+function accuracyOnly(all) {
+  var mentionsAccuracy = /\baccuracy\b/i.test(all);
+  var detectionish = /\b(detect|detection|detector|classif|malicious|intrusion|anomaly|phishing|malware|spam)\w*/i.test(all);
+  var hasPair = /\b(precision|recall|false[\s-]?positive|false[\s-]?negative|f1|roc|auc)\b/i.test(all);
+  return mentionsAccuracy && detectionish && !hasPair;
+}
+
+function esc(s) {
+  return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+function rowHtml(present, label, gloss, evidence) {
+  return '<div class="row">' +
+    '<span class="chip ' + (present ? 'yes' : 'no') + '">' + (present ? 'present' : 'missing') + '</span>' +
+    '<div><span class="part">' + label + '</span> <span class="ev">(' + gloss + ')</span>' +
+    (present ? '<div class="ev">Signals found: ' + esc(evidence.join(', ')) + '</div>'
+             : '<div class="ev">No wording found that names this.</div>') +
+    '</div></div>';
+}
+
+function analyse() {
+  var q = document.getElementById('q').value.trim();
+  var e = document.getElementById('e').value.trim();
+  var out = document.getElementById('out');
+  out.classList.remove('hidden');
+
+  if (q.length < 15 && e.length < 15) {
+    out.innerHTML = '<div class="finding high"><span class="lab">Nothing to read</span>' +
+      '<p>Paste your research question and your draft evaluation design, then check again. ' +
+      'The tool works by comparing the two, so it needs both.</p></div>';
+    return;
+  }
+
+  var qr = {}, er = {};
+  Object.keys(SIGNALS).forEach(function (k) {
+    qr[k] = find(q, SIGNALS[k].re);
+    er[k] = find(e, SIGNALS[k].re);
+  });
+  var threat = find(e, EXTRA.threat.re);
+  var ground = find(e, EXTRA.ground.re);
+
+  var html = '<h2>What the mirror can see</h2><div class="grid">';
+  html += '<div class="panel"><h3>Pass 1: your research question</h3>';
+  Object.keys(SIGNALS).forEach(function (k) {
+    html += rowHtml(qr[k].length > 0, SIGNALS[k].label, SIGNALS[k].gloss, qr[k]);
+  });
+  html += '</div>';
+  html += '<div class="panel"><h3>Pass 2: your evaluation design</h3>';
+  Object.keys(SIGNALS).forEach(function (k) {
+    html += rowHtml(er[k].length > 0, SIGNALS[k].label, SIGNALS[k].gloss, er[k]);
+  });
+  html += rowHtml(ground.length > 0, EXTRA.ground.label, 'how you know the right answer', ground);
+  html += rowHtml(threat.length > 0, EXTRA.threat.label, 'what your result will not support', threat);
+  html += '</div></div>';
+
+  // ---- the cross-check, which is the point of the tool
+  var findings = [], edits = [];
+
+  Object.keys(SIGNALS).forEach(function (k) {
+    var L = SIGNALS[k].label.toLowerCase();
+    var aL = (/^[aeiou]/.test(L) ? 'an ' : 'a ') + L;
+    if (qr[k].length === 0) {
+      findings.push({
+        rank: 1, cls: 'high', lab: 'Higher priority: the question, not the evaluation',
+        text: 'Your question does not name ' + aL + '. This cannot be fixed from the evaluation end. ' +
+              'An evaluation can only measure what the question already claims, so return to the question first ' +
+              'and put the ' + L + ' into it.'
+      });
+      if (k === 'metric') edits.push({ rank: 1, text: 'Name what will be counted, in the question itself: a rate, a proportion, a time or a coverage figure. Until the question says what is measured, there is nothing for the evaluation to design.' });
+      if (k === 'baseline') edits.push({ rank: 2, text: 'Name what your result will be compared against, in the question itself. "Better" is not a finding unless the question says better than what.' });
+      if (k === 'environment') edits.push({ rank: 3, text: 'Name where the work runs, in the question itself: a virtualised testbed, a controlled laboratory network, a bounded API. Without it the result cannot be reproduced or scoped.' });
+    } else if (er[k].length === 0) {
+      findings.push({
+        rank: 4, cls: 'mid', lab: 'Not yet operationalised',
+        text: 'Your question carries ' + aL + ', but your evaluation design does not yet act on it. ' +
+              'The claim is in place; the procedure that would produce it is not.'
+      });
+      if (k === 'metric') edits.push({ rank: 4, text: 'Your question names a metric but your evaluation does not say how it is measured. State the instrument, the unit and the observation window.' });
+      if (k === 'baseline') edits.push({ rank: 4, text: 'Your question names a baseline but your evaluation does not measure against it. State what the baseline run consists of and that both arms see the same input.' });
+      if (k === 'environment') edits.push({ rank: 5, text: 'Your question names an environment but your evaluation does not describe it. State what is in the testbed, what has been removed, and why a result there is meaningful.' });
+    }
+  });
+
+  if (accuracyOnly(q + ' ' + e)) {
+    findings.push({
+      rank: 2, cls: 'high', lab: 'Metric warning',
+      text: 'You have proposed accuracy as the measure on what looks like a detection problem. ' +
+            'Ask the degenerate-case question: what would a system that flags nothing score? ' +
+            'On imbalanced data it scores well, which makes accuracy alone uninformative here.'
+    });
+    edits.push({ rank: 2, text: 'Replace accuracy with a pair that survives the degenerate case: detection rate with false-positive rate, or precision with recall.' });
+  }
+
+  if (e.length >= 15 && ground.length === 0) {
+    findings.push({
+      rank: 6, cls: 'low', lab: 'Ground truth',
+      text: 'Your evaluation does not say how you know what the right answer is. Without a labelled, seeded or ' +
+            'otherwise fixed set, a detection or discovery figure cannot be checked against anything.'
+    });
+    edits.push({ rank: 6, text: 'State how ground truth is established: a seeded flaw set fixed in advance, a labelled traffic capture, or a defined technique list. Say when it was fixed and whether it was visible during the run.' });
+  }
+
+  if (e.length >= 15 && threat.length === 0) {
+    findings.push({
+      rank: 7, cls: 'low', lab: 'Threats to validity',
+      text: 'No limitation is acknowledged. At Level 6 an unstated limitation reads as one you did not notice, ' +
+            'so naming it is a mark of rigour rather than a confession.'
+    });
+    edits.push({ rank: 7, text: 'State at least two threats to validity with their mitigations, and say what claim your result will and will not support.' });
+  }
+
+  if (e.length < 15) {
+    findings.push({
+      rank: 3, cls: 'mid', lab: 'No evaluation to read',
+      text: 'You have given a question but no draft evaluation design. The mirror works by checking the second ' +
+            'against the first, so this pass has only read half of the pair.'
+    });
+    edits.push({ rank: 3, text: 'Draft the evaluation design, even roughly: what is measured, against what, in what environment, with what ground truth.' });
+  }
+
+  html += '<h2>The cross-check</h2>';
+  if (findings.length === 0) {
+    html += '<div class="finding"><span class="lab">Nothing flagged</span>' +
+      '<p>Both texts carry a metric, a baseline and an environment, and the evaluation acknowledges ground truth ' +
+      'and at least one threat to validity. That is the surface test passed, and it is only the surface test. ' +
+      'The mirror cannot judge whether your baseline is a fair comparison, whether your metric rewards the right ' +
+      'behaviour, or whether your testbed resembles the environment you are claiming about. Take those three ' +
+      'questions to your supervisor.</p></div>';
+  } else {
+    findings.sort(function (a, b) { return a.rank - b.rank; });
+    findings.forEach(function (f) {
+      html += '<div class="finding ' + f.cls + '"><span class="lab">' + f.lab + '</span><p>' + esc(f.text) + '</p></div>';
+    });
+  }
+
+  if (edits.length > 0) {
+    edits.sort(function (a, b) { return a.rank - b.rank; });
+    html += '<div class="edit"><span class="lab">The single highest-value next edit</span><p>' +
+            esc(edits[0].text) + '</p></div>';
+    if (edits.length > 1) {
+      html += '<p class="hint">' + (edits.length - 1) + ' further edit' + (edits.length > 2 ? 's are' : ' is') +
+              ' implied by the findings above. Do this one first: fixing it usually changes what the others should say.</p>';
+    }
+  }
+
+  document.getElementById('out').innerHTML = html;
+  document.getElementById('out').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+document.getElementById('run').addEventListener('click', analyse);
+document.getElementById('clear').addEventListener('click', function () {
+  document.getElementById('q').value = '';
+  document.getElementById('e').value = '';
+  document.getElementById('out').classList.add('hidden');
+  document.getElementById('out').innerHTML = '';
+});
+document.getElementById('demo').addEventListener('click', function () {
+  document.getElementById('q').value =
+    'This project will develop a machine-learning system to detect malicious network traffic and will test it to confirm that it works.';
+  document.getElementById('e').value =
+    'Several algorithms will be trained and the system will be evaluated on a public dataset. Results will be presented in graphs and tables, and the expected outcome is high accuracy.';
+  analyse();
+});
+</script>
+</div></main>
+<footer class="site"><div class="wrap"><p>NB6015CEM Research Project Preparation. BSc (Hons) Ethical Hacking &amp; Network Security.</p><p>Niranga Dharmaratna, <a href="mailto:niranga@nibm.lk">niranga@nibm.lk</a>.</p><p>&copy; 2026 Niranga Dharmaratna. Content licensed under CC BY-NC-ND 4.0; code under MIT. <a href="../../licence.html">Licence and use</a>.</p></div></footer>
+</body>
+</html>

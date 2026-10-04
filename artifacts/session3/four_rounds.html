@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Four Rounds | NB6015CEM Research Project Preparation</title>
+<link rel="stylesheet" href="../../assets/css/portal.css?v=d3ad175228c5">
+<style>
+.fr-para { margin: 10px 0; }
+.fr-para button { font: inherit; display: block; width: 100%; text-align: left; padding: 6px 8px; margin: 4px 0; min-height: 44px; border: 0; border-bottom: 3px dotted var(--dark-grey); border-radius: 4px; background: var(--white); color: var(--near-black); cursor: pointer; }
+.fr-para button.hit { background: var(--sand); border-bottom-style: solid; border-bottom-color: var(--orange); }
+.fr-para button.none { border: 2px solid var(--ink-blue); font-weight: 600; color: var(--ink-blue); }
+.fr-qs { display: grid; gap: 8px; margin: 10px 0; } .fr-qs button { text-align: left; }
+.fr-qs button .rd { font-weight: 400; display: block; }
+.fr-qs button .done { font-weight: 400; }
+.fr-edits { display: grid; gap: 8px; margin: 10px 0; }
+.fr-edits button { font: inherit; text-align: left; padding: 8px 12px; min-height: 44px; border: 2px solid var(--steel-blue); border-radius: 6px; background: var(--white); color: var(--near-black); cursor: pointer; }
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap">
+<div class="inst">National Institute of Business Management (NIBM) | Coventry University (CU)</div>
+<div class="mod"><a href="../../index.html">NB6015CEM Research Project Preparation</a></div>
+<div class="prog">BSc (Hons) Ethical Hacking &amp; Network Security</div>
+</div></header>
+<nav class="site" aria-label="Portal"><div class="wrap"><a href="../../index.html">Home</a><a href="../../map.html">Module map</a><a href="../../licence.html">Licence</a></div></nav>
+<main><div class="wrap">
+<p class="crumb"><a href="../../notes/s3.html">Back to the Session 3 notes</a></p>
+<h1>Four Rounds</h1>
+<div class="bars"><span class="a"></span><span class="b"></span></div>
+<p class="label">[Illustrative example - do not cite] The methodology passage is invented for practice. It is the passage from Section 4.5 of the notes.</p>
+<div class="box learn" data-nb-concept><span class="tag">One idea</span><p>A methodology is judged in four rounds: the method, the tools, the evaluation, and then the one edit. Asking one question at a time shows you what a single reading hides.</p></div>
+<figure class="sect" data-nb-opening><img class="scene" src="../../assets/illus/s3_a_rounds.svg" alt="A person points at a page of text. Four round markers stand in a column beside the page, in dark blue, mid blue, orange and green. The first marker holds one dot, the second two, the third three and the fourth four."><figcaption>The picture: one page, read four times. Each marker is one round, with its own question.</figcaption></figure>
+<div class="art" data-nb-artefact><div class="pane">
+  <h2>Step 1. Choose a question</h2>
+  <div class="fr-qs" id="fr-qs"></div>
+</div>
+<div class="pane">
+  <h2>Step 2. Answer it from the passage</h2>
+  <p id="fr-ask"></p>
+  <p class="hint" id="fr-who"></p>
+  <div class="fr-para" id="fr-para"></div>
+  <div class="fr-edits" id="fr-edits" hidden></div>
+  <div class="fb" id="fb-ans" aria-live="polite"></div>
+  <p id="fr-status" aria-live="polite"></p>
+</div>
+<div class="fb ok" id="fr-done" hidden></div>
+<div class="btns"><button type="button" class="btn alt" id="fr-restart">Start again</button></div></div>
+<p class="crumb"><a href="../../notes/s3.html">Back to the Session 3 notes</a></p>
+<script type="application/json" id="nb-data">{"parts": [{"t": "Methodology. This project will develop a machine-learning system to detect malicious network traffic.", "w": {"0": "It says what will be built. A method family is a way of finding something out: experimental, design-science, or build-and-evaluate.", "2": "\"Detect\" is a goal. Nothing in this sentence says what will be counted."}}, {"t": "First, a dataset will be collected.", "w": {"0": "It is a build step. The notes call the passage a sequence of build steps.", "4": "A dataset is data. It is not the place where the test runs, and the passage does not even say which dataset."}}, {"t": "Second, the data will be pre-processed and features will be extracted.", "w": {"0": "It is a build step. The notes call the passage a sequence of build steps."}}, {"t": "Third, several algorithms will be trained, including Random Forest, SVM and a neural network.", "w": {"0": "It is a build step, and a list of algorithms. It does not name a method family.", "1": "It lists three algorithms, and gives no reason for any of them. The notes say: no basis for comparison.", "3": "Three algorithms are named, and they could be compared with each other. The passage never says so, and none of them is what would be used without this project."}}, {"t": "Python, Scikit-learn and Wireshark will be used, as these are the most popular tools for this kind of work.", "w": {"1": "It does give a reason: \"most popular\". Read the reason again. Would it change for any other project? The notes call it a reputation argument, so the tools are named and not justified."}}, {"t": "The system will be tested to confirm that it works, and results will be presented in graphs and tables.", "w": {"2": "It promises a test and names nothing to count. The notes say that this sentence presumes the conclusion.", "3": "A test is promised. Nothing is named to compare the result with.", "4": "A test is promised. No place is named where it runs."}}, {"t": "The expected outcome is a system with high accuracy that can detect attacks effectively.", "w": {"3": "\"High\" sounds like a comparison. Higher than what? The sentence does not say."}}], "qs": [{"round": "Round 1", "name": {"t": "Which method family does it name?"}, "ask": "Tap the sentence that names a method family. If no sentence does, tap the last button.", "ok": ["none"], "right": "Right: no sentence does.", "q": {"t": "The passage never names a method family."}, "wrong": "This sentence does not name a method family."}, {"round": "Round 2", "name": {"t": "Which tool is justified, and on what grounds?"}, "ask": "Tap the sentence that justifies a tool. If no sentence does, tap the last button.", "ok": ["none"], "right": "Right: no sentence does.", "q": {"t": "Three tools are named and none is justified."}, "wrong": "No tool is justified in this sentence."}, {"round": "Round 3, first part", "name": {"text": "What is the metric?"}, "ask": "Tap the sentence that names something that can be counted. If no sentence does, tap the last button.", "ok": ["6"], "right": "Yes: \"high accuracy\". A metric is named. It is the wrong one for a detection problem, because, in the words of the notes:", "q": {"t": "a detector that flags nothing scores well on it"}, "wrong": "Nothing that can be counted is named in this sentence.", "wrong_none": "One sentence does name something that can be counted. Look again."}, {"round": "Round 3, second part", "name": {"text": "What is the baseline?"}, "ask": "Tap the sentence that says what the result is compared with. If no sentence does, tap the last button.", "ok": ["none"], "right": "Right: no sentence does.", "q": {"t": "There is no baseline, so \"high accuracy\" is uncompared and therefore uninterpretable."}, "wrong": "Nothing in this sentence is compared with anything."}, {"round": "Round 3, third part", "name": {"text": "What is the environment?"}, "ask": "Tap the sentence that says where the test runs. If no sentence does, tap the last button.", "ok": ["none"], "right": "Right: no sentence does.", "q": {"t": "There is no environment, so the result is unreproducible."}, "wrong": "No place is named in this sentence."}, {"round": "Round 4", "name": {"t": "what is the single edit that moves it up a band?"}, "ask": "Choose one edit.", "edit": true}], "none_label": "No sentence does", "edits": [{"e": {"t": "use a bigger dataset"}, "ok": false}, {"e": {"t": "Name a metric, a baseline and an environment, in that order, and let the evaluation design follow from them."}, "ok": true}, {"e": {"t": "try more algorithms"}, "ok": false}, {"e": {"t": "add more graphs"}, "ok": false}], "edit_right": "Yes. This is the one edit that the notes name.", "edit_wrong": "The notes reject this edit by name. They say:", "edit_wrong_q": {"t": "each is the kind of answer that feels productive while leaving the band unchanged."}, "who_label": "The passage, from Section 4.5 of the notes:", "status": "{n} of 6 questions answered", "done_head": "All four rounds done.", "verdict": {"t": "Band verdict: Pass, and close to the boundary with Fail on the evaluation dimension."}, "taps": "Round 2, on tools, took you {a} taps. Round 3, on evaluation, took you {b} taps.", "done": {"t": "Almost everyone finds the tool problem within seconds and the evaluation problem only after being pushed."}, "done_tail": "Now read your own methodology section in the same four rounds, in the same order."}</script>
+<script>
+(function () {
+  var D = JSON.parse(document.getElementById('nb-data').textContent);
+  var $ = function (id) { return document.getElementById(id); };
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  function nm(q) { return q.name.t || q.name.text; }
+  var cur = 0, found = {}, taps = {}, hit = {};
+  $('fr-who').textContent = D.who_label;
+  function count() { return Object.keys(found).length; }
+  function drawQs() {
+    $('fr-qs').innerHTML = D.qs.map(function (q, i) {
+      return '<button type="button" class="btn' + (i === cur ? '' : ' alt') + '" id="q-' + i + '" data-q="' + i + '" aria-pressed="' + (i === cur ? 'true' : 'false') + '"><span class="rd">' + esc(q.round) + '</span>' + esc(nm(q)) + (found[i] ? ' <span class="done">(answered)</span>' : '') + '</button>';
+    }).join('');
+    $('fr-ask').textContent = D.qs[cur].ask;
+  }
+  function drawPara() {
+    var edit = !!D.qs[cur].edit, mark = hit[cur];
+    // in the last round the passage is read, not tapped: it is drawn as text, so no control is shown that cannot be used
+    $('fr-para').innerHTML = edit ? '<p class="quoteq">' + D.parts.map(function (p) { return esc(p.t); }).join(' ') + '</p>'
+      : D.parts.map(function (p, j) {
+        return '<button type="button" id="part-' + j + '" data-part="' + j + '"' + (mark === String(j) ? ' class="hit"' : '') + '><span class="fr-t">' + esc(p.t) + '</span></button>';
+      }).join(' ') + ' <button type="button" id="part-none" data-part="none" class="none' + (mark === 'none' ? ' hit' : '') + '">' + esc(D.none_label) + '</button>';
+    $('fr-edits').hidden = !edit;
+    $('fr-edits').innerHTML = edit ? D.edits.map(function (e, k) { return '<button type="button" id="edit-' + k + '" data-edit="' + k + '">' + esc(e.e.t.charAt(0).toUpperCase() + e.e.t.slice(1)) + '</button>'; }).join('') : '';
+  }
+  function refresh() {
+    drawQs(); drawPara(); var n = count();
+    $('fr-status').textContent = D.status.replace('{n}', n);
+    $('fr-done').hidden = n !== D.qs.length;
+    if (n === D.qs.length) {
+      var a = taps[1] || 0, b = (taps[2] || 0) + (taps[3] || 0) + (taps[4] || 0);
+      $('fr-done').innerHTML = '<p><strong>' + esc(D.done_head) + '</strong></p><p class="quoteq">' + esc(D.verdict.t) + '</p><p id="fr-taps">' + esc(D.taps.replace('{a}', a).replace('{b}', b)) + '</p><p class="quoteq">' + esc(D.done.t) + '</p><p>' + esc(D.done_tail) + '</p>';
+    }
+  }
+  function clearFb() { $('fb-ans').className = 'fb'; $('fb-ans').innerHTML = ''; }
+  $('fr-qs').addEventListener('click', function (e) { var b = e.target.closest('button[data-q]'); if (!b) return; cur = +b.getAttribute('data-q'); clearFb(); refresh(); });
+  $('fr-para').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-part]'); if (!b) return;
+    var id = b.getAttribute('data-part'), q = D.qs[cur], fb = $('fb-ans');
+    taps[cur] = (taps[cur] || 0) + 1;
+    if (q.ok.indexOf(id) >= 0) {
+      found[cur] = true; hit[cur] = id; fb.className = 'fb ok';
+      fb.innerHTML = '<p><strong>' + esc(q.right) + '</strong></p><p class="quoteq">' + esc(q.q.t) + '</p>';
+    } else {
+      var why = id === 'none' ? (q.wrong_none || q.wrong) : ((D.parts[+id].w && D.parts[+id].w[cur]) || q.wrong);
+      fb.className = 'fb no'; fb.innerHTML = '<p>' + esc(why) + '</p>';
+    }
+    refresh();
+  });
+  $('fr-edits').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-edit]'); if (!b) return;
+    var ed = D.edits[+b.getAttribute('data-edit')], fb = $('fb-ans');
+    taps[cur] = (taps[cur] || 0) + 1;
+    if (ed.ok) { found[cur] = true; fb.className = 'fb ok'; fb.innerHTML = '<p><strong>' + esc(D.edit_right) + '</strong></p>'; }
+    else { fb.className = 'fb no'; fb.innerHTML = '<p>' + esc(D.edit_wrong) + '</p><p class="quoteq">' + esc(D.edit_wrong_q.t) + '</p>'; }
+    refresh();
+  });
+  $('fr-restart').addEventListener('click', function () { cur = 0; found = {}; taps = {}; hit = {}; clearFb(); refresh(); });
+  refresh();
+})();
+</script>
+</div></main>
+<footer class="site"><div class="wrap"><p>NB6015CEM Research Project Preparation. BSc (Hons) Ethical Hacking &amp; Network Security.</p><p>Niranga Dharmaratna, <a href="mailto:niranga@nibm.lk">niranga@nibm.lk</a>.</p><p>&copy; 2026 Niranga Dharmaratna. Content licensed under CC BY-NC-ND 4.0; code under MIT. <a href="../../licence.html">Licence and use</a>.</p></div></footer>
+</body>
+</html>

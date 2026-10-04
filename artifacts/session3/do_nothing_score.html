@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Do-Nothing Score | NB6015CEM Research Project Preparation</title>
+<link rel="stylesheet" href="../../assets/css/portal.css?v=d3ad175228c5">
+<style>
+.dn-set { border-left: 6px solid var(--ink-blue); padding: 6px 12px; margin: 8px 0; background: var(--pale-grey); border-radius: 0 6px 6px 0; }
+.dn-measures { display: grid; gap: 8px; margin: 10px 0; } .dn-measures button { text-align: left; }
+.dn-measures button .done { font-weight: 400; }
+.dn-systems { display: grid; gap: 8px; margin: 10px 0; }
+.dn-systems button { font: inherit; text-align: left; padding: 8px 12px; min-height: 44px; border: 2px solid var(--steel-blue); border-radius: 6px; background: var(--white); color: var(--near-black); cursor: pointer; }
+.dn-systems button .nm { font-weight: 700; color: var(--ink-blue); display: block; }
+.dn-systems button.pick { border-color: var(--orange); background: var(--sand); }
+table.dn-table { border-collapse: collapse; width: 100%; margin: 8px 0; }
+table.dn-table th, table.dn-table td { border: 1px solid var(--steel-blue); padding: 6px 8px; text-align: left; }
+table.dn-table td.num { text-align: right; font-weight: 600; }
+table.dn-table tr.best td { background: var(--sand); }
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap">
+<div class="inst">National Institute of Business Management (NIBM) | Coventry University (CU)</div>
+<div class="mod"><a href="../../index.html">NB6015CEM Research Project Preparation</a></div>
+<div class="prog">BSc (Hons) Ethical Hacking &amp; Network Security</div>
+</div></header>
+<nav class="site" aria-label="Portal"><div class="wrap"><a href="../../index.html">Home</a><a href="../../map.html">Module map</a><a href="../../licence.html">Licence</a></div></nav>
+<main><div class="wrap">
+<p class="crumb"><a href="../../notes/s3.html">Back to the Session 3 notes</a></p>
+<h1>The Do-Nothing Score</h1>
+<div class="bars"><span class="a"></span><span class="b"></span></div>
+<p class="label">[Illustrative example - do not cite] The 1,000 sign-in attempts and the four systems are invented for practice.</p>
+<div class="box learn" data-nb-concept><span class="tag">One idea</span><p>Before you trust a metric, ask what a system that does nothing would score on it. If doing nothing scores well, the metric is wrong.</p></div>
+<figure class="sect" data-nb-opening><img class="scene" src="../../assets/illus/s3_a_nothing.svg" alt="A person points at a white wall unit with a round grey sensor and a switch in the off position. Beside it, a chart shows one very tall green bar and one very low orange bar."><figcaption>The picture: an alarm that is switched off, beside its score. The tall bar is the score. Nothing has been detected.</figcaption></figure>
+<div class="art" data-nb-artefact><p class="dn-set" id="dn-set"></p>
+<div class="pane">
+  <h2>Step 1. Choose a way of scoring</h2>
+  <div class="dn-measures" id="dn-measures"></div>
+  <p class="hint" id="dn-how"></p>
+</div>
+<div class="pane">
+  <h2>Step 2. Which system scores best?</h2>
+  <p id="dn-ask"></p>
+  <div class="dn-systems" id="dn-systems"></div>
+  <div class="fb" id="fb-sys" aria-live="polite"></div>
+  <div id="dn-result" hidden>
+    <h3 id="dn-table-head"></h3>
+    <div class="scroll"><table class="dn-table" id="dn-table"></table></div>
+  </div>
+  <p id="dn-status" aria-live="polite"></p>
+</div>
+<div class="fb ok" id="dn-done" hidden></div>
+<div class="btns"><button type="button" class="btn alt" id="dn-restart">Start again</button></div></div>
+<p class="crumb"><a href="../../notes/s3.html">Back to the Session 3 notes</a></p>
+<script type="application/json" id="nb-data">{"total": 1000, "attacks": 50, "set_text": "A test set of 1,000 sign-in attempts. 50 of them are part of an attack. The other 950 are ordinary people signing in.", "systems": [{"name": "Switched off", "what": "It flags nothing.", "tp": 0, "fp": 0}, {"name": "Flags everything", "what": "It flags all 1,000 attempts.", "tp": 50, "fp": 950}, {"name": "Detector A", "what": "It flags 68 attempts: 30 attacks and 38 ordinary attempts.", "tp": 30, "fp": 38}, {"name": "Detector B", "what": "It flags 142 attempts: 47 attacks and 95 ordinary attempts.", "tp": 47, "fp": 95}], "measures": [{"id": "acc", "name": "Accuracy alone", "how": "Of all 1,000 attempts, what share does the system judge correctly?", "cols": ["acc"], "best": [0], "right": {"0": "Yes. The system that is switched off scores highest. It is right about every one of the 950 ordinary attempts, and wrong only about the 50 attacks. It has detected nothing."}, "wrong": "Not this one. Count every attempt that the system judges correctly, ordinary ones included."}, {"id": "det", "name": "Detection rate alone", "how": "Of the 50 attacks, what share does the system flag?", "cols": ["det"], "best": [1], "right": {"1": "Yes. The system that flags everything catches all 50 attacks. It also flags all 950 ordinary attempts, and this measure cannot see that."}, "wrong": "Not this one. Look only at the 50 attacks: which system flags the most of them?"}, {"id": "fpr", "name": "False-positive rate alone", "how": "Of the 950 ordinary attempts, what share does the system flag by mistake? Lower is better.", "cols": ["fpr"], "best": [0], "right": {"0": "Yes. A system that flags nothing can never flag an ordinary attempt by mistake. It also catches no attack, and this measure cannot see that."}, "wrong": "Not this one. Look only at the 950 ordinary attempts: which system flags the fewest of them? Lower is better here."}, {"id": "pair", "name": "The pair: detection rate with false-positive rate", "how": "Read the two rates together. Which system would you choose?", "cols": ["det", "fpr"], "best": [2, 3], "right": {"2": "A choice you can defend. Detector A raises fewer false alarms and misses more attacks.", "3": "A choice you can defend. Detector B catches more attacks and raises more false alarms."}, "right_tail": "Which of A and B is better depends on the setting: how many false alarms the analysts can handle. The pair shows you that trade. A single number hides it. And on the pair, both empty systems fail at once.", "wrong_by": {"0": "No. Read both rates. The switched-off system has the best false-positive rate, and it detects no attack at all.", "1": "No. Read both rates. This system detects every attack, and it flags every ordinary attempt too."}}], "col_names": {"acc": "Accuracy", "det": "Detection rate", "fpr": "False-positive rate"}, "ask": "Which system scores best? Tap it.", "table_head": "All four systems on this way of scoring", "status": "{n} of 4 ways of scoring tried", "done_head": "You have tried all four.", "done": [{"t": "If doing nothing scores well, the metric is wrong."}, {"t": "Report the pair, never one of them alone."}], "done_tail": "Each single measure was won by a system that nobody would build. The notes name a second pair for detection work, precision and recall. Ask the same question of it, and of any metric that you propose for your own project."}</script>
+<script>
+(function () {
+  var D = JSON.parse(document.getElementById('nb-data').textContent);
+  var $ = function (id) { return document.getElementById(id); };
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  var ordinary = D.total - D.attacks;
+  // every score is computed here from the counts; none is typed into the data
+  function score(s, col) {
+    var tn = ordinary - s.fp;
+    if (col === 'acc') return (s.tp + tn) / D.total;
+    if (col === 'det') return s.tp / D.attacks;
+    return s.fp / ordinary;
+  }
+  function pct(x) { return (x * 100).toFixed(1) + '%'; }
+  var cur = 0, done = {};
+  $('dn-set').textContent = D.set_text; $('dn-ask').textContent = D.ask; $('dn-table-head').textContent = D.table_head;
+  function count() { return Object.keys(done).length; }
+  function drawMeasures() {
+    $('dn-measures').innerHTML = D.measures.map(function (m, i) {
+      return '<button type="button" class="btn' + (i === cur ? '' : ' alt') + '" id="measure-' + i + '" data-measure="' + i + '" aria-pressed="' + (i === cur ? 'true' : 'false') + '">' + esc(m.name) + (done[i] ? ' <span class="done">(tried)</span>' : '') + '</button>';
+    }).join('');
+    $('dn-how').textContent = D.measures[cur].how;
+  }
+  function drawSystems(pick) {
+    $('dn-systems').innerHTML = D.systems.map(function (s, i) {
+      return '<button type="button" id="sys-' + i + '" data-sys="' + i + '"' + (i === pick ? ' class="pick"' : '') + '><span class="nm">' + esc(s.name) + '</span>' + esc(s.what) + '</button>';
+    }).join('');
+  }
+  function drawTable() {
+    var m = D.measures[cur];
+    $('dn-table').innerHTML = '<thead><tr><th>System</th>' + m.cols.map(function (c) { return '<th>' + esc(D.col_names[c]) + '</th>'; }).join('') + '</tr></thead><tbody>' +
+      D.systems.map(function (s, i) {
+        return '<tr' + (m.best.indexOf(i) >= 0 ? ' class="best"' : '') + '><td>' + esc(s.name) + '</td>' + m.cols.map(function (c) { return '<td class="num" data-col="' + c + '" data-sys="' + i + '">' + pct(score(s, c)) + '</td>'; }).join('') + '</tr>';
+      }).join('') + '</tbody>';
+  }
+  function status() {
+    var n = count(); $('dn-status').textContent = D.status.replace('{n}', n);
+    $('dn-done').hidden = n !== D.measures.length;
+    if (n === D.measures.length) $('dn-done').innerHTML = '<p><strong>' + esc(D.done_head) + '</strong></p>' + D.done.map(function (q) { return '<p class="quoteq">' + esc(q.t) + '</p>'; }).join('') + '<p>' + esc(D.done_tail) + '</p>';
+  }
+  function load(i) {
+    cur = i; drawMeasures(); drawSystems(-1);
+    $('fb-sys').className = 'fb'; $('fb-sys').innerHTML = ''; $('dn-result').hidden = true; status();
+  }
+  $('dn-measures').addEventListener('click', function (e) { var b = e.target.closest('button[data-measure]'); if (b) load(+b.getAttribute('data-measure')); });
+  $('dn-systems').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-sys]'); if (!b) return;
+    var i = +b.getAttribute('data-sys'), m = D.measures[cur], fb = $('fb-sys');
+    drawSystems(i);
+    if (m.best.indexOf(i) >= 0) {
+      done[cur] = true; fb.className = 'fb ok';
+      fb.innerHTML = '<p>' + esc(m.right[i]) + '</p>' + (m.right_tail ? '<p>' + esc(m.right_tail) + '</p>' : '');
+      drawTable(); $('dn-result').hidden = false; drawMeasures();
+    } else {
+      fb.className = 'fb no'; fb.innerHTML = '<p>' + esc((m.wrong_by && m.wrong_by[i]) || m.wrong) + '</p>'; $('dn-result').hidden = true;
+    }
+    status();
+  });
+  $('dn-restart').addEventListener('click', function () { done = {}; load(0); });
+  load(0);
+})();
+</script>
+</div></main>
+<footer class="site"><div class="wrap"><p>NB6015CEM Research Project Preparation. BSc (Hons) Ethical Hacking &amp; Network Security.</p><p>Niranga Dharmaratna, <a href="mailto:niranga@nibm.lk">niranga@nibm.lk</a>.</p><p>&copy; 2026 Niranga Dharmaratna. Content licensed under CC BY-NC-ND 4.0; code under MIT. <a href="../../licence.html">Licence and use</a>.</p></div></footer>
+</body>
+</html>

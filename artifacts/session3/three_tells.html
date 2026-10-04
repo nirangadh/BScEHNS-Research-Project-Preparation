@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Three Tells | NB6015CEM Research Project Preparation</title>
+<link rel="stylesheet" href="../../assets/css/portal.css?v=d3ad175228c5">
+<style>
+.tt-para { margin: 10px 0; }
+.tt-para button { font: inherit; display: block; width: 100%; text-align: left; padding: 6px 8px; margin: 4px 0; min-height: 44px; border: 0; border-bottom: 3px dotted var(--dark-grey); border-radius: 4px; background: var(--white); color: var(--near-black); cursor: pointer; }
+.tt-para button.hit { background: var(--sand); border-bottom-style: solid; border-bottom-color: var(--orange); }
+.tt-para button .n { font-weight: 700; font-size: 0.82rem; color: var(--white); background: var(--ink-blue); border-radius: 4px; padding: 0 5px; margin-right: 4px; }
+.tt-tells { display: grid; gap: 8px; margin: 10px 0; } .tt-tells button { text-align: left; }
+.tt-tells button .done { font-weight: 400; }
+ul.tt-why { margin: 6px 0 0; }
+.tt-desc { border: 1px solid var(--steel-blue); border-radius: 6px; padding: 8px 12px; margin: 8px 0; background: var(--white); }
+.tt-desc summary { font-weight: 600; cursor: pointer; }
+.art textarea { font: inherit; width: 100%; min-height: 4.6em; padding: 8px 10px; border: 2px solid var(--steel-blue); border-radius: 6px; background: var(--white); color: var(--near-black); }
+.tt-join { font-weight: 600; color: var(--ink-blue); }
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap">
+<div class="inst">National Institute of Business Management (NIBM) | Coventry University (CU)</div>
+<div class="mod"><a href="../../index.html">NB6015CEM Research Project Preparation</a></div>
+<div class="prog">BSc (Hons) Ethical Hacking &amp; Network Security</div>
+</div></header>
+<nav class="site" aria-label="Portal"><div class="wrap"><a href="../../index.html">Home</a><a href="../../map.html">Module map</a><a href="../../licence.html">Licence</a></div></nav>
+<main><div class="wrap">
+<p class="crumb"><a href="../../notes/s3.html">Back to the Session 3 notes</a></p>
+<h1>Three Tells</h1>
+<div class="bars"><span class="a"></span><span class="b"></span></div>
+<p class="label">[Illustrative example - do not cite] Chathura is an invented student, and Pahana Retail is an invented business. The baselines that his paragraphs name are real publications. What the paragraphs say he decided about them is invented.</p>
+<div class="box learn" data-nb-concept><span class="tag">One idea</span><p>A real justification shows three signs: alternatives are named, a test for choosing is stated, and the test comes from this project and not from the tool's reputation.</p></div>
+<figure class="sect" data-nb-opening><img class="scene" src="../../assets/illus/s3_method.svg" alt="Chathura, a man with a short beard and an orange shirt with rolled sleeves, points at three documents on a table. One document stands in front and carries a green shield with a tick. The other two are faded."><figcaption>The picture: three baselines were on the table, and one was chosen. The two faded documents are the alternatives. A justification says why they were set aside.</figcaption></figure>
+<div class="box notice" data-nb-not-a-grader><span class="tag">Not a grader</span><p>This tool does not read, judge or mark what you type. In the second part it only joins your words into two sentences and counts the parts you have filled. Whether the argument is sound is for you and your supervisor to decide.</p></div>
+<div class="art" data-nb-artefact><div class="btns">
+  <button type="button" class="btn" id="tab-ex" aria-pressed="true">1. Chathura's paragraph</button>
+  <button type="button" class="btn alt" id="tab-own" aria-pressed="false">2. Your own justification</button>
+</div>
+<section id="view-ex">
+  <details class="tt-desc"><summary id="desc-toggle"></summary><p class="quoteq" id="tt-desc"></p></details>
+  <div class="pane">
+    <h2>Step 1. Choose a tell to look for</h2>
+    <div class="tt-tells" id="tt-tells"></div>
+  </div>
+  <div class="pane">
+    <h2>Step 2. Tap a part that shows it</h2>
+    <p id="tt-ask"></p>
+    <p class="hint" id="tt-who"></p>
+    <div class="tt-para" id="tt-para"></div>
+    <div class="fb" id="fb-part" aria-live="polite"></div>
+    <p id="tt-status" aria-live="polite"></p>
+  </div>
+  <div class="fb ok" id="tt-done" hidden></div>
+  <div class="btns"><button type="button" class="btn alt" id="tt-restart">Start the paragraph again</button></div>
+</section>
+<section id="view-own" hidden>
+  <h2>Write your own, in the three-tell form</h2>
+  <p>Take one tool or framework that you intend to use. Fill the four parts. The tool joins them with Chathura's own connecting words.</p>
+  <label for="own-alt">The alternatives: every option that you considered, the chosen one included</label>
+  <p class="hint">Name them, for example: "Tool X, Tool Y and Tool Z". The joined sentence continues "were considered."</p>
+  <textarea id="own-alt" autocomplete="off"></textarea>
+  <label for="own-tool">The one that you chose</label>
+  <input type="text" id="own-tool" autocomplete="off">
+  <label for="own-crit">Your criterion: the test that the chosen one passes and the others fail</label>
+  <p class="hint">Begin with "it", so that it follows the words "was selected because".</p>
+  <textarea id="own-crit" autocomplete="off"></textarea>
+  <label for="own-ctx">Your context: what in your own project makes that test the right one</label>
+  <p class="hint">Write it so that it follows the words "which this project needs because".</p>
+  <textarea id="own-ctx" autocomplete="off"></textarea>
+  <h2>Your justification</h2>
+  <p class="quoteq" id="own-sentence" aria-live="polite"></p>
+  <p id="own-status" aria-live="polite"></p>
+  <p>Read it aloud. If the last part would be equally true in any other project, it is a reputation and not a context. Go back to your project and look again.</p>
+</section></div>
+<div class="box store" data-nb-store-notice><p>What you type here stays on this device. It is never sent anywhere.</p><div class="btns"><button type="button" class="btn alt" id="nb-reset" data-nb-reset>Clear my answers from this device</button></div></div>
+<p class="crumb"><a href="../../notes/s3.html">Back to the Session 3 notes</a></p>
+<script type="application/json" id="nb-data">{"tells": [{"name": {"t": "Alternatives are named."}, "ask": "Tap a part that says there were alternatives, or names one."}, {"name": {"t": "A criterion for choosing between them is stated."}, "ask": "Tap a part that states a test for choosing."}, {"name": {"t": "That criterion is derived from this project's own context, not from the tool's general reputation."}, "ask": "Tap a part that ties the test to Chathura's own project."}], "parts": [{"t": "Three configuration baselines were considered.", "does": "It opens the paragraph by saying that a choice was made.", "m": {"0": "It says that there were alternatives, and how many: three."}}, {"t": "DISA STIGs are the most prescriptive but are written for United States federal defence systems,", "does": "It names one alternative and says who it was written for.", "m": {"0": "It names the first alternative, DISA STIGs."}}, {"t": "and their assumptions about managed workstation estates do not hold for a small retail SME with mixed hardware and no dedicated administrator.", "does": "It judges the first alternative against the kind of organisation in the project.", "m": {"1": "The test is fit: do the assumptions of the alternative hold for this kind of organisation?", "2": "The test comes from Pahana Retail itself: a small retail business with mixed hardware and no dedicated administrator."}}, {"t": "Microsoft Security Baselines align closely with the vendor's own tooling but do not map cleanly onto an external control framework,", "does": "It names the second alternative and says where it falls short.", "m": {"0": "It names the second alternative, Microsoft Security Baselines.", "1": "The test is mapping: can the settings be matched to a control framework from outside the vendor?"}}, {"t": "which this project needs because the evaluation reports against NIST CSF Protect.", "does": "It says why the mapping test matters in this project.", "m": {"2": "It ties the mapping test to the project's own evaluation, which reports against NIST CSF Protect."}}, {"t": "The CIS Windows Benchmark was selected because it is scoped to organisation size, is expressed as discrete settings that can be applied selectively through Group Policy,", "does": "It names the choice and gives two reasons for it.", "m": {"0": "It names the third alternative, the one that is chosen: the CIS Windows Benchmark.", "1": "Two tests are stated here: it is scoped to the size of the organisation, and its settings can be applied one by one."}}, {"t": "and maps to CIS Control 4, which in turn maps to NIST CSF Protect, giving a single traceable line from setting to control to framework function.", "does": "It shows the chosen baseline passing the mapping test.", "m": {"1": "The mapping test again, and this time it is passed: from setting to control to framework function."}}, {"t": "STIGs are retained only as a comparison point for settings where the two baselines diverge.", "does": "It says what happens to a rejected alternative afterwards. That is careful detail, and it is none of the three tells."}], "desc_label": "Read the weak version first: the listing", "desc": {"t": "The project will use CIS Benchmarks, DISA STIGs and Microsoft Security Baselines to harden the estate. Group Policy will be used to apply the settings. A vulnerability scanner will be used to check the results. These are industry-standard tools widely used for hardening Windows environments."}, "who_label": "Chathura's strong version, from Section 3.1 of the notes:", "right": "Yes. Tell {n} is here. It is in each of these parts:", "wrong": "Not this part.", "wrong_tail": "Try another part.", "status": "{n} of 3 tells found", "done_head": "All three tells found.", "done": {"t": "it is longer because it contains an argument, and an argument takes more words than a list."}, "done_note": "Look at the marks. Most parts carry more than one tell, and no part is there only to add length. Now write your own, in the second view.", "c1": {"t": "were considered."}, "c2": {"t": "was selected because"}, "c3": {"t": "which this project needs because"}, "own_status": "You have filled {n} of 4 parts. This tool only joins them. It does not read your words.", "own_empty": "Your two sentences will appear here when you have filled all four parts."}</script>
+<script data-nb-storage-helper>
+(function () {
+  var NS = "nb6015cem.s3.three_tells.";
+  function store() { try { return window.localStorage; } catch (e) { return null; } }
+  window.NBStore = {
+    ns: NS,
+    get: function (k) { var s = store(); if (!s) return null; try { return JSON.parse(s.getItem(NS + k)); } catch (e) { return null; } },
+    set: function (k, v) { var s = store(); if (!s) return false; try { s.setItem(NS + k, JSON.stringify(v)); return true; } catch (e) { return false; } },
+    reset: function () { var s = store(); if (!s) return; var d = []; for (var i = 0; i < s.length; i++) { var k = s.key(i); if (k && k.indexOf(NS) === 0) d.push(k); } d.forEach(function (k) { s.removeItem(k); }); }
+  };
+  document.addEventListener('click', function (e) { var b = e.target.closest ? e.target.closest('[data-nb-reset]') : null; if (b) { window.NBStore.reset(); document.dispatchEvent(new CustomEvent('nb-reset')); } });
+})();
+</script>
+<script>
+(function () {
+  var D = JSON.parse(document.getElementById('nb-data').textContent);
+  var $ = function (id) { return document.getElementById(id); };
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  // ---- part 1: the three tells in the notes' strong version ----
+  var tell = 0, found = {};
+  $('desc-toggle').textContent = D.desc_label; $('tt-desc').textContent = D.desc.t; $('tt-who').textContent = D.who_label;
+  function count() { return Object.keys(found).length; }
+  function drawTells() {
+    $('tt-tells').innerHTML = D.tells.map(function (t, i) {
+      return '<button type="button" class="btn' + (i === tell ? '' : ' alt') + '" id="tell-' + i + '" data-tell="' + i + '" aria-pressed="' + (i === tell ? 'true' : 'false') + '">' + (i + 1) + '. ' + esc(t.name.t) + (found[i] ? ' <span class="done">(found)</span>' : '') + '</button>';
+    }).join('');
+    $('tt-ask').textContent = D.tells[tell].ask;
+  }
+  function drawPara() {
+    $('tt-para').innerHTML = D.parts.map(function (p, j) {
+      var tags = Object.keys(p.m || {}).filter(function (k) { return found[k]; }).map(function (k) { return '<span class="n">' + (+k + 1) + '</span>'; }).join('');
+      return '<button type="button" id="part-' + j + '" data-part="' + j + '"' + (tags ? ' class="hit"' : '') + '>' + tags + '<span class="tt-t">' + esc(p.t) + '</span></button>';
+    }).join(' ');
+  }
+  function refresh() {
+    drawTells(); drawPara(); var n = count();
+    $('tt-status').textContent = D.status.replace('{n}', n);
+    $('tt-done').hidden = n !== 3;
+    if (n === 3) $('tt-done').innerHTML = '<p><strong>' + esc(D.done_head) + '</strong></p><p class="quoteq">' + esc(D.done.t) + '</p><p>' + esc(D.done_note) + '</p>';
+  }
+  function start() { tell = 0; found = {}; $('fb-part').className = 'fb'; $('fb-part').innerHTML = ''; refresh(); }
+  $('tt-tells').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-tell]'); if (!b) return;
+    tell = +b.getAttribute('data-tell'); $('fb-part').className = 'fb'; $('fb-part').innerHTML = ''; refresh();
+  });
+  $('tt-para').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-part]'); if (!b) return;
+    var p = D.parts[+b.getAttribute('data-part')], fb = $('fb-part');
+    if (p.m && p.m[tell]) {
+      found[tell] = true;
+      var items = D.parts.filter(function (q) { return q.m && q.m[tell]; }).map(function (q) { return '<li>' + esc(q.m[tell]) + '</li>'; }).join('');
+      fb.className = 'fb ok'; fb.innerHTML = '<p><strong>' + esc(D.right.replace('{n}', tell + 1)) + '</strong></p><ul class="tt-why">' + items + '</ul>';
+    } else {
+      fb.className = 'fb no'; fb.innerHTML = '<p><strong>' + esc(D.wrong) + '</strong> ' + esc(p.does) + ' ' + esc(D.wrong_tail) + '</p>';
+    }
+    refresh();
+  });
+  $('tt-restart').addEventListener('click', start);
+  // ---- part 2: the learner's own justification: nothing is read or judged, only joined and counted; kept on the device ----
+  var KEYS = { 'own-alt': 'alt', 'own-tool': 'tool', 'own-crit': 'crit', 'own-ctx': 'ctx' };
+  var own = window.NBStore.get('own') || {};
+  function trim(s) { return s.replace(/[.,\s]+$/, ''); }
+  function drawOwn() {
+    var n = (own.alt ? 1 : 0) + (own.tool ? 1 : 0) + (own.crit ? 1 : 0) + (own.ctx ? 1 : 0);
+    $('own-status').textContent = D.own_status.replace('{n}', n);
+    if (n === 4) $('own-sentence').innerHTML = esc(trim(own.alt)) + ' <span class="tt-join">' + esc(D.c1.t) + '</span> ' + esc(trim(own.tool)) + ' <span class="tt-join">' + esc(D.c2.t) + '</span> ' + esc(trim(own.crit)) + ', <span class="tt-join">' + esc(D.c3.t) + '</span> ' + esc(trim(own.ctx)) + '.';
+    else $('own-sentence').textContent = D.own_empty;
+  }
+  function fill() { Object.keys(KEYS).forEach(function (id) { $(id).value = own[KEYS[id]] || ''; }); drawOwn(); }
+  $('view-own').addEventListener('input', function (e) {
+    var k = KEYS[e.target.id]; if (!k) return;
+    own[k] = e.target.value.trim(); window.NBStore.set('own', own); drawOwn();
+  });
+  document.addEventListener('nb-reset', function () { own = {}; fill(); });
+  // ---- the two views ----
+  function show(which) {
+    $('view-ex').hidden = which !== 'ex'; $('view-own').hidden = which !== 'own';
+    [['tab-ex', 'ex'], ['tab-own', 'own']].forEach(function (t) { var on = t[1] === which; $(t[0]).className = 'btn' + (on ? '' : ' alt'); $(t[0]).setAttribute('aria-pressed', on ? 'true' : 'false'); });
+  }
+  $('tab-ex').addEventListener('click', function () { show('ex'); });
+  $('tab-own').addEventListener('click', function () { show('own'); });
+  start(); fill();
+})();
+</script>
+</div></main>
+<footer class="site"><div class="wrap"><p>NB6015CEM Research Project Preparation. BSc (Hons) Ethical Hacking &amp; Network Security.</p><p>Niranga Dharmaratna, <a href="mailto:niranga@nibm.lk">niranga@nibm.lk</a>.</p><p>&copy; 2026 Niranga Dharmaratna. Content licensed under CC BY-NC-ND 4.0; code under MIT. <a href="../../licence.html">Licence and use</a>.</p></div></footer>
+</body>
+</html>

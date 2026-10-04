@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Three in the Question | NB6015CEM Research Project Preparation</title>
+<link rel="stylesheet" href="../../assets/css/portal.css?v=d3ad175228c5">
+<style>
+.tq-q { margin: 10px 0; }
+.tq-q button { font: inherit; display: block; width: 100%; text-align: left; padding: 6px 8px; margin: 4px 0; min-height: 44px; border: 0; border-bottom: 3px dotted var(--dark-grey); border-radius: 4px; background: var(--white); color: var(--near-black); cursor: pointer; }
+.tq-q button.hit { background: var(--sand); border-bottom-style: solid; border-bottom-color: var(--orange); }
+.tq-q button .n { font-weight: 700; font-size: 0.82rem; color: var(--white); background: var(--ink-blue); border-radius: 4px; padding: 0 5px; margin-right: 4px; }
+.tq-rounds { display: grid; gap: 8px; margin: 10px 0; } .tq-rounds button { text-align: left; }
+.tq-rounds button .done { font-weight: 400; }
+.tq-say { margin: 6px 0 0; }
+ul.tq-why { margin: 6px 0 0; }
+.tq-cell { border-left: 6px solid var(--orange); padding: 6px 12px; margin: 8px 0; background: var(--pale-grey); border-radius: 0 6px 6px 0; font-weight: 600; }
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap">
+<div class="inst">National Institute of Business Management (NIBM) | Coventry University (CU)</div>
+<div class="mod"><a href="../../index.html">NB6015CEM Research Project Preparation</a></div>
+<div class="prog">BSc (Hons) Ethical Hacking &amp; Network Security</div>
+</div></header>
+<nav class="site" aria-label="Portal"><div class="wrap"><a href="../../index.html">Home</a><a href="../../map.html">Module map</a><a href="../../licence.html">Licence</a></div></nav>
+<main><div class="wrap">
+<p class="crumb"><a href="../../notes/s3.html">Back to the Session 3 notes</a></p>
+<h1>Three in the Question</h1>
+<div class="bars"><span class="a"></span><span class="b"></span></div>
+<p class="label">[Illustrative example - do not cite] Tharindu, Chathura and Dilini are invented students, and their projects and organisations are invented too.</p>
+<div class="box learn" data-nb-concept><span class="tag">One idea</span><p>Your evaluation design is already written into your research question. A metric, a baseline and an environment can each be pointed to in the words of the question.</p></div>
+<figure class="sect" data-nb-opening><img class="scene" src="../../assets/illus/s3_a_three.svg" alt="A person points at a dark blue speech bubble that holds a question mark. Three arrows lead down from the bubble to three small boxes, one mid blue, one orange and one green."><figcaption>The picture: one question, and three things that can be read out of it. Each box is one part of the evaluation design.</figcaption></figure>
+<div class="art" data-nb-artefact><div class="btns" id="tq-cases"></div>
+<div class="pane">
+  <h2>Step 1. Choose what to look for</h2>
+  <div class="tq-rounds" id="tq-rounds"></div>
+  <p class="quoteq tq-say" id="tq-say"></p>
+</div>
+<div class="pane">
+  <h2>Step 2. Tap the part that carries it</h2>
+  <p id="tq-ask"></p>
+  <p class="hint" id="tq-who"></p>
+  <div class="tq-q" id="tq-q"></div>
+  <div class="fb" id="fb-part" aria-live="polite"></div>
+  <p id="tq-status" aria-live="polite"></p>
+</div>
+<div class="fb ok" id="tq-done" hidden></div>
+<div class="btns"><button type="button" class="btn alt" id="tq-restart">Start this question again</button></div></div>
+<p class="crumb"><a href="../../notes/s3.html">Back to the Session 3 notes</a></p>
+<script type="application/json" id="nb-data">{"rounds": [{"name": {"t": "Metric (what is counted)"}, "short": "the metric", "say": {"t": "A metric, which is what you count."}, "ask": "Tap the part of the question that says what will be counted."}, {"name": {"t": "Baseline (what it is compared against)"}, "short": "the baseline", "say": {"t": "A baseline, which is what you compare against."}, "ask": "Tap the part of the question that says what the result is compared with."}, {"name": {"t": "Environment (where it runs)"}, "short": "the environment", "say": {"t": "An environment, which is where it runs and why a result obtained there means anything at all."}, "ask": "Tap the part of the question that says where the test runs."}], "cases": [{"who": "Tharindu", "what": "Tharindu's research question, from the Session 1 notes", "parts": [{"t": "To what extent can an unsupervised, feature-based model", "s": 1, "does": "It names the technique: the thing that Tharindu builds."}, {"t": "detect distributed credential-stuffing", "s": 1, "does": "It names the threat, and what the model must do about it.", "m": {"0": "This part says what must still be detected while false positives are kept low. The table adds it to the metric for that reason."}}, {"t": "against a mobile-banking authentication endpoint", "s": 1, "does": "It names the setting that the model protects.", "m": {"2": "This part names the setting: the sign-in service of a mobile-banking app. Look closely, though. It says what is protected. It does not say where the test runs."}}, {"t": "at a false-positive rate low enough for SOC triage,", "s": 1, "does": "It names what is counted, and the level that counts as success.", "m": {"0": "A rate can be counted: how many ordinary sign-in attempts are flagged by mistake. \"Low enough for SOC triage\" says what level counts as success."}}, {"t": "compared with a rate-limiting baseline?", "s": 1, "does": "It names what the result is compared with.", "m": {"1": "The words \"compared with\" open the comparison clause. Rate limiting is what would be used without Tharindu's model, so it is the fair comparison."}}], "cells": [{"t": "False-positive rate at a level suitable for SOC triage, with detection of distributed credential stuffing"}, {"t": "Rate limiting"}, {"t": "Virtualised testbed, replayed and synthetic authentication traffic"}], "more": {"2": {"say": "This is the thin one. The question gives a setting, and the table gives a testbed. The testbed comes from Tharindu's project statement in Session 1, which says:", "q": {"t": "The module is trained on a combination of replayed captured traffic and synthetically generated traffic in a VM testbed; no production system is used at any stage.", "s": 1}, "after": "So his evaluation design needed one line that the question alone did not carry. If your own question has a thin place like this, put the missing words into the question."}}, "done_note": "Two parts came straight from the question. The third was only half there, and the Session 1 project statement completed it."}, {"who": "Chathura", "what": "Chathura's research question, from the Session 1 notes", "parts": [{"t": "To what extent does applying the CIS Windows secure-configuration baseline", "s": 1, "does": "It names the treatment: the secure settings that Chathura applies. Be careful with the word \"baseline\" here. It is the name of a published set of settings, not the thing that the result is compared with."}, {"t": "reduce the success rate of a defined set of common attack techniques", "s": 1, "does": "It names what is counted.", "m": {"0": "A success rate can be counted: of a fixed list of attack techniques, how many still work. \"Defined set\" matters, because the list is fixed before the test."}}, {"t": "in a small Active Directory testbed,", "s": 1, "does": "It names where the test runs.", "m": {"2": "A testbed is a place that Chathura builds, and \"small Active Directory\" says what is in it."}}, {"t": "compared with an out-of-the-box default configuration?", "s": 1, "does": "It names what the result is compared with.", "m": {"1": "\"Compared with\" again. The default configuration is the system as it stands today, with no hardening, so it is the fair comparison."}}], "cells": [{"t": "Success rate of a defined set of common attack techniques"}, {"t": "Out-of-the-box default configuration"}, {"t": "Small Active Directory testbed"}], "more": {}, "done_note": "All three parts can be read straight from the question."}, {"who": "Dilini", "what": "Dilini's research question, from the Session 1 notes", "parts": [{"t": "Can a structured object-level-authorisation testing methodology,", "s": 1, "does": "It names the thing that Dilini designs: a structured way of testing."}, {"t": "applied to a controlled FHIR-style patient-records API,", "s": 1, "does": "It names where the test runs.", "m": {"2": "This part says where the test runs: an API that Dilini controls, built in the style of a patient-records system. No real patient data is involved."}}, {"t": "detect a higher proportion of seeded authorisation flaws", "s": 1, "does": "It names what is counted.", "m": {"0": "A proportion can be counted, because the flaws were placed in the API on purpose and their number is known. Section 4.3 of the notes explains seeded flaws."}}, {"t": "than unstructured manual testing", "s": 1, "does": "It names what the result is compared with.", "m": {"1": "There is no \"compared with\" here. The word \"than\" does the same work. Unstructured manual testing is how the testing is done now."}}, {"t": "within a comparable time budget?", "s": 1, "does": "It sets a condition for the test: a comparable amount of time for both ways of testing.", "m": {"2": "The table puts this part in the environment column too. Both ways of testing get a comparable amount of time. It is a condition that the test runs under."}}], "cells": [{"t": "Proportion of seeded authorisation flaws detected"}, {"t": "Unstructured manual testing"}, {"t": "Controlled FHIR-style patient-records API, comparable time budget"}], "more": {}, "done_note": "All three parts can be read straight from the question. The environment sits in two places."}], "who_label": "The question:", "right": "Yes. This is {x}.", "wrong": "Not this part.", "wrong_tail": "Try another part.", "cell_head": "The table in Section 4.1 of the notes writes it like this:", "status": "{n} of 3 found in this question", "done_head": "All three found.", "done": {"t": "in every case, the evaluation design was already latent in the question"}, "done_tail": "Now do the same with your own question. Write the three parts on three separate lines, as the notes ask in Section 7."}</script>
+<script>
+(function () {
+  var D = JSON.parse(document.getElementById('nb-data').textContent);
+  var $ = function (id) { return document.getElementById(id); };
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  var LET = ['M', 'B', 'E'];
+  var cur = 0, round = 0, found = {};
+  $('tq-cases').innerHTML = D.cases.map(function (c, i) { return '<button type="button" class="btn alt" id="case-' + i + '" data-case="' + i + '" aria-pressed="false">' + esc(c.who) + '</button>'; }).join('');
+  function count() { return Object.keys(found).length; }
+  function drawRounds() {
+    $('tq-rounds').innerHTML = D.rounds.map(function (r, i) {
+      return '<button type="button" class="btn' + (i === round ? '' : ' alt') + '" id="round-' + i + '" data-round="' + i + '" aria-pressed="' + (i === round ? 'true' : 'false') + '">' + esc(r.name.t) + (found[i] ? ' <span class="done">(found)</span>' : '') + '</button>';
+    }).join('');
+    $('tq-say').textContent = D.rounds[round].say.t; $('tq-ask').textContent = D.rounds[round].ask;
+  }
+  function drawQ() {
+    var c = D.cases[cur];
+    $('tq-q').innerHTML = c.parts.map(function (p, j) {
+      var tags = Object.keys(p.m || {}).filter(function (k) { return found[k]; }).map(function (k) { return '<span class="n">' + LET[+k] + '</span>'; }).join('');
+      return '<button type="button" id="part-' + j + '" data-part="' + j + '"' + (tags ? ' class="hit"' : '') + '>' + tags + '<span class="tq-t">' + esc(p.t) + '</span></button>';
+    }).join(' ');
+  }
+  function refresh() {
+    drawRounds(); drawQ(); var n = count();
+    $('tq-status').textContent = D.status.replace('{n}', n);
+    $('tq-done').hidden = n !== 3;
+    if (n === 3) { var c = D.cases[cur]; $('tq-done').innerHTML = '<p><strong>' + esc(D.done_head) + '</strong> ' + esc(c.done_note) + '</p><p class="quoteq">' + esc(D.done.t) + '</p><p>' + esc(D.done_tail) + '</p>'; }
+  }
+  function load(i) {
+    cur = i; round = 0; found = {}; var c = D.cases[i];
+    D.cases.forEach(function (_, j) { $('case-' + j).className = 'btn' + (j === i ? '' : ' alt'); $('case-' + j).setAttribute('aria-pressed', j === i ? 'true' : 'false'); });
+    $('tq-who').textContent = c.what + ':';
+    $('fb-part').className = 'fb'; $('fb-part').innerHTML = ''; refresh();
+  }
+  $('tq-cases').addEventListener('click', function (e) { var b = e.target.closest('button[data-case]'); if (b) load(+b.getAttribute('data-case')); });
+  $('tq-rounds').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-round]'); if (!b) return;
+    round = +b.getAttribute('data-round'); $('fb-part').className = 'fb'; $('fb-part').innerHTML = ''; refresh();
+  });
+  $('tq-q').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-part]'); if (!b) return;
+    var c = D.cases[cur], p = c.parts[+b.getAttribute('data-part')], fb = $('fb-part');
+    if (p.m && p.m[round]) {
+      found[round] = true;
+      var items = c.parts.filter(function (q) { return q.m && q.m[round]; }).map(function (q) { return '<li>' + esc(q.m[round]) + '</li>'; }).join('');
+      var more = c.more && c.more[round];
+      fb.className = 'fb ok';
+      fb.innerHTML = '<p><strong>' + esc(D.right.replace('{x}', D.rounds[round].short)) + '</strong></p><ul class="tq-why">' + items + '</ul><p>' + esc(D.cell_head) + '</p><p class="tq-cell">' + esc(c.cells[round].t) + '</p>' +
+        (more ? '<p>' + esc(more.say) + '</p><p class="quoteq">' + esc(more.q.t) + '</p><p>' + esc(more.after) + '</p>' : '');
+    } else {
+      fb.className = 'fb no'; fb.innerHTML = '<p><strong>' + esc(D.wrong) + '</strong> ' + esc(p.does) + ' ' + esc(D.wrong_tail) + '</p>';
+    }
+    refresh();
+  });
+  $('tq-restart').addEventListener('click', function () { load(cur); });
+  load(0);
+})();
+</script>
+</div></main>
+<footer class="site"><div class="wrap"><p>NB6015CEM Research Project Preparation. BSc (Hons) Ethical Hacking &amp; Network Security.</p><p>Niranga Dharmaratna, <a href="mailto:niranga@nibm.lk">niranga@nibm.lk</a>.</p><p>&copy; 2026 Niranga Dharmaratna. Content licensed under CC BY-NC-ND 4.0; code under MIT. <a href="../../licence.html">Licence and use</a>.</p></div></footer>
+</body>
+</html>

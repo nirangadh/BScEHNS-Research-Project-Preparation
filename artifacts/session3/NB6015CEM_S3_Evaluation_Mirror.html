@@ -191,12 +191,12 @@ var SIGNALS = {
   baseline: {
     label: "Baseline",
     gloss: "what you compare against",
-    re: /\b(compared (?:with|to|against)|in comparison (?:with|to)|versus|vs\.?|relative to|benchmarked against|measured against|rather than|instead of|baseline|control group|before and after)\b/gi
+    re: /\b(compared (?:with|to|against)|in comparison (?:with|to)|versus|vs\.?|relative to|benchmarked against|measured against|rather than|instead of|baseline|control group|before and after|(?:higher|lower|greater|fewer|more|less|better|worse|faster|slower) [\w-]+(?:[ ,][\w-]+){0,10}? than)\b/gi
   },
   environment: {
     label: "Environment",
     gloss: "where it runs",
-    re: /\b(testbed|test bed|laboratory|lab environment|virtualised|virtualized|simulated|simulation|emulated|sandbox|isolated network|controlled (?:environment|condition|setting|api|network)|virtual machine)\b/gi
+    re: /\b(testbed|test bed|laboratory|lab environment|virtualised|virtualized|simulated|simulation|emulated|sandbox|isolated network|controlled (?:[\w-]+ ){0,3}(?:environment|conditions?|setting|api|network|testbed)|virtual machine)\b/gi
   }
 };
 var EXTRA = {

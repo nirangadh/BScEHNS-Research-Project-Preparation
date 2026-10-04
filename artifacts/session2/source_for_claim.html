@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source for the Claim | NB6015CEM Research Project Preparation</title>
+<link rel="stylesheet" href="../../assets/css/portal.css?v=d3ad175228c5">
+<style>
+.sc-source { font-weight: 600; background: var(--pale-grey); border-left: 6px solid var(--ink-blue); border-radius: 0 6px 6px 0; padding: 8px 12px; margin: 8px 0; }
+.sc-use { background: var(--sand); border-radius: 6px; padding: 8px 12px; margin: 8px 0; }
+.sc-tier { font-weight: 700; margin: 8px 0 2px; }
+.sc-k { font-size: 0.88rem; font-weight: 700; color: var(--dark-grey); text-transform: uppercase; letter-spacing: 0.04em; margin: 10px 0 0; }
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap">
+<div class="inst">National Institute of Business Management (NIBM) | Coventry University (CU)</div>
+<div class="mod"><a href="../../index.html">NB6015CEM Research Project Preparation</a></div>
+<div class="prog">BSc (Hons) Ethical Hacking &amp; Network Security</div>
+</div></header>
+<nav class="site" aria-label="Portal"><div class="wrap"><a href="../../index.html">Home</a><a href="../../map.html">Module map</a><a href="../../licence.html">Licence</a></div></nav>
+<main><div class="wrap">
+<p class="crumb"><a href="../../notes/s2.html">Back to the Session 2 notes</a></p>
+<h1>Source for the Claim</h1>
+<div class="bars"><span class="a"></span><span class="b"></span></div>
+<p class="label">[Illustrative example - do not cite] The nine uses described here are invented for practice.</p>
+<div class="box learn" data-nb-concept><span class="tag">One idea</span><p>A source is judged against the use you make of it. The same source can be sound for one claim and wrong for another.</p></div>
+<figure class="sect" data-nb-opening><img class="scene" src="../../assets/illus/s2_a_source.svg" alt="A person points at one document. A green line leads from the document up to a green tick in a circle. A red line leads from the same document down to a red cross in a circle."><figcaption>The picture: one source, two uses. One use is sound, and the other is not.</figcaption></figure>
+<div class="art" data-nb-artefact><p id="sc-progress" aria-live="polite"></p>
+<div class="pane" id="sc-card">
+  <p class="sc-k">The source</p>
+  <p class="sc-source" id="sc-source"></p>
+  <p class="sc-k">The use</p>
+  <p class="sc-use" id="sc-use"></p>
+  <h2 id="sc-ask"></h2>
+  <div class="btns">
+    <button type="button" class="btn" id="ans-yes"></button>
+    <button type="button" class="btn alt" id="ans-no"></button>
+  </div>
+  <div class="fb" id="fb-ans" aria-live="polite"></div>
+  <div class="btns"><button type="button" class="btn" id="sc-next" disabled>Next use</button></div>
+</div>
+<div class="fb ok" id="sc-done" hidden></div>
+<div class="btns"><button type="button" class="btn alt" id="sc-restart">Start again</button></div></div>
+<p class="crumb"><a href="../../notes/s2.html">Back to the Session 2 notes</a></p>
+<script type="application/json" id="nb-data">{"ask": "Is this use sound?", "items": [{"source": {"t": "Peer-reviewed paper from USENIX Security, IEEE S&P, ACM CCS, or NDSS within the last five years"}, "use": "You cite it as evidence of what current research has found.", "sound": true, "tier": {"t": "Strong - cite with confidence:"}, "line": {"t": "Peer-reviewed paper from USENIX Security, IEEE S&P, ACM CCS, or NDSS within the last five years - primary, current, highest credibility."}, "why": "Sound. It is primary, it was checked by other researchers, and it is recent. This is the use that the source is strongest for."}, {"source": {"t": "A conference paper older than five years on the same topic"}, "use": "You cite it as evidence of the current state of the art.", "sound": false, "tier": {"t": "Use with care:"}, "line": {"t": "A conference paper older than five years on the same topic: cite for historical origin only, not as evidence of the current state of the art. The field has moved."}, "why": "Not sound. The paper may be excellent, but it cannot show what is true now. Find recent work for that claim."}, {"source": {"t": "A conference paper older than five years on the same topic"}, "use": "You cite it to show where an approach began.", "sound": true, "tier": {"t": "Use with care:"}, "line": {"t": "A conference paper older than five years on the same topic: cite for historical origin only, not as evidence of the current state of the art. The field has moved."}, "why": "Sound. The source is the same as in the last question, and only the use has changed. To show where an idea began, the paper that began it is the right source."}, {"source": {"t": "A vendor security blog"}, "use": "You cite it to support a core analytical claim of your review.", "sound": false, "tier": {"t": "Use with care:"}, "line": {"t": "A vendor security blog: useful for real-world threat context and up-to-date threat intelligence, but promotional and not peer-reviewed. Never use for a core analytical claim."}, "why": "Not sound. The company that wrote it sells a product, and nobody checked the post before it was published. The notes say never."}, {"source": {"t": "A vendor security blog"}, "use": "You cite it to show that a threat is being seen in real organisations now.", "sound": true, "tier": {"t": "Use with care:"}, "line": {"t": "A vendor security blog: useful for real-world threat context and up-to-date threat intelligence, but promotional and not peer-reviewed. Never use for a core analytical claim."}, "why": "Sound, with care. This is what the notes say such a blog is useful for. Say in your sentence that it is a vendor report, and build no argument on it."}, {"source": {"t": "An encyclopaedia entry (including Wikipedia)"}, "use": "You read it to find your way into a new topic. You do not cite it.", "sound": true, "tier": {"t": "Weak - do not cite as academic evidence:"}, "line": {"t": "An encyclopaedia entry (including Wikipedia): tertiary source. Use it to orient yourself, then find and cite the primary source it points to."}, "why": "Sound. A weak source for citing can be a good place to start reading. Follow it to the primary sources, and cite those."}, {"source": {"t": "An encyclopaedia entry (including Wikipedia)"}, "use": "You cite it as evidence for a claim in your review.", "sound": false, "tier": {"t": "Weak - do not cite as academic evidence:"}, "line": {"t": "An encyclopaedia entry (including Wikipedia): tertiary source. Use it to orient yourself, then find and cite the primary source it points to."}, "why": "Not sound. It is a summary of summaries. Cite the primary source that it points to, after you have read that source."}, {"source": {"t": "A personal blog tutorial or a Q&A forum answer (such as Stack Overflow)"}, "use": "You cite it to explain how a protocol works.", "sound": false, "tier": {"t": "Weak - do not cite as academic evidence:"}, "line": {"t": "A personal blog tutorial or a Q&A forum answer (such as Stack Overflow): unvetted and not a citable academic or technical source."}, "why": "Not sound. Nobody checked it. For how a protocol works there is a primary source: the RFC that defines the protocol."}, {"source": {"t": "The IETF RFC defining the protocol under study"}, "use": "You cite it for what the protocol requires.", "sound": true, "tier": {"t": "Strong - cite with confidence:"}, "line": {"t": "The IETF RFC defining the protocol under study - authoritative primary specification. This is the document the field defers to."}, "why": "Sound. This is the primary specification. It is the answer to the last question."}], "yes": "Sound", "no": "Not sound", "you_right": "You are right.", "you_wrong": "Look again.", "tier_label": "The notes place this source under:", "progress": "Use {i} of {n}", "done": "You have judged all nine uses. Three sources appeared twice: the older conference paper, the vendor blog and the encyclopaedia entry. Each time the source stayed the same and the answer changed, because the use changed. Before you cite a source, ask what you are citing it for.", "score": "You judged {k} of {n} correctly at the first attempt."}</script>
+<script>
+(function () {
+  var D = JSON.parse(document.getElementById('nb-data').textContent);
+  var $ = function (id) { return document.getElementById(id); };
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  var cur = 0, first = 0, tried = false, N = D.items.length;
+  $('ans-yes').textContent = D.yes; $('ans-no').textContent = D.no; $('sc-ask').textContent = D.ask;
+  function load(i) {
+    cur = i; tried = false; var it = D.items[i];
+    $('sc-progress').textContent = D.progress.replace('{i}', i + 1).replace('{n}', N);
+    $('sc-source').textContent = it.source.t; $('sc-use').textContent = it.use;
+    $('fb-ans').className = 'fb'; $('fb-ans').innerHTML = ''; $('sc-next').disabled = true;
+    $('sc-card').hidden = false; $('sc-done').hidden = true;
+  }
+  function answer(sound) {
+    var it = D.items[cur], right = sound === it.sound;
+    if (!tried && right) first += 1;
+    tried = true;
+    $('fb-ans').className = 'fb ' + (right ? 'ok' : 'no');
+    $('fb-ans').innerHTML = right
+      ? '<p><strong>' + esc(D.you_right) + '</strong> ' + esc(it.why) + '</p><p class="sc-k">' + esc(D.tier_label) + '</p><p class="sc-tier">' + esc(it.tier.t) + '</p><p class="quoteq">' + esc(it.line.t) + '</p>'
+      : '<p><strong>' + esc(D.you_wrong) + '</strong></p><p class="sc-k">' + esc(D.tier_label) + '</p><p class="sc-tier">' + esc(it.tier.t) + '</p><p class="quoteq">' + esc(it.line.t) + '</p>';
+    if (right) $('sc-next').disabled = false;
+  }
+  $('ans-yes').addEventListener('click', function () { answer(true); });
+  $('ans-no').addEventListener('click', function () { answer(false); });
+  $('sc-next').addEventListener('click', function () {
+    if (cur + 1 < N) { load(cur + 1); return; }
+    $('sc-card').hidden = true; $('sc-done').hidden = false;
+    $('sc-done').innerHTML = '<p>' + esc(D.done) + '</p><p>' + esc(D.score.replace('{k}', first).replace('{n}', N)) + '</p>';
+    $('sc-progress').textContent = '';
+  });
+  $('sc-restart').addEventListener('click', function () { first = 0; load(0); });
+  load(0);
+})();
+</script>
+</div></main>
+<footer class="site"><div class="wrap"><p>NB6015CEM Research Project Preparation. BSc (Hons) Ethical Hacking &amp; Network Security.</p><p>Niranga Dharmaratna, <a href="mailto:niranga@nibm.lk">niranga@nibm.lk</a>.</p><p>&copy; 2026 Niranga Dharmaratna. Content licensed under CC BY-NC-ND 4.0; code under MIT. <a href="../../licence.html">Licence and use</a>.</p></div></footer>
+</body>
+</html>

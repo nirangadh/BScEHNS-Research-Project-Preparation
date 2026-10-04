@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Find the Move | NB6015CEM Research Project Preparation</title>
+<link rel="stylesheet" href="../../assets/css/portal.css?v=d3ad175228c5">
+<style>
+.ftm-para { margin: 10px 0; }
+.ftm-para button { font: inherit; display: block; width: 100%; text-align: left; padding: 6px 8px; margin: 4px 0; min-height: 44px; border: 0; border-bottom: 3px dotted var(--dark-grey); border-radius: 4px; background: var(--white); color: var(--near-black); cursor: pointer; }
+.ftm-para button.hit { background: var(--sand); border-bottom-style: solid; border-bottom-color: var(--orange); }
+.ftm-para button .n { font-weight: 700; font-size: 0.82rem; color: var(--white); background: var(--ink-blue); border-radius: 4px; padding: 0 5px; margin-right: 4px; }
+.ftm-moves { display: grid; gap: 8px; margin: 10px 0; } .ftm-moves button { text-align: left; }
+.ftm-moves button .done { font-weight: 400; }
+.ftm-say { margin: 6px 0 0; }
+ul.ftm-why { margin: 6px 0 0; }
+.ftm-desc { border: 1px solid var(--steel-blue); border-radius: 6px; padding: 8px 12px; margin: 8px 0; background: var(--white); }
+.ftm-desc summary { font-weight: 600; cursor: pointer; }
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap">
+<div class="inst">National Institute of Business Management (NIBM) | Coventry University (CU)</div>
+<div class="mod"><a href="../../index.html">NB6015CEM Research Project Preparation</a></div>
+<div class="prog">BSc (Hons) Ethical Hacking &amp; Network Security</div>
+</div></header>
+<nav class="site" aria-label="Portal"><div class="wrap"><a href="../../index.html">Home</a><a href="../../map.html">Module map</a><a href="../../licence.html">Licence</a></div></nav>
+<main><div class="wrap">
+<p class="crumb"><a href="../../notes/s2.html">Back to the Session 2 notes</a></p>
+<h1>Find the Move</h1>
+<div class="bars"><span class="a"></span><span class="b"></span></div>
+<p class="label">[Illustrative example - do not cite] Tharindu and Chathura are invented students, and the authors, dates and findings in their paragraphs are invented too.</p>
+<div class="box learn" data-nb-concept><span class="tag">One idea</span><p>A critical paragraph is built from four moves: group, contrast, name a limitation, and wire back to the question. Each move can be pointed to in the text.</p></div>
+<figure class="sect" data-nb-opening><img class="scene" src="../../assets/illus/s2_a_moves.svg" alt="A person points at a page of text. Four lines of the page are thicker than the others, and each is a different colour: dark blue, mid blue, orange and green."><figcaption>The picture: one paragraph on a page. Four of its lines are marked, each in its own colour. Each marked line is one move.</figcaption></figure>
+<div class="art" data-nb-artefact><div class="btns" id="ftm-cases"></div>
+<details class="ftm-desc"><summary id="desc-toggle"></summary><p class="quoteq" id="ftm-desc"></p></details>
+<div class="pane">
+  <h2>Step 1. Choose a move to look for</h2>
+  <div class="ftm-moves" id="ftm-moves"></div>
+  <p class="quoteq ftm-say" id="ftm-say"></p>
+</div>
+<div class="pane">
+  <h2>Step 2. Tap the part that makes it</h2>
+  <p id="ftm-ask"></p>
+  <p class="hint" id="ftm-who"></p>
+  <div class="ftm-para" id="ftm-para"></div>
+  <div class="fb" id="fb-part" aria-live="polite"></div>
+  <p id="ftm-status" aria-live="polite"></p>
+</div>
+<div class="fb ok" id="ftm-done" hidden></div>
+<div class="btns"><button type="button" class="btn alt" id="ftm-restart">Start this paragraph again</button></div></div>
+<p class="crumb"><a href="../../notes/s2.html">Back to the Session 2 notes</a></p>
+<script type="application/json" id="nb-data">{"moves": [{"name": {"t": "Group, do not list"}, "say": {"t": "Cluster sources by approach or claim, not by author and date."}, "ask": "Tap a part of the paragraph where sources or approaches are put into a group."}, {"name": {"t": "Contrast, do not accumulate"}, "say": {"t": "Name how two approaches differ, and say why that difference matters for your specific problem."}, "ask": "Tap a part where two things are set against each other, or where the paragraph says why the difference matters."}, {"name": {"t": "Name a limitation"}, "say": {"t": "Where does the approach fail? Specifically, why does it fail in your context?"}, "ask": "Tap a part that says where an approach fails, or why it fails in this project's setting."}, {"name": {"t": "Wire back to the question"}, "say": {"t": "Every critical paragraph should connect its analysis to the problem you are solving."}, "ask": "Tap the part that connects the analysis to the research question."}], "cases": [{"who": "Tharindu", "desc": {"t": "Several approaches to detecting credential-stuffing have been proposed. Perera (2021) developed a rate-limiting method that blocks IP addresses after a threshold of failed logins. Silva and Fernando (2022) proposed a machine-learning classifier using login-frequency features. Jayawardena (2023) used device fingerprinting to identify suspicious sessions. Each of these studies reports high detection rates. These approaches show that credential-stuffing detection is an active area of research."}, "parts": [{"t": "Detection approaches for credential-stuffing divide broadly into threshold-based and feature-based methods,", "does": "It puts the approaches into two groups.", "m": {"0": "The sources are not named one by one. The approaches are divided into two groups, threshold-based and feature-based, before any author appears."}}, {"t": "and the division matters for a SOC that must keep false positives low.", "does": "It says why the two groups matter for this project.", "m": {"1": "This is the second half of the move: it says why the difference matters for the specific problem, a SOC that must keep false positives low."}}, {"t": "Threshold methods such as IP rate-limiting (Perera, 2021) are cheap to deploy but degrade against distributed attacks that stay under per-IP limits,", "does": "It says what the first group does well and where it fails.", "m": {"1": "The word \"but\" sets a strength against a weakness: cheap to deploy, but weaker against distributed attacks.", "2": "It names where the approach fails: against distributed attacks that stay under the limit for each address."}}, {"t": "which is the precise case a mobile-banking endpoint faces.", "does": "It ties the failure to Tharindu's own setting.", "m": {"2": "This makes the limitation specific. The failure is not general: it is exactly the case that Tharindu's mobile-banking endpoint meets."}}, {"t": "Feature-based classifiers (Silva and Fernando, 2022; Jayawardena, 2023) address distribution by scoring behaviour rather than volume,", "does": "It puts two sources into one group and sets that group against the first.", "m": {"0": "Two sources share one pair of brackets. They are cited together because they take the same approach.", "1": "The second group is set against the first: it handles the distributed attacks that the first group cannot, because it scores behaviour and not volume."}}, {"t": "but both evaluate on web traffic with stable client fingerprints,", "does": "It says what both sources in the second group have in common, and where that falls short.", "m": {"2": "It names the limitation of the second group: both studies were tested only on web traffic."}}, {"t": "whereas mobile clients churn device and network identifiers in ways that may inflate false positives.", "does": "It says why that shortcoming matters on mobile clients.", "m": {"1": "The word \"whereas\" sets the setting of the studies (web traffic) against the setting of the project (mobile clients).", "2": "This is why the limitation matters in Tharindu's context: mobile clients change their identifiers, which may raise false positives."}}, {"t": "No reviewed study evaluates feature-based detection on mobile-banking authentication specifically, and none reports a false-positive rate against a triage threshold.", "does": "It states the gap: what no reviewed study has done.", "gap": true}, {"t": "That absence is the gap this project occupies, and it is what the research question's comparison against a rate-limiting baseline is designed to test.", "does": "It connects the gap to the research question.", "m": {"3": "The gap is connected to the project and to its question: the comparison against a rate-limiting baseline is designed to test exactly this."}}], "done": {"t": "The structural tells: grouping instead of listing, contrast instead of accumulation, a named limitation, and a gap wired back to the question and its baseline."}, "done_note": "Notice that one part can make two moves, and that one move can be spread over several parts."}, {"who": "Chathura", "desc": {"t": "Several frameworks exist for system hardening. The CIS Benchmarks provide detailed configuration controls. The NIST Cybersecurity Framework offers a risk-based approach. The DISA STIGs provide technical implementation guides for specific systems. These frameworks are widely used in industry for reducing attack surface."}, "parts": [{"t": "Established hardening frameworks - CIS Benchmarks, NIST CSF, and DISA STIGs - share a common measurement orientation:", "does": "It puts three frameworks into one group, by what they share.", "m": {"0": "Three frameworks are named in one sentence and treated as one group, because they share a way of measuring."}}, {"t": "they assess compliance coverage, counting how many controls have been applied.", "does": "It says what the whole group measures.", "m": {"0": "This says what the group has in common: all three count how many controls have been applied."}}, {"t": "What none of them measures is exploitability change:", "does": "It says what the whole group does not measure.", "m": {"1": "What the frameworks measure is set against what they do not measure. Here the contrast is between two measures, not between two groups of sources.", "2": "It names what the whole group fails to do: none of the frameworks measures exploitability change."}}, {"t": "the reduction in attack-technique success rate before and after hardening is applied.", "does": "It explains the term that was just used."}, {"t": "This distinction matters for a project proposing to evaluate hardening effectiveness,", "does": "It says why the difference matters for this project.", "m": {"1": "This is the second half of the move: it says why the difference matters for the project."}}, {"t": "because compliance coverage and exploitability reduction can diverge -", "does": "It says how the two measures differ.", "m": {"1": "It names how the two measures differ: they can move apart."}}, {"t": "a system may satisfy 95% of a benchmark while remaining vulnerable to the specific attack techniques that are most prevalent in the target environment.", "does": "It shows the failure in the target environment.", "m": {"2": "The limitation is made specific to a context: a system can pass almost all of a benchmark and still be open to the attacks most common in the target environment."}}, {"t": "Chathura's research question fills precisely this evaluation gap by testing attack-technique success rate against a benchmark-hardened versus a baseline system.", "does": "It connects the gap to the research question.", "m": {"3": "The gap is named and connected to the question in one sentence: the question tests the very outcome that the frameworks do not measure."}}], "done": {"t": "Chathura's research question fills precisely this evaluation gap"}, "done_note": "Here the contrast is not between two groups of sources. All three frameworks form one group, and the contrast is between what they measure and what they leave out."}], "desc_label": "First read the descriptive version of the same review", "right": "Yes. Every part that makes this move is now marked {n}.", "wrong": "Not this part.", "wrong_tail": "Look again for the move.", "gap_part": "This part states the gap. The notes say that the limitation is the foothold for the gap, and that the gap justifies the question. The four moves lead to this sentence.", "status": "{n} of 4 moves found.", "done_head": "All four moves are found. The notes say:", "who_label": "The critical version, by"}</script>
+<script>
+(function () {
+  var D = JSON.parse(document.getElementById('nb-data').textContent);
+  var $ = function (id) { return document.getElementById(id); };
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  var cur = 0, move = 0, found = {};
+  $('ftm-cases').innerHTML = D.cases.map(function (c, i) { return '<button type="button" class="btn alt" id="case-' + i + '" data-case="' + i + '" aria-pressed="false">' + esc(c.who) + '</button>'; }).join('');
+  $('desc-toggle').textContent = D.desc_label;
+  function count() { return Object.keys(found).length; }
+  function drawMoves() {
+    $('ftm-moves').innerHTML = D.moves.map(function (m, i) {
+      return '<button type="button" class="btn' + (i === move ? '' : ' alt') + '" id="move-' + i + '" data-move="' + i + '" aria-pressed="' + (i === move ? 'true' : 'false') + '">' + (i + 1) + '. ' + esc(m.name.t) + (found[i] ? ' <span class="done">(found)</span>' : '') + '</button>';
+    }).join('');
+    $('ftm-say').textContent = D.moves[move].say.t; $('ftm-ask').textContent = D.moves[move].ask;
+  }
+  function drawPara() {
+    var c = D.cases[cur];
+    $('ftm-para').innerHTML = c.parts.map(function (p, j) {
+      var tags = Object.keys(p.m || {}).filter(function (k) { return found[k]; }).map(function (k) { return '<span class="n">' + (+k + 1) + '</span>'; }).join('');
+      return '<button type="button" id="part-' + j + '" data-part="' + j + '"' + (tags ? ' class="hit"' : '') + '>' + tags + '<span class="ftm-t">' + esc(p.t) + '</span></button>';
+    }).join(' ');
+  }
+  function refresh() {
+    drawMoves(); drawPara(); var n = count();
+    $('ftm-status').textContent = D.status.replace('{n}', n);
+    $('ftm-done').hidden = n !== 4;
+    if (n === 4) { var c = D.cases[cur]; $('ftm-done').innerHTML = '<p><strong>' + esc(D.done_head) + '</strong></p><p>' + esc(c.done.t) + '</p><p>' + esc(c.done_note) + '</p>'; }
+  }
+  function load(i) {
+    cur = i; move = 0; found = {}; var c = D.cases[i];
+    D.cases.forEach(function (_, j) { $('case-' + j).className = 'btn' + (j === i ? '' : ' alt'); $('case-' + j).setAttribute('aria-pressed', j === i ? 'true' : 'false'); });
+    $('ftm-desc').textContent = c.desc.t; $('ftm-who').textContent = D.who_label + ' ' + c.who + ':';
+    $('fb-part').className = 'fb'; $('fb-part').innerHTML = ''; refresh();
+  }
+  $('ftm-cases').addEventListener('click', function (e) { var b = e.target.closest('button[data-case]'); if (b) load(+b.getAttribute('data-case')); });
+  $('ftm-moves').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-move]'); if (!b) return;
+    move = +b.getAttribute('data-move'); $('fb-part').className = 'fb'; $('fb-part').innerHTML = ''; refresh();
+  });
+  $('ftm-para').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-part]'); if (!b) return;
+    var c = D.cases[cur], p = c.parts[+b.getAttribute('data-part')], fb = $('fb-part');
+    if (p.m && p.m[move]) {
+      found[move] = true;
+      var items = c.parts.filter(function (q) { return q.m && q.m[move]; }).map(function (q) { return '<li>' + esc(q.m[move]) + '</li>'; }).join('');
+      fb.className = 'fb ok'; fb.innerHTML = '<p><strong>' + esc(D.right.replace('{n}', move + 1)) + '</strong></p><ul class="ftm-why">' + items + '</ul>';
+    } else {
+      fb.className = 'fb no'; fb.innerHTML = '<p><strong>' + esc(D.wrong) + '</strong> ' + esc(p.does) + ' ' + esc(D.wrong_tail) + '</p>' + (p.gap ? '<p>' + esc(D.gap_part) + '</p>' : '');
+    }
+    refresh();
+  });
+  $('ftm-restart').addEventListener('click', function () { load(cur); });
+  load(0);
+})();
+</script>
+</div></main>
+<footer class="site"><div class="wrap"><p>NB6015CEM Research Project Preparation. BSc (Hons) Ethical Hacking &amp; Network Security.</p><p>Niranga Dharmaratna, <a href="mailto:niranga@nibm.lk">niranga@nibm.lk</a>.</p><p>&copy; 2026 Niranga Dharmaratna. Content licensed under CC BY-NC-ND 4.0; code under MIT. <a href="../../licence.html">Licence and use</a>.</p></div></footer>
+</body>
+</html>

@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Critical Mirror | NB6015CEM Research Project Preparation</title>
+<link rel="stylesheet" href="../../assets/css/portal.css?v=d3ad175228c5">
+<style>
+.nb-tool {
+    --ink-blue: #1B3A6B;
+    --azure: #3E6FA8;
+    --steel-blue: #C5D6E8;
+    --ink-tint: #EAF0F6;
+    --pale-grey: #EDF1F5;
+    --mist: #E3E9EF;
+    --cool-grey: #BAC4CE;
+    --dark-grey: #595959;
+    --near-black: #1A1A1A;
+    --orange: #E0701A;
+    --green: #2E9E5C;
+    --crimson: #B11E2A;
+    --sand: #F0EAE0;
+    --sand-accent: #977F5A;
+    --white: #FFFFFF;
+  }
+.nb-tool, .nb-tool *, .nb-tool *::before, .nb-tool *::after { box-sizing: border-box; margin: 0; padding: 0; }
+.nb-tool {
+    font-family: 'Open Sans', system-ui, -apple-system, sans-serif;
+    background: var(--pale-grey);
+    color: var(--near-black);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+.nb-tool header {
+    background: var(--ink-blue);
+    color: var(--white);
+    padding: 18px 24px 14px;
+    border-bottom: 4px solid var(--orange);
+  }
+.nb-tool header .module-tag {
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    color: var(--steel-blue);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+.nb-tool header h1 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+.nb-tool header .sub {
+    font-size: 14px;
+    color: var(--cool-grey);
+  }
+.nb-tool .disclaimer-bar {
+    background: var(--sand);
+    border-bottom: 2px solid var(--sand-accent);
+    padding: 9px 24px;
+    font-size: 14px;
+    color: var(--dark-grey);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+.nb-tool .disclaimer-bar .icon { font-size: 15px; }
+.nb-tool main {
+    flex: 1;
+    max-width: 860px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 28px 20px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+.nb-tool .panel {
+    background: var(--white);
+    border: 1px solid var(--cool-grey);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+.nb-tool .panel-header {
+    background: var(--ink-blue);
+    color: var(--white);
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+  }
+.nb-tool .panel-body { padding: 16px; }
+.nb-tool textarea {
+    width: 100%;
+    min-height: 140px;
+    font-family: 'Open Sans', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--near-black);
+    background: var(--ink-tint);
+    border: 1.5px solid var(--steel-blue);
+    border-radius: 4px;
+    padding: 12px;
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+.nb-tool textarea:focus { border-color: var(--azure); background: var(--white); }
+.nb-tool textarea::placeholder { color: var(--cool-grey); }
+.nb-tool .btn-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+.nb-tool button {
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 9px 20px;
+    letter-spacing: 0.02em;
+    transition: opacity 0.15s, transform 0.1s;
+  }
+.nb-tool button:hover { opacity: 0.88; }
+.nb-tool button:active { transform: scale(0.97); }
+.nb-tool button:disabled { opacity: 0.4; cursor: default; }
+.nb-tool .btn-primary { background: var(--ink-blue); color: var(--white); }
+.nb-tool .btn-secondary { background: var(--mist); color: var(--ink-blue); border: 1.5px solid var(--cool-grey); }
+.nb-tool .btn-exemplar { background: var(--sand); color: var(--sand-accent); border: 1.5px solid var(--sand-accent); font-weight: 600; }
+.nb-tool .btn-clear { background: transparent; color: var(--dark-grey); border: 1.5px solid var(--cool-grey); font-weight: 400; }
+.nb-tool #results { display: none; }
+.nb-tool .verdict-block {
+    border-radius: 6px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 0;
+  }
+.nb-tool .verdict-block.describing {
+    background: #FFF5E8;
+    border: 2px solid var(--crimson);
+  }
+.nb-tool .verdict-block.engaging {
+    background: #E6F6EC;
+    border: 2px solid var(--green);
+  }
+.nb-tool .verdict-block.mixed {
+    background: #FFF5E8;
+    border: 2px solid var(--orange);
+  }
+.nb-tool .verdict-icon { font-size: 28px; flex-shrink: 0; }
+.nb-tool .verdict-label {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+.nb-tool .verdict-block.describing .verdict-label { color: var(--crimson); }
+.nb-tool .verdict-block.engaging .verdict-label { color: var(--green); }
+.nb-tool .verdict-block.mixed .verdict-label { color: var(--orange); }
+.nb-tool .verdict-title { font-size: 17px; font-weight: 700; margin-bottom: 5px; }
+.nb-tool .verdict-summary { font-size: 14px; line-height: 1.55; color: var(--dark-grey); }
+.nb-tool .dimensions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+@media (max-width: 540px) { .nb-tool .dimensions-grid { grid-template-columns: 1fr; } }
+.nb-tool .dim-card {
+    background: var(--white);
+    border: 1px solid var(--mist);
+    border-radius: 5px;
+    padding: 12px 14px;
+  }
+.nb-tool .dim-label {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--dark-grey);
+    margin-bottom: 6px;
+  }
+.nb-tool .dim-bar-track {
+    background: var(--mist);
+    border-radius: 3px;
+    height: 7px;
+    overflow: hidden;
+    margin-bottom: 5px;
+  }
+.nb-tool .dim-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.5s ease;
+  }
+.nb-tool .dim-bar-fill.low { background: var(--crimson); }
+.nb-tool .dim-bar-fill.mid { background: var(--orange); }
+.nb-tool .dim-bar-fill.high { background: var(--green); }
+.nb-tool .dim-note { font-size: 14px; color: var(--dark-grey); line-height: 1.4; }
+.nb-tool .signals-section {}
+.nb-tool .signals-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+.nb-tool .signal-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 20px;
+    padding: 4px 11px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+.nb-tool .signal-tag.describe-tag {
+    background: #F7E4E6;
+    color: var(--crimson);
+    border: 1px solid #B11E2A;
+  }
+.nb-tool .signal-tag.engage-tag {
+    background: #E6F6EC;
+    color: var(--green);
+    border: 1px solid #2E9E5C;
+  }
+.nb-tool .signal-tag.none-tag {
+    background: var(--mist);
+    color: var(--dark-grey);
+    border: 1px solid var(--cool-grey);
+  }
+.nb-tool .priority-box {
+    background: var(--ink-tint);
+    border-left: 4px solid var(--azure);
+    border-radius: 0 5px 5px 0;
+    padding: 13px 16px;
+  }
+.nb-tool .priority-label {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--azure);
+    margin-bottom: 5px;
+  }
+.nb-tool .priority-text {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--near-black);
+  }
+.nb-tool .section-title {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--dark-grey);
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--mist);
+  }
+.nb-tool #exemplar-panel { display: none; }
+.nb-tool .exemplar-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--sand-accent);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--sand);
+    border: 1px solid var(--sand-accent);
+    border-radius: 3px;
+    display: inline-block;
+    padding: 2px 8px;
+    margin-bottom: 10px;
+  }
+.nb-tool .exemplar-text {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--near-black);
+    background: var(--pale-grey);
+    border: 1px solid var(--steel-blue);
+    border-radius: 4px;
+    padding: 14px;
+  }
+.nb-tool .exemplar-moves {
+    margin-top: 12px;
+    font-size: 14px;
+    color: var(--dark-grey);
+    line-height: 1.5;
+  }
+.nb-tool .exemplar-moves strong { color: var(--ink-blue); }
+.nb-tool footer {
+    background: var(--ink-blue);
+    color: var(--cool-grey);
+    text-align: center;
+    font-size: 14px;
+    padding: 12px 24px;
+    line-height: 1.5;
+  }
+.nb-tool header .programme { font-size: 14px; opacity: .9; margin-top: 4px; }
+.nb-tool .identity-row { display: flex; gap: 18px; align-items: center; }
+.nb-tool .identity-row .disclaimer-bar { flex: 1 1 auto; }
+.nb-tool .hero { width: 130px; height: auto; flex: 0 0 130px; }
+@media (max-width: 640px) { .nb-tool .hero { display: none; } }
+.nb-tool .rights { margin-top: 8px; line-height: 1.55; }
+.nb-tool { min-height: 0; background: transparent; }
+.nb-tool { gap: 24px; }
+.nb-tool .tool-foot { font-size: 14px; color: var(--dark-grey); }
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap">
+<div class="inst">National Institute of Business Management (NIBM) | Coventry University (CU)</div>
+<div class="mod"><a href="../../index.html">NB6015CEM Research Project Preparation</a></div>
+<div class="prog">BSc (Hons) Ethical Hacking &amp; Network Security</div>
+</div></header>
+<nav class="site" aria-label="Portal"><div class="wrap"><a href="../../index.html">Home</a><a href="../../map.html">Module map</a><a href="../../licence.html">Licence</a></div></nav>
+<main><div class="wrap">
+<p class="crumb"><a href="../../notes/s2.html">Back to the Session 2 notes</a></p>
+<h1>Critical Mirror</h1>
+<div class="bars"><span class="a"></span><span class="b"></span></div>
+<p class="label">[Illustrative example - do not cite] The reference exemplar in this tool is Tharindu's. Tharindu is an invented student, and the authors, dates and findings in his paragraph are invented too.</p>
+<div class="box learn" data-nb-concept><span class="tag">One idea</span><p>A paragraph of a review either describes its sources or engages with them. This tool shows you the signs of each in your own paragraph, and names one edit to try first.</p></div>
+<figure class="sect" data-nb-opening><img class="scene" src="../../assets/illus/s2_cover.svg" alt="A person points at a group of three documents. One document is faded, as if it has been set aside. A large green tick marks the documents that are kept."><figcaption>The picture: a researcher sorts sources into those kept and those set aside. Here you sort your own sentences in the same way: those that describe and those that engage.</figcaption></figure>
+<div class="box notice" data-nb-not-a-grader><span class="tag">Not a grader</span><p>This is a thinking mirror, not a grader. A positive signal does not guarantee a high mark, and a negative one does not mean your writing is beyond repair. Use it to sharpen your paragraphs before the Week 8 draft.</p></div>
+<div class="art" data-nb-artefact><div class="nb-tool">
+  <!-- INPUT PANEL -->
+  <div class="panel">
+    <div class="panel-header" id="input-text-label">Paste a literature review paragraph</div>
+    <div class="panel-body">
+      <textarea id="input-text" aria-labelledby="input-text-label"
+        placeholder="Paste one or two sentences, or a full paragraph from your literature review draft here..."></textarea>
+      <div class="btn-row">
+        <button class="btn-primary" id="btn-analyse" onclick="analyse()">Analyse paragraph</button>
+        <button class="btn-exemplar" onclick="toggleExemplar()">Show reference exemplar</button>
+        <button class="btn-clear" onclick="clearAll()">Clear</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXEMPLAR PANEL -->
+  <div class="panel" id="exemplar-panel">
+    <div class="panel-header">Reference exemplar - Tharindu's credential-stuffing question</div>
+    <div class="panel-body">
+      <div class="exemplar-label">Illustrative example - do not cite</div>
+      <div class="exemplar-text">
+        Detection approaches for credential-stuffing divide broadly into threshold-based and feature-based methods, and the division matters for a SOC that must keep false positives low. Threshold methods such as IP rate-limiting (Perera, 2021) are cheap to deploy but degrade against distributed attacks that stay under per-IP limits, which is the precise case a mobile-banking endpoint faces. Feature-based classifiers (Silva and Fernando, 2022; Jayawardena, 2023) address distribution by scoring behaviour rather than volume, but both evaluate on web traffic with stable client fingerprints, whereas mobile clients churn device and network identifiers in ways that may inflate false positives. No reviewed study evaluates feature-based detection on mobile-banking authentication specifically, and none reports a false-positive rate against a triage threshold. That absence is the gap this project occupies, and it is what the research question's comparison against a rate-limiting baseline is designed to test.
+      </div>
+      <div class="exemplar-moves">
+        <strong>Four structural moves visible here:</strong>
+        (1) grouping - threshold vs feature-based, not source-by-source;
+        (2) contrast - "cheap to deploy but degrade";
+        (3) named limitation - "mobile clients churn device and network identifiers";
+        (4) gap wired to the question - "that absence is the gap... the research question is designed to test."
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULTS PANEL -->
+  <div class="panel" id="results">
+    <div class="panel-header">Mirror reading</div>
+    <div class="panel-body" style="display:flex; flex-direction:column; gap:18px;">
+
+      <!-- Verdict -->
+      <div id="verdict-block" class="verdict-block">
+        <div class="verdict-icon" id="verdict-icon"></div>
+        <div>
+          <div class="verdict-label" id="verdict-label"></div>
+          <div class="verdict-title" id="verdict-title"></div>
+          <div class="verdict-summary" id="verdict-summary"></div>
+        </div>
+      </div>
+
+      <!-- Signals found -->
+      <div>
+        <div class="section-title">Signals detected</div>
+        <div id="describe-signals-row" style="margin-bottom:8px;"></div>
+        <div id="engage-signals-row"></div>
+      </div>
+
+      <!-- Criterion 2 dimensions -->
+      <div>
+        <div class="section-title">Criterion 2 - Literature Review Quality</div>
+        <div class="dimensions-grid" id="dimensions-grid"></div>
+      </div>
+
+      <!-- Priority edit -->
+      <div>
+        <div class="section-title">Highest-value edit</div>
+        <div class="priority-box">
+          <div class="priority-label">Single best move for this paragraph</div>
+          <div class="priority-text" id="priority-text"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+<p class="tool-foot">NIBM / Coventry University - Week 4 - This tool works offline. No data leaves your device.</p></div></div>
+<p class="crumb"><a href="../../notes/s2.html">Back to the Session 2 notes</a></p>
+<script>
+// ── SIGNAL DEFINITIONS ──────────────────────────────────────
+const DESCRIBE_SIGNALS = [
+  { key: 'sourceBySource',  label: 'Source-by-source structure', pattern: /\b(states|found|proposed|developed|presented|introduces|argues|suggests|noted|identified|examined|explored|demonstrated|showed|reported|concluded)\b/gi },
+  { key: 'reportingVerbs',  label: 'Reporting verbs only',       pattern: /\b(states that|found that|proposed that|concluded that|noted that|argued that|suggests that|reported that|showed that)\b/gi },
+  { key: 'accumulation',    label: 'Accumulation without contrast', pattern: /\b(also|additionally|furthermore|moreover|in addition|another study|another approach|similarly|likewise)\b/gi },
+  { key: 'highAccuracy',    label: '"High accuracy / rates" shortcut', pattern: /\b(high (accuracy|detection|performance|precision|recall|rate|rates|effectiveness)|good results|positive results|promising results)\b/gi },
+  { key: 'activeArea',      label: '"Active area of research" placeholder', pattern: /\b(active area|growing area|emerging area|many (studies|researchers)|numerous (studies|papers)|various (approaches|methods|studies))\b/gi },
+  { key: 'listStructure',   label: 'List-like sentence starters',  pattern: /(\.\s+[A-Z][^.]+\(20\d\d\)|^\s*[A-Z][^.]+\(20\d\d\))/gm },
+];
+
+const ENGAGE_SIGNALS = [
+  { key: 'contrast',       label: 'Contrast language',         pattern: /\b(however|whereas|in contrast|by contrast|unlike|conversely|on the other hand|while|yet|but|despite|although|though)\b/gi },
+  { key: 'limitation',     label: 'Limitation named',          pattern: /\b(limit(ed|ation|s)|fail(s|ing|ure|ures)|weakness|shortcoming|gap|drawback|unable to|does not|cannot|insufficient|degrades?|inadequate)\b/gi },
+  { key: 'synthesis',      label: 'Synthesis across sources',  pattern: /(\([A-Z][a-z]+(,?\s*(20\d\d|&|and)[^)]*)+\)|\b(both|neither|all (three|of)|each of these)\b)/gi },
+  { key: 'gapSignal',      label: 'Gap signal',                pattern: /\b(no (reviewed|published|existing|prior|current) study|no study|has not been (tested|evaluated|applied|studied)|remains (unaddressed|unexplored|untested)|none (reports?|measures?|evaluates?)|absent(ce)?|this (gap|absence)|the gap|gap this project)\b/gi },
+  { key: 'contextSpecific',label: 'Context-specific reasoning', pattern: /\b(in this context|for this project|in our context|specific(ally)? (to|for)|precisely (the|where|when|because)|the precise case|in the (case|scenario) of)\b/gi },
+  { key: 'wireBack',       label: 'Wired back to RQ',          pattern: /\b(research question|this project (aims|seeks|proposes|tests?|compares?|evaluates?)|designed to (test|answer|address|evaluate)|the question (is|asks|follows))\b/gi },
+];
+
+// ── ANALYSIS LOGIC ───────────────────────────────────────────
+function countMatches(text, pattern) {
+  const matches = text.match(pattern);
+  return matches ? matches.length : 0;
+}
+
+function analyse() {
+  const text = document.getElementById('input-text').value.trim();
+  if (!text || text.length < 30) {
+    alert('Please paste a paragraph of at least a few sentences before analysing.');
+    return;
+  }
+
+  const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 10);
+  const wordCount  = text.split(/\s+/).length;
+
+  // Score signals
+  let describeHits = [];
+  let engageHits   = [];
+
+  DESCRIBE_SIGNALS.forEach(sig => {
+    const n = countMatches(text, sig.pattern);
+    if (n > 0) describeHits.push({ ...sig, count: n });
+  });
+
+  ENGAGE_SIGNALS.forEach(sig => {
+    const n = countMatches(text, sig.pattern);
+    if (n > 0) engageHits.push({ ...sig, count: n });
+  });
+
+  // Source-by-source structure heuristic: count number of unique parenthetical citations
+  const citationPattern = /\(([A-Z][a-z]+[^)]*20\d\d[^)]*)\)/g;
+  const citations = [...text.matchAll(citationPattern)];
+  const citationCount = citations.length;
+
+  // Detect listing: multiple citations, each in its own sentence
+  let listingPenalty = 0;
+  if (citationCount >= 3 && sentences.length >= 3) {
+    const citedSentences = sentences.filter(s => /\([A-Z][a-z]+[^)]*20\d\d[^)]*\)/.test(s));
+    if (citedSentences.length >= citationCount - 1) listingPenalty = 2; // each citation gets its own sentence = listing
+  }
+
+  // Compute dimension scores (0-100)
+  const describeScore = describeHits.reduce((a, h) => a + Math.min(h.count, 2), 0);
+  const engageScore   = engageHits.reduce((a, h) => a + Math.min(h.count, 2), 0);
+
+  const hasContrast    = engageHits.some(h => h.key === 'contrast');
+  const hasLimitation  = engageHits.some(h => h.key === 'limitation');
+  const hasSynthesis   = engageHits.some(h => h.key === 'synthesis');
+  const hasGap         = engageHits.some(h => h.key === 'gapSignal');
+  const hasWireBack    = engageHits.some(h => h.key === 'wireBack');
+  const hasContextSpec = engageHits.some(h => h.key === 'contextSpecific');
+
+  const critEngagement  = clampScore(((hasContrast ? 30 : 0) + (hasLimitation ? 30 : 0) + (hasContextSpec ? 20 : 0) + (engageScore * 5)) - (describeScore * 8) - (listingPenalty * 10));
+  const synthesis       = clampScore((hasSynthesis ? 50 : 0) + (hasContrast ? 20 : 0) + (hasGap ? 10 : 0) - (listingPenalty * 15));
+  const gapPresence     = clampScore((hasGap ? 60 : 0) + (hasLimitation ? 20 : 0) + (hasWireBack ? 20 : 0) - (engageHits.some(h => h.key === 'gapSignal') ? 0 : 10));
+  const linkToRQ        = clampScore((hasWireBack ? 60 : 0) + (hasGap ? 15 : 0) + (hasContextSpec ? 15 : 0) + (hasLimitation ? 10 : 0));
+
+  // Overall verdict
+  const overall = (critEngagement + synthesis + gapPresence + linkToRQ) / 4;
+  let mode;
+  if (overall >= 55) mode = 'engaging';
+  else if (overall >= 30) mode = 'mixed';
+  else mode = 'describing';
+
+  // Priority edit
+  const priority = getPriorityEdit(mode, hasContrast, hasLimitation, hasSynthesis, hasGap, hasWireBack, hasContextSpec, citationCount, listingPenalty);
+
+  renderResults(mode, describeHits, engageHits, critEngagement, synthesis, gapPresence, linkToRQ, priority, overall);
+}
+
+function clampScore(n) { return Math.max(0, Math.min(100, n)); }
+
+function getPriorityEdit(mode, hasContrast, hasLimitation, hasSynthesis, hasGap, hasWireBack, hasContextSpec, citationCount, listingPenalty) {
+  if (listingPenalty > 0 || (!hasContrast && !hasSynthesis)) {
+    return 'You are listing - each citation gets its own sentence with no relationship between them. Try grouping two or more of these sources by their shared approach, then contrast how they differ or where one fails where the other succeeds.';
+  }
+  if (!hasLimitation) {
+    return 'You have described what sources do but have not named a limitation. Pick the approach most relevant to your project and add one sentence stating specifically where it fails - and why that failure matters in your context.';
+  }
+  if (!hasGap) {
+    return 'There is no gap signal. You need at least one sentence that names a specific absence in the reviewed literature - what no study has tested, measured, or applied in your context. "More research is needed" is not a gap; name the type (methodology, context, or evaluation).';
+  }
+  if (!hasWireBack) {
+    return 'The gap is not yet connected to your research question. Add a sentence that makes the link explicit: "That absence is the gap this project occupies, and it is what the research question tests by [method] against [baseline]."';
+  }
+  if (mode === 'engaging') {
+    return 'This paragraph shows the key moves of critical engagement. Before moving on, check that the gap type is named explicitly (methodology, context, or evaluation) - that precision separates Merit from Distinction.';
+  }
+  return 'The paragraph has some engaging signals but the contrast is not yet specific to your project context. Revise the limitation sentence to say precisely why the weakness matters for your particular problem or setting - not generically, but in terms your research question depends on.';
+}
+
+// ── RENDER ───────────────────────────────────────────────────
+function renderResults(mode, describeHits, engageHits, critEngagement, synthesis, gapPresence, linkToRQ, priority, overall) {
+
+  const verdicts = {
+    describing: {
+      icon: '&#128683;',
+      label: 'Mainly describing',
+      title: 'Your paragraph is summarising sources, not arguing with them.',
+      summary: 'The review lists what each source did without comparing sources, naming limitations, or building towards a gap. This is the Pass-band pattern. See the highest-value edit below.',
+      cls: 'describing'
+    },
+    mixed: {
+      icon: '&#9888;&#65039;',
+      label: 'Mixed signals',
+      title: 'Partially critical - some moves are present, some are missing.',
+      summary: 'There are signs of engagement (contrast language or a limitation named) but the paragraph is not yet consistently critical. One or two targeted edits could move it to Distinction level.',
+      cls: 'mixed'
+    },
+    engaging: {
+      icon: '&#9989;',
+      label: 'Critically engaging',
+      title: 'Your paragraph is arguing with the literature.',
+      summary: 'Sources are grouped, contrasted, or limited rather than simply listed. This is the Merit-to-Distinction pattern. Check that the gap type is named and wired back to the research question.',
+      cls: 'engaging'
+    }
+  };
+
+  const v = verdicts[mode];
+  const vBlock = document.getElementById('verdict-block');
+  vBlock.className = 'verdict-block ' + v.cls;
+  document.getElementById('verdict-icon').innerHTML = v.icon;
+  document.getElementById('verdict-label').textContent = v.label;
+  document.getElementById('verdict-title').textContent = v.title;
+  document.getElementById('verdict-summary').textContent = v.summary;
+
+  // Signals
+  const descRow = document.getElementById('describe-signals-row');
+  const engRow  = document.getElementById('engage-signals-row');
+  descRow.innerHTML = '';
+  engRow.innerHTML  = '';
+
+  if (describeHits.length > 0) {
+    const intro = document.createElement('div');
+    intro.style.cssText = 'font-size:14px;color:#595959;text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px;';
+    intro.textContent = 'Describing signals';
+    descRow.appendChild(intro);
+    const row = document.createElement('div');
+    row.className = 'signals-row';
+    describeHits.forEach(h => {
+      const tag = document.createElement('span');
+      tag.className = 'signal-tag describe-tag';
+      tag.textContent = h.label;
+      row.appendChild(tag);
+    });
+    descRow.appendChild(row);
+  }
+
+  if (engageHits.length > 0) {
+    const intro = document.createElement('div');
+    intro.style.cssText = 'font-size:14px;color:#595959;text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px;margin-top:8px;';
+    intro.textContent = 'Engaging signals';
+    engRow.appendChild(intro);
+    const row = document.createElement('div');
+    row.className = 'signals-row';
+    engageHits.forEach(h => {
+      const tag = document.createElement('span');
+      tag.className = 'signal-tag engage-tag';
+      tag.textContent = h.label;
+      row.appendChild(tag);
+    });
+    engRow.appendChild(row);
+  }
+
+  if (describeHits.length === 0 && engageHits.length === 0) {
+    const none = document.createElement('span');
+    none.className = 'signal-tag none-tag';
+    none.textContent = 'No strong signals detected - paragraph may be too short';
+    document.getElementById('describe-signals-row').appendChild(none);
+  }
+
+  // Dimensions
+  const dims = [
+    { label: 'Critical engagement',  score: critEngagement,  note: critEngagement < 40 ? 'Sources are reported without analysis or comparison.' : critEngagement < 70 ? 'Some analysis present - sharpen the contrast.' : 'Contrast and evaluation are visible.' },
+    { label: 'Synthesis',            score: synthesis,        note: synthesis < 40 ? 'Sources are cited individually, not in relation to each other.' : synthesis < 70 ? 'Some grouping or comparison is present.' : 'Sources are grouped and compared across the paragraph.' },
+    { label: 'Gap presence',         score: gapPresence,      note: gapPresence < 40 ? 'No gap is named. This is required for Merit and above.' : gapPresence < 70 ? 'A gap is implied but not explicitly stated or typed.' : 'A gap is named and its type is visible.' },
+    { label: 'Link to RQ',           score: linkToRQ,         note: linkToRQ < 40 ? 'The paragraph does not connect to the research question.' : linkToRQ < 70 ? 'Some connection to the project context is visible.' : 'The gap is wired to the research question.' },
+  ];
+
+  const grid = document.getElementById('dimensions-grid');
+  grid.innerHTML = '';
+  dims.forEach(d => {
+    const card = document.createElement('div');
+    card.className = 'dim-card';
+    const fillCls = d.score < 40 ? 'low' : d.score < 70 ? 'mid' : 'high';
+    card.innerHTML = `
+      <div class="dim-label">${d.label}</div>
+      <div class="dim-bar-track">
+        <div class="dim-bar-fill ${fillCls}" style="width:${d.score}%"></div>
+      </div>
+      <div class="dim-note">${d.note}</div>`;
+    grid.appendChild(card);
+  });
+
+  document.getElementById('priority-text').textContent = priority;
+
+  const resultsEl = document.getElementById('results');
+  resultsEl.style.display = 'block';
+  resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ── EXEMPLAR TOGGLE ──────────────────────────────────────────
+function toggleExemplar() {
+  const panel = document.getElementById('exemplar-panel');
+  if (panel.style.display === 'block') {
+    panel.style.display = 'none';
+  } else {
+    panel.style.display = 'block';
+    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+// ── CLEAR ────────────────────────────────────────────────────
+function clearAll() {
+  document.getElementById('input-text').value = '';
+  document.getElementById('results').style.display = 'none';
+  document.getElementById('exemplar-panel').style.display = 'none';
+  document.getElementById('input-text').focus();
+}
+</script>
+</div></main>
+<footer class="site"><div class="wrap"><p>NB6015CEM Research Project Preparation. BSc (Hons) Ethical Hacking &amp; Network Security.</p><p>Niranga Dharmaratna, <a href="mailto:niranga@nibm.lk">niranga@nibm.lk</a>.</p><p>&copy; 2026 Niranga Dharmaratna. Content licensed under CC BY-NC-ND 4.0; code under MIT. <a href="../../licence.html">Licence and use</a>.</p></div></footer>
+</body>
+</html>

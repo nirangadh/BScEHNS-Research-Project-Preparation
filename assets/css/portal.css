@@ -33,7 +33,7 @@ nav.site { background: var(--white); border-bottom: 1px solid var(--steel-blue);
 nav.site .wrap { display: flex; flex-wrap: wrap; gap: 4px 16px; padding-top: 8px; padding-bottom: 8px; font-size: 0.92rem; }
 nav.site a { text-decoration: none; font-weight: 600; }
 nav.site a[aria-current] { color: var(--orange); }
-main { background: var(--white); }
+main { background: var(--white); overflow-wrap: break-word; }   /* a long web address in running text breaks onto the next line instead of widening the page */
 main .wrap { padding-top: 20px; padding-bottom: 32px; }
 h1 { font-size: 2.0rem; line-height: 1.2; margin: 0.2em 0 0.4em; }
 h2 { font-size: 1.5rem; line-height: 1.25; margin: 1.6em 0 0.4em; border-bottom: 3px solid var(--steel-blue); padding-bottom: 4px; }

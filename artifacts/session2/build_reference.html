@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Build the Reference | NB6015CEM Research Project Preparation</title>
+<link rel="stylesheet" href="../../assets/css/portal.css?v=d3ad175228c5">
+<style>
+.br-ref { overflow-wrap: anywhere; font-size: 0.92rem; margin: 0; }
+.br-ref .slot { border-bottom: 3px dotted var(--dark-grey); color: var(--dark-grey); }
+.br-ref .slot.set { border-bottom: 3px solid var(--orange); color: var(--near-black); font-weight: 600; font-style: normal; }
+.br-ref .slot.given { border-bottom: 3px solid var(--steel-blue); color: var(--near-black); font-style: normal; }
+.br-opts { display: grid; gap: 8px; margin: 8px 0; } .br-opts button { text-align: left; overflow-wrap: anywhere; }
+.pane.done { border-color: var(--green); border-width: 2px; }
+.br-given { overflow-wrap: anywhere; font-weight: 600; }
+.br-sticky { position: sticky; top: 0; z-index: 2; background: var(--white); padding: 6px 0; border-bottom: 3px solid var(--steel-blue); }
+.br-sticky p { margin: 4px 0 0; }
+.br-sticky .st { font-size: 0.92rem; font-weight: 600; }
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap">
+<div class="inst">National Institute of Business Management (NIBM) | Coventry University (CU)</div>
+<div class="mod"><a href="../../index.html">NB6015CEM Research Project Preparation</a></div>
+<div class="prog">BSc (Hons) Ethical Hacking &amp; Network Security</div>
+</div></header>
+<nav class="site" aria-label="Portal"><div class="wrap"><a href="../../index.html">Home</a><a href="../../map.html">Module map</a><a href="../../licence.html">Licence</a></div></nav>
+<main><div class="wrap">
+<p class="crumb"><a href="../../notes/s2.html">Back to the Session 2 notes</a></p>
+<h1>Build the Reference</h1>
+<div class="bars"><span class="a"></span><span class="b"></span></div>
+<p class="label">[Illustrative example - do not cite] The conference paper is a pattern, not a real paper. The RFC and the NIST publication are real documents.</p>
+<div class="box learn" data-nb-concept><span class="tag">One idea</span><p>Every reference answers four questions: who, when, what and where. The kind of source changes the answers, and most of all the answer to "where".</p></div>
+<figure class="sect" data-nb-opening><img class="scene" src="../../assets/illus/s2_a_ref.svg" alt="A person points at a long card divided into four parts. Three parts are filled, in dark blue, mid blue and green. The fourth part is an empty orange outline, and an orange block waits below it."><figcaption>The picture: a reference in four parts. Three parts are in place, and the fourth waits to be placed.</figcaption></figure>
+<div class="art" data-nb-artefact><div class="btns" id="br-types"></div>
+<p class="quoteq" id="br-rule"></p>
+<div class="br-sticky">
+  <p class="quoteq br-ref" id="br-ref" aria-live="polite"></p>
+  <p class="st" id="br-status" aria-live="polite"></p>
+</div>
+<p class="hint" id="br-given-note"></p>
+<div id="br-slots"></div>
+<div class="fb ok" id="br-done" hidden></div>
+<div class="btns"><button type="button" class="btn alt" id="br-restart">Start this reference again</button></div></div>
+<p class="crumb"><a href="../../notes/s2.html">Back to the Session 2 notes</a></p>
+<script type="application/json" id="nb-data">{"slots": [{"id": "who", "name": "Who", "ask": "Who wrote it?"}, {"id": "when", "name": "When", "ask": "In which year?"}, {"id": "what", "name": "What", "ask": "What is it called?"}, {"id": "where", "name": "Where", "ask": "Who published it, and where can it be found?"}], "types": [{"name": {"t": "Conference paper"}, "rule": {"t": "Conference papers are NOT journal articles. They are published in Proceedings, not in journals with volumes and issues."}, "parts": [{"t": "Author, A."}, {"t": "(2022)."}, {"t": "Title of paper."}, {"t": "In Proceedings of the 31st USENIX Security Symposium (pp. 1123-1140). USENIX Association."}], "error": {"t": "A conference paper dressed as a journal article: "}, "options": {"where": [{"t": "Journal of Security, 14(3), 22-31.", "ok": false, "why": "No. This is the form of a journal article, with a volume, an issue and pages. A conference paper has no volume and no issue, so these numbers would be invented."}, {"text": "USENIX Security Symposium.", "ok": false, "why": "No. The name of the conference alone is not enough. The reader needs the Proceedings, the page range and the publisher."}, {"t": "In Proceedings of the 31st USENIX Security Symposium (pp. 1123-1140). USENIX Association.", "ok": true, "why": "Yes. The paper is in the Proceedings of the conference. The page range and the publisher complete the answer to \"where\"."}]}, "given_note": "For this kind of source the notes show one error only, and it is in the last part. The first three parts are the same in the wrong form and in the right form, so they are already in place."}, {"name": {"t": "IETF RFC"}, "rule": {"t": "RFCs have authors, dates, and DOIs. They are not anonymous web pages."}, "parts": [{"t": "Rescorla, E."}, {"t": "(2018)."}, {"t": "The Transport Layer Security (TLS) protocol version 1.3 (RFC 8446)."}, {"t": "RFC Editor. https://doi.org/10.17487/RFC8446"}], "error": {"t": "An RFC cited as a bare webpage: "}, "options": {"who": [{"t": "Internet Engineering Task Force.", "ok": false, "why": "No. The IETF is the organisation behind the series of documents. This RFC has a named author, and APA7 puts the named author first."}, {"t": "Rescorla, E.", "ok": true, "why": "Yes. The RFC names its author."}], "when": [{"t": "(2018).", "ok": true, "why": "Yes. Every RFC carries its date of publication."}, {"t": "(n.d.).", "ok": false, "why": "No. \"n.d.\" means no date. An RFC always has one."}], "what": [{"t": "TLS 1.3.", "ok": false, "why": "No. This is a short name, not the title. The reader also needs the RFC number."}, {"t": "The Transport Layer Security (TLS) protocol version 1.3 (RFC 8446).", "ok": true, "why": "Yes. The full title, followed by the RFC number in brackets."}], "where": [{"t": "RFC Editor. https://doi.org/10.17487/RFC8446", "ok": true, "why": "Yes. The publisher is the RFC Editor, and the DOI is a permanent link."}, {"t": "https://www.rfc-editor.org/...", "ok": false, "why": "No. This is a bare web address. It names no publisher, and an address can change. The DOI does not."}]}}, {"name": {"t": "NIST Special Publication"}, "rule": {"t": "NIST Special Publications list named individual authors on the cover page. APA7 prefers those named authors where they are identified, with NIST itself as the issuing body. Not just a URL."}, "parts": [{"t": "Rose, S., Borchert, O., Mitchell, S., and Connelly, S."}, {"t": "(2020)."}, {"t": "Zero trust architecture (NIST SP 800-207)."}, {"t": "National Institute of Standards and Technology. https://doi.org/10.6028/NIST.SP.800-207"}], "error": {"t": "NIST or NCSC guidance reduced to a URL: "}, "options": {"who": [{"text": "No author is needed. The web address is enough.", "ok": false, "why": "No. The notes call this error \"the NIST website\". The document has authors, and they are named on its cover page."}, {"t": "National Institute of Standards and Technology.", "ok": false, "why": "No. NIST is the issuing body, and it belongs in the last part. The notes say that APA7 prefers the named authors where they are identified."}, {"t": "Rose, S., Borchert, O., Mitchell, S., and Connelly, S.", "ok": true, "why": "Yes. The four authors named on the cover page."}], "when": [{"t": "(2020).", "ok": true, "why": "Yes. The year of publication."}, {"t": "(n.d.).", "ok": false, "why": "No. The publication is dated."}], "what": [{"t": "\"the NIST website\"", "ok": false, "why": "No. A website is not a title. The document has a title and a publication number."}, {"t": "Zero trust architecture (NIST SP 800-207).", "ok": true, "why": "Yes. The title, followed by the publication number in brackets."}], "where": [{"t": "https://csrc.nist.gov/...", "ok": false, "why": "No. This is the web address alone. The reader needs the issuing body and the DOI."}, {"t": "National Institute of Standards and Technology. https://doi.org/10.6028/NIST.SP.800-207", "ok": true, "why": "Yes. NIST as the issuing body, and then the DOI."}]}}], "given": "already in place", "empty": "not chosen yet", "status": "{n} of {of} parts chosen correctly.", "done_head": "The reference is complete, and it is the right form in the notes, word for word.", "error_head": "The common error that you have just avoided:"}</script>
+<script>
+(function () {
+  var D = JSON.parse(document.getElementById('nb-data').textContent);
+  var $ = function (id) { return document.getElementById(id); };
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  var cur = 0, set = {};
+  $('br-types').innerHTML = D.types.map(function (t, i) { return '<button type="button" class="btn alt" id="type-' + i + '" data-type="' + i + '" aria-pressed="false">' + esc(t.name.t) + '</button>'; }).join('');
+  function open_(t) { return D.slots.filter(function (s) { return t.options[s.id]; }); }
+  function drawRef() {
+    var t = D.types[cur];
+    $('br-ref').innerHTML = D.slots.map(function (s, i) {
+      if (!t.options[s.id]) return '<span class="slot given">' + esc(t.parts[i].t) + '</span>';
+      return set[s.id] ? '<span class="slot set">' + esc(t.parts[i].t) + '</span>' : '<span class="slot">' + esc(s.name.toLowerCase()) + '?</span>';
+    }).join(' ');
+    var need = open_(t), n = need.filter(function (s) { return set[s.id]; }).length;
+    $('br-status').textContent = D.status.replace('{n}', n).replace('{of}', need.length);
+    var done = n === need.length; $('br-done').hidden = !done;
+    if (done) $('br-done').innerHTML = '<p><strong>' + esc(D.done_head) + '</strong></p><p>' + esc(D.error_head) + ' ' + esc(t.error.t.replace(/:\s*$/, '.')) + '</p>';
+  }
+  function drawSlots() {
+    var t = D.types[cur];
+    $('br-given-note').textContent = t.given_note || '';
+    $('br-slots').innerHTML = D.slots.map(function (s, i) {
+      var head = '<h3>' + esc(s.name) + '</h3><p>' + esc(s.ask) + '</p>';
+      if (!t.options[s.id]) return '<div class="pane done">' + head + '<p class="br-given">' + esc(t.parts[i].t) + '</p><p class="hint">' + esc(D.given) + '</p></div>';
+      var opts = t.options[s.id].map(function (o, j) { return '<button type="button" class="btn alt" id="opt-' + s.id + '-' + j + '" data-slot="' + s.id + '" data-j="' + j + '">' + esc(o.t || o.text) + '</button>'; }).join('');
+      return '<div class="pane" id="pane-' + s.id + '">' + head + '<div class="br-opts">' + opts + '</div><div class="fb" id="fb-' + s.id + '" aria-live="polite"></div></div>';
+    }).join('');
+  }
+  function load(i) {
+    cur = i; set = {};
+    D.types.forEach(function (_, j) { $('type-' + j).className = 'btn' + (j === i ? '' : ' alt'); $('type-' + j).setAttribute('aria-pressed', j === i ? 'true' : 'false'); });
+    $('br-rule').textContent = D.types[i].rule.t; drawSlots(); drawRef();
+  }
+  $('br-types').addEventListener('click', function (e) { var b = e.target.closest('button[data-type]'); if (b) load(+b.getAttribute('data-type')); });
+  $('br-slots').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-slot]'); if (!b) return;
+    var id = b.getAttribute('data-slot'), o = D.types[cur].options[id][+b.getAttribute('data-j')], fb = $('fb-' + id);
+    fb.className = 'fb ' + (o.ok ? 'ok' : 'no'); fb.textContent = o.why;
+    if (o.ok) { set[id] = true; $('pane-' + id).classList.add('done'); }
+    drawRef();
+  });
+  $('br-restart').addEventListener('click', function () { load(cur); });
+  load(0);
+})();
+</script>
+</div></main>
+<footer class="site"><div class="wrap"><p>NB6015CEM Research Project Preparation. BSc (Hons) Ethical Hacking &amp; Network Security.</p><p>Niranga Dharmaratna, <a href="mailto:niranga@nibm.lk">niranga@nibm.lk</a>.</p><p>&copy; 2026 Niranga Dharmaratna. Content licensed under CC BY-NC-ND 4.0; code under MIT. <a href="../../licence.html">Licence and use</a>.</p></div></footer>
+</body>
+</html>

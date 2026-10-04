@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Two Ends of One Sentence | NB6015CEM Research Project Preparation</title>
+<link rel="stylesheet" href="../../assets/css/portal.css?v=d3ad175228c5">
+<style>
+.te-cards { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.te-cards button { min-width: 44px; }
+.te-types { display: grid; gap: 8px; margin: 10px 0; } .te-types button { text-align: left; }
+.te-end { border-left: 6px solid var(--orange); padding: 6px 12px; margin: 8px 0; background: var(--pale-grey); border-radius: 0 6px 6px 0; }
+.te-end .w { font-weight: 600; display: block; }
+.art textarea { font: inherit; width: 100%; min-height: 5.2em; padding: 8px 10px; border: 2px solid var(--steel-blue); border-radius: 6px; background: var(--white); color: var(--near-black); }
+.te-join { font-weight: 600; color: var(--ink-blue); }
+.te-own-types { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0; }
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap">
+<div class="inst">National Institute of Business Management (NIBM) | Coventry University (CU)</div>
+<div class="mod"><a href="../../index.html">NB6015CEM Research Project Preparation</a></div>
+<div class="prog">BSc (Hons) Ethical Hacking &amp; Network Security</div>
+</div></header>
+<nav class="site" aria-label="Portal"><div class="wrap"><a href="../../index.html">Home</a><a href="../../map.html">Module map</a><a href="../../licence.html">Licence</a></div></nav>
+<main><div class="wrap">
+<p class="crumb"><a href="../../notes/s2.html">Back to the Session 2 notes</a></p>
+<h1>Two Ends of One Sentence</h1>
+<div class="bars"><span class="a"></span><span class="b"></span></div>
+<p class="label">[Illustrative example - do not cite] Tharindu, Chathura and Dilini are invented students, and the literature that their gaps describe is invented too.</p>
+<div class="box learn" data-nb-concept><span class="tag">One idea</span><p>A gap and a research question are two ends of one sentence. The type of the gap decides what the question must test.</p></div>
+<figure class="sect" data-nb-opening><img class="scene" src="../../assets/illus/s2_a_ends.svg" alt="A person points at an orange joint in the middle of a line. The line connects an empty outlined card on the left with a dark blue speech bubble on the right that holds a question mark. Three small squares lie below."><figcaption>The picture: the empty card is the gap, and the bubble is the question. The orange joint between them is the type of the gap. The three squares are the three types.</figcaption></figure>
+<div class="box notice" data-nb-not-a-grader><span class="tag">Not a grader</span><p>This tool does not read, judge or mark what you type. In the second part it only joins your words into one sentence and counts the parts you have filled. Whether the sentence is true is for you and your supervisor to decide.</p></div>
+<div class="art" data-nb-artefact><div class="btns">
+  <button type="button" class="btn" id="tab-ex" aria-pressed="true">1. Three students' gaps</button>
+  <button type="button" class="btn alt" id="tab-own" aria-pressed="false">2. Your own sentence</button>
+</div>
+<section id="view-ex">
+  <h2>Name the type of the gap</h2>
+  <p>Each card is one statement from the notes. Choose its type. When you are right, you see the other end of the sentence.</p>
+  <div class="te-cards" id="te-cards"></div>
+  <p class="hint" id="te-who"></p>
+  <p class="quoteq" id="te-gap"></p>
+  <div class="te-types" id="te-types"></div>
+  <div class="fb" id="fb-type" aria-live="polite"></div>
+  <div class="pane" id="te-endpane" hidden>
+    <h3 id="te-endhead"></h3>
+    <div id="te-end"></div>
+  </div>
+</section>
+<section id="view-own" hidden>
+  <h2>Join your own two ends</h2>
+  <p>Write what is absent, choose the type, and write what your project tests. The tool joins them in the pattern of Section 4.4 of the notes.</p>
+  <label for="own-gap">First end: what is absent from the literature you have reviewed</label>
+  <p class="hint">Begin as the notes do, for example: "No reviewed study ..."</p>
+  <textarea id="own-gap" autocomplete="off"></textarea>
+  <p id="own-type-label"><strong>The type of this gap</strong></p>
+  <div class="te-own-types" id="own-types" role="group" aria-labelledby="own-type-label"></div>
+  <p class="hint" id="own-hint" aria-live="polite"></p>
+  <label for="own-test">Second end: what your project does about it</label>
+  <p class="hint">Begin with a word such as "comparing" or "testing", so that it follows the words "which is what this project tests by".</p>
+  <textarea id="own-test" autocomplete="off"></textarea>
+  <h2>Your sentence</h2>
+  <p class="quoteq" id="own-sentence" aria-live="polite"></p>
+  <p id="own-status" aria-live="polite"></p>
+  <div class="fb" id="own-test-note"></div>
+  <p>When the sentence reads as one thought, build the paragraph that leads to it, and check that paragraph in the <a href="NB6015CEM_S2_Critical_Mirror.html">Critical Mirror</a>.</p>
+</section></div>
+<div class="box store" data-nb-store-notice><p>What you type here stays on this device. It is never sent anywhere.</p><div class="btns"><button type="button" class="btn alt" id="nb-reset" data-nb-reset>Clear my answers from this device</button></div></div>
+<p class="crumb"><a href="../../notes/s2.html">Back to the Session 2 notes</a></p>
+<script type="application/json" id="nb-data">{"types": [{"id": "methodology", "name": {"t": "Methodology gap"}, "def": {"t": "no one has applied method M to problem P in this form."}, "hinge": "The question must test a method: your structured way of working against the way it is done now."}, {"id": "context", "name": {"t": "Context gap"}, "def": {"t": "method M has been studied but not in context C"}, "hinge": "The question must test the method in the missing setting."}, {"id": "evaluation", "name": {"t": "Evaluation gap"}, "def": {"t": "studies exist but none measure outcome O rigorously"}, "hinge": "The question must measure the missing outcome, against a baseline."}, {"id": "none", "name": {"text": "Not a gap"}, "def": {"t": "It names nothing."}, "hinge": "No question can follow from it."}], "cards": [{"who": "Tharindu, first half", "gap": {"t": "No reviewed study evaluates feature-based detection on mobile-banking authentication specifically"}, "type": "context", "right": "Yes: a context gap. Feature-based detection has been studied, but not in this setting. The notes give \"not on mobile clients\" as their own example of a context gap.", "end": {"t": "which is what this project tests by comparing a feature-based classifier against a rate-limiting baseline."}, "link": "Because the setting is what is missing, the project runs its test in that setting: authentication for mobile banking."}, {"who": "Tharindu, second half", "gap": {"t": "none reports a false-positive rate against a triage threshold"}, "type": "evaluation", "right": "Yes: an evaluation gap. Studies exist, but none measures this outcome. The notes use these very words as their example of an evaluation gap.", "end": {"t": "which is what this project tests by comparing a feature-based classifier against a rate-limiting baseline."}, "link": "Because an outcome is what is missing, the project measures it, and a comparison against a baseline gives the measurement a meaning. One sentence of Tharindu's holds two gaps, and one question answers both."}, {"who": "Chathura", "gap": {"t": "What none of them measures is exploitability change"}, "type": "evaluation", "right": "Yes: an evaluation gap. The frameworks exist and are widely used, but none measures whether attacks still succeed. The notes name it: \"this evaluation gap\".", "end": {"t": "by testing attack-technique success rate against a benchmark-hardened versus a baseline system."}, "link": "The outcome that nobody measures, attack-technique success rate, is exactly what the question measures."}, {"who": "Dilini", "gap": {"t": "the reviewed literature offers no repeatable, taxonomy-driven methodology aimed specifically at object-level authorisation in healthcare FHIR-style APIs"}, "type": "methodology", "right": "Yes: a methodology gap. The notes say so, and add \"not a tooling gap\": what is missing is a structured way to test, not a better scanner.", "end": {"t": "asking whether a structured object-level-authorisation methodology detects a higher proportion of seeded flaws than unstructured manual testing in a controlled FHIR-style API."}, "link": "Because a method is what is missing, the question compares a structured method with unstructured testing."}, {"who": "The weak review in Section 3.5", "gap": {"t": "more research is needed in this area"}, "type": "none", "right": "Yes: it is not a gap. The notes say that this phrase names no absence and no gap type.", "end": null, "link": "Nothing follows. With no named absence there is no second end, so no question can be joined to it."}], "wrong": "Not this type. The notes define it like this:", "wrong_none": "It is a gap: it names something specific that no reviewed study has done. Which type?", "end_head": "The other end of the sentence", "connector": {"t": "which is what this project tests by"}, "own_status": "You have filled {n} of 3 parts. This tool only joins them. It does not read your words.", "own_empty": "Your sentence will appear here when you have written both ends.", "own_types": {"methodology": "You chose a methodology gap. Check that your second end tests a method.", "context": "You chose a context gap. Check that your second end runs the test in that setting.", "evaluation": "You chose an evaluation gap. Check that your second end measures that outcome, against a baseline."}, "own_test": {"t": "If you can write this sentence, your framing is working. If you cannot, return to Session 1: the question is not yet sharp enough."}}</script>
+<script data-nb-storage-helper>
+(function () {
+  var NS = "nb6015cem.s2.two_ends.";
+  function store() { try { return window.localStorage; } catch (e) { return null; } }
+  window.NBStore = {
+    ns: NS,
+    get: function (k) { var s = store(); if (!s) return null; try { return JSON.parse(s.getItem(NS + k)); } catch (e) { return null; } },
+    set: function (k, v) { var s = store(); if (!s) return false; try { s.setItem(NS + k, JSON.stringify(v)); return true; } catch (e) { return false; } },
+    reset: function () { var s = store(); if (!s) return; var d = []; for (var i = 0; i < s.length; i++) { var k = s.key(i); if (k && k.indexOf(NS) === 0) d.push(k); } d.forEach(function (k) { s.removeItem(k); }); }
+  };
+  document.addEventListener('click', function (e) { var b = e.target.closest ? e.target.closest('[data-nb-reset]') : null; if (b) { window.NBStore.reset(); document.dispatchEvent(new CustomEvent('nb-reset')); } });
+})();
+</script>
+<script>
+(function () {
+  var D = JSON.parse(document.getElementById('nb-data').textContent);
+  var $ = function (id) { return document.getElementById(id); };
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  function nm(t) { return t.name.t || t.name.text; }
+  function typeOf(id) { return D.types.filter(function (t) { return t.id === id; })[0]; }
+  // ---- part 1: the notes' own gap statements ----
+  var cur = 0;
+  $('te-cards').innerHTML = D.cards.map(function (c, i) { return '<button type="button" class="btn alt" id="card-' + i + '" data-card="' + i + '" aria-pressed="false" aria-label="Card ' + (i + 1) + '">' + (i + 1) + '</button>'; }).join('');
+  $('te-types').innerHTML = D.types.map(function (t) { return '<button type="button" class="btn alt" id="type-' + t.id + '" data-type="' + t.id + '">' + esc(nm(t)) + '</button>'; }).join('');
+  $('te-endhead').textContent = D.end_head;
+  function load(i) {
+    cur = i; var c = D.cards[i];
+    D.cards.forEach(function (_, j) { $('card-' + j).className = 'btn' + (j === i ? '' : ' alt'); $('card-' + j).setAttribute('aria-pressed', j === i ? 'true' : 'false'); });
+    $('te-who').textContent = c.who + ':'; $('te-gap').textContent = c.gap.t;
+    $('fb-type').className = 'fb'; $('fb-type').innerHTML = ''; $('te-endpane').hidden = true;
+  }
+  $('te-cards').addEventListener('click', function (e) { var b = e.target.closest('button[data-card]'); if (b) load(+b.getAttribute('data-card')); });
+  $('te-types').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-type]'); if (!b) return;
+    var c = D.cards[cur], id = b.getAttribute('data-type'), t = typeOf(id), fb = $('fb-type');
+    if (id === c.type) {
+      fb.className = 'fb ok'; fb.innerHTML = '<p>' + esc(c.right) + '</p>';
+      $('te-end').innerHTML = (c.end ? '<div class="te-end"><span class="w">' + esc(c.end.t) + '</span></div>' : '') + '<p><strong>' + esc(t.hinge) + '</strong> ' + esc(c.link) + '</p>';
+      $('te-endpane').hidden = false;
+    } else {
+      fb.className = 'fb no'; $('te-endpane').hidden = true;
+      fb.innerHTML = id === 'none' ? '<p>' + esc(D.wrong_none) + '</p>' : '<p>' + esc(D.wrong) + '</p><p class="quoteq">' + esc(nm(t)) + ': ' + esc(t.def.t) + '</p>';
+    }
+  });
+  // ---- part 2: the learner's own two ends: nothing is read or judged, only joined and counted; kept on the device ----
+  var OWN = D.types.filter(function (t) { return t.id !== 'none'; });
+  var own = window.NBStore.get('own') || {};
+  $('own-types').innerHTML = OWN.map(function (t) { return '<button type="button" class="btn alt" id="own-type-' + t.id + '" data-own-type="' + t.id + '" aria-pressed="false">' + esc(nm(t)) + '</button>'; }).join('');
+  $('own-test-note').textContent = D.own_test.t;
+  function drawOwn() {
+    var n = (own.gap ? 1 : 0) + (own.type ? 1 : 0) + (own.test ? 1 : 0);
+    OWN.forEach(function (t) { var on = own.type === t.id; $('own-type-' + t.id).className = 'btn' + (on ? '' : ' alt'); $('own-type-' + t.id).setAttribute('aria-pressed', on ? 'true' : 'false'); });
+    $('own-hint').textContent = own.type ? D.own_types[own.type] : '';
+    $('own-status').textContent = D.own_status.replace('{n}', n);
+    if (own.gap && own.test) $('own-sentence').innerHTML = esc(own.gap.replace(/[.\s]+$/, '')) + ', <span class="te-join">' + esc(D.connector.t) + '</span> ' + esc(own.test.replace(/[.\s]+$/, '')) + '.';
+    else $('own-sentence').textContent = D.own_empty;
+  }
+  function fill() { $('own-gap').value = own.gap || ''; $('own-test').value = own.test || ''; drawOwn(); }
+  $('view-own').addEventListener('input', function (e) {
+    var k = e.target.id === 'own-gap' ? 'gap' : e.target.id === 'own-test' ? 'test' : null; if (!k) return;
+    own[k] = e.target.value.trim(); window.NBStore.set('own', own); drawOwn();
+  });
+  $('own-types').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-own-type]'); if (!b) return;
+    own.type = b.getAttribute('data-own-type'); window.NBStore.set('own', own); drawOwn();
+  });
+  document.addEventListener('nb-reset', function () { own = {}; fill(); });
+  // ---- the two views ----
+  function show(which) {
+    $('view-ex').hidden = which !== 'ex'; $('view-own').hidden = which !== 'own';
+    [['tab-ex', 'ex'], ['tab-own', 'own']].forEach(function (t) { var on = t[1] === which; $(t[0]).className = 'btn' + (on ? '' : ' alt'); $(t[0]).setAttribute('aria-pressed', on ? 'true' : 'false'); });
+  }
+  $('tab-ex').addEventListener('click', function () { show('ex'); });
+  $('tab-own').addEventListener('click', function () { show('own'); });
+  load(0); fill();
+})();
+</script>
+</div></main>
+<footer class="site"><div class="wrap"><p>NB6015CEM Research Project Preparation. BSc (Hons) Ethical Hacking &amp; Network Security.</p><p>Niranga Dharmaratna, <a href="mailto:niranga@nibm.lk">niranga@nibm.lk</a>.</p><p>&copy; 2026 Niranga Dharmaratna. Content licensed under CC BY-NC-ND 4.0; code under MIT. <a href="../../licence.html">Licence and use</a>.</p></div></footer>
+</body>
+</html>

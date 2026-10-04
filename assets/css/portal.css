@@ -75,6 +75,11 @@ img.scene { display: block; width: 100%; height: auto; max-height: 230px; margin
 .member p { margin: 0; font-size: 0.95rem; }
 .label { font-style: italic; color: var(--dark-grey); }
 img.journey { max-height: none; margin: 4px 0 14px; }
+dl.sbox { margin: 10px 0 0; display: grid; grid-template-columns: auto 1fr; gap: 4px 10px; font-size: 0.95rem; }
+dl.sbox dt { font-weight: 700; color: var(--dark-grey); } dl.sbox dd { margin: 0; }
+.resline { display: block; margin-top: 6px; font-size: 0.88rem; }
+.res.inactive { color: var(--dark-grey); }
+ul.reslist li { margin: 4px 0; }
 footer.site { font-size: 0.82rem; color: var(--dark-grey); }
 footer.site .wrap { padding-top: 16px; padding-bottom: 28px; }
 footer.site p { margin: 4px 0; }

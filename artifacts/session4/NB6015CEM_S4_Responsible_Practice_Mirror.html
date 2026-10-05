@@ -125,10 +125,14 @@ var TRIGGERS = [
     obligation:'a dual-use and disclosure question',
     answered:/\b(dual[- ]use|aggregate|withh\w*|not publish\w*|disclosure|CERT|vendor|coordinated|archive rather than published)\b/i,
     unanswered:'your method produces something an attacker could use, but your text says nothing about dual-use or disclosure' },
-  { id:'special', label:'Touches a special-category domain', re:/\b(health|patient|clinical|medical|hospital|biometric|child|children|minor|financial|bank|payment|salary)s?\b/i,
+  { id:'special', label:'Touches a special-category domain', re:/\b(health|patient|clinical|medical|hospital|biometric)s?\b/i,
     obligation:'the special-category data provisions',
     answered:/\b(special[- ]category|article\s*9|synthetic|never derived from real|no real (patient|customer)s?|de[- ]identif\w*)\b/i,
-    unanswered:'your method touches a special-category domain, but your text never addresses special-category data' }
+    unanswered:'your method touches a special-category domain, but your text never addresses special-category data' },
+  { id:'sensitive', label:'Touches a sensitive data domain', re:/\b(child|children|minor|financial|bank|payment|salary)s?\b/i,
+    obligation:'extra care for financial data or data about children (sensitive, though not special-category in law)',
+    answered:/\b(synthetic|synthetically|never derived from real|no real (customer|account|child|children)s?|anonymis\w*|pseudonymis\w*|de[- ]identif\w*|consent|parental|safeguard\w*|encrypted)\b/i,
+    unanswered:'your method touches financial data or data about children, but your text never says how that data is protected' }
 ];
 var GENERIC_RE = [
   { re:/\bwill compl(y|ies)\b/i, t:'"will comply" - an assertion with no object' },

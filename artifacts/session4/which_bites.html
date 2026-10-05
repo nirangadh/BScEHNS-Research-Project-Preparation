@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Which Provision Bites | NB6015CEM Research Project Preparation</title>
+<link rel="stylesheet" href="../../assets/css/portal.css?v=d3ad175228c5">
+<style>
+.wb-opts { display: grid; gap: 8px; margin: 8px 0; }
+.wb-opts button { text-align: left; }
+.pane.done { border-color: var(--green); border-width: 2px; }
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap">
+<div class="inst">National Institute of Business Management (NIBM) | Coventry University (CU)</div>
+<div class="mod"><a href="../../index.html">NB6015CEM Research Project Preparation</a></div>
+<div class="prog">BSc (Hons) Ethical Hacking &amp; Network Security</div>
+</div></header>
+<nav class="site" aria-label="Portal"><div class="wrap"><a href="../../index.html">Home</a><a href="../../map.html">Module map</a><a href="../../licence.html">Licence</a></div></nav>
+<main><div class="wrap">
+<p class="crumb"><a href="../../notes/s4.html">Back to the Session 4 notes</a></p>
+<h1>Which Provision Bites</h1>
+<div class="bars"><span class="a"></span><span class="b"></span></div>
+<p class="label">[Illustrative example - do not cite] Tharindu, Chathura and Dilini are invented students, and their projects and organisations are invented too.</p>
+<div class="box learn" data-nb-concept><span class="tag">One idea</span><p>The method decides which provision bites. Three projects, one module, three different answers: and each answer can be read out of what the method touches, captures and produces.</p></div>
+<figure class="sect" data-nb-opening><img class="scene" src="../../assets/illus/s4_a_bites.svg" alt="A person points at three cards in a column, one blue, one orange and one green. An arrow leads from each card to a padlock of the same colour."><figcaption>The picture: three methods, and a different lock for each. No lock fits every method. You find the right one by reading the card.</figcaption></figure>
+<div class="art" data-nb-artefact><div class="btns" id="wb-cases"></div>
+<div class="pane">
+  <h2 id="wb-who"></h2>
+  <p>The method feature, in the words of the notes:</p>
+  <p class="quoteq" id="wb-feature"></p>
+</div>
+<div class="pane" id="wb-pane-b">
+  <h2>Step 1. What bites hardest?</h2>
+  <p id="wb-ask-b"></p>
+  <div class="wb-opts" id="wb-bites"></div>
+  <div class="fb" id="fb-bite" aria-live="polite"></div>
+</div>
+<div class="pane" id="wb-pane-c" hidden>
+  <h2>Step 2. What changes in practice?</h2>
+  <p id="wb-ask-c"></p>
+  <div class="wb-opts" id="wb-changes"></div>
+  <div class="fb" id="fb-change" aria-live="polite"></div>
+</div>
+<p id="wb-status" aria-live="polite"></p>
+<div class="fb ok" id="wb-done" hidden></div>
+<div class="btns"><button type="button" class="btn alt" id="wb-restart">Start again</button></div></div>
+<p class="crumb"><a href="../../notes/s4.html">Back to the Session 4 notes</a></p>
+<script type="application/json" id="nb-data">{"bites": [{"t": "Data protection: lawful basis and data minimisation"}, {"t": "No statute bites; the live issues are dual-use and disclosure"}, {"t": "Special-category data, and the authorisation boundary itself"}], "changes": [{"t": "Synthetic generation instead of capture; identifiers hashed and truncated; retention stated in the application"}, {"t": "Efficacy reported in aggregate; a coordinated disclosure route agreed in advance in case a gap is found in a vendor default"}, {"t": "Patient records strictly synthetic, never derived from real records; testing confined to the researcher's own instance; no real deployment approached"}], "cases": [{"who": "Tharindu", "label": {"t": "E1 Tharindu, detection"}, "feature": {"t": "Consumes authentication events that link a credential identifier to an access attempt"}, "order_b": [1, 2, 0], "order_c": [2, 0, 1], "why_b": ["Yes. Each event links a credential identifier to an access attempt, so the events are personal data. That raises the two data-protection questions: on what basis is the data used, and is it the least that is needed?", "Not this one. Tharindu's method consumes data about people's sign-in attempts, so a data-protection provision does bite. \"No statute bites\" belongs to a project that holds no personal data.", "Not this one. The notes keep special-category data for a domain such as health. Tharindu's events are sign-in events at a bank, and his method feature says nothing about testing an authorisation boundary."], "why_c": ["Yes. Each change answers the provision. Synthetic data removes the lawful-basis question. Hashing and truncating hold less than the full identifier, which is data minimisation. Stating the retention says how long the data is kept.", "Not this one. Reporting in aggregate and agreeing a disclosure route answer a dual-use problem. Tharindu's hardest provision is about the personal data that his detector consumes.", "Not this one. Tharindu has no patient records. This change belongs to a project in the health domain."]}, {"who": "Chathura", "label": {"t": "E2 Chathura, hardening"}, "feature": {"t": "Produces a measured map of which attack techniques a configuration baseline stops and which it does not"}, "order_b": [2, 0, 1], "order_c": [0, 1, 2], "why_b": ["Not this one. A map of attack techniques against a configuration is not data about people. There is no personal data here for a lawful basis to cover.", "Yes. His method holds no personal data and runs on his own testbed, so no statute bites. But the result is a map of what the baseline does not stop. That is useful to an attacker, so dual-use and disclosure are the live issues.", "Not this one. There is no health data in a Windows hardening testbed. The testbed is also his own, so no authorisation boundary is under test."], "why_c": ["Not this one. Synthetic generation and hashed identifiers protect personal data. Chathura's method holds none.", "Yes. Reporting in aggregate limits what an attacker can take from the result. Agreeing a disclosure route in advance prepares for the case where a gap is found in a vendor default.", "Not this one. There are no patient records in this project. Its risk is in what the result shows, not in the data that it holds."]}, {"who": "Dilini", "label": {"t": "E3 Dilini, methodology"}, "feature": {"t": "Seeds authorisation flaws into a health-domain API and tests reaching records across roles"}, "order_b": [0, 1, 2], "order_c": [1, 2, 0], "why_b": ["Close, but not the hardest. Data protection does apply. But the notes pick out something stronger for a project in the health domain: the special category. Lawful basis and data minimisation are Tharindu's row.", "Not this one. A project that works with patient records in the health domain cannot say that no statute bites.", "Yes. The API is in the health domain, so its records would be special-category data. And her method tests whether one role can reach the records of another, so the authorisation boundary is the very thing under test."], "why_c": ["Close, but not hers. This row hashes identifiers that come from a published dataset. Dilini's patient records are never derived from real records at all.", "Not this one. Reporting in aggregate answers a dual-use problem. It does not deal with health data, or with the boundary that Dilini tests.", "Yes. Strictly synthetic records mean that no real health data is ever held. Keeping the testing to her own instance keeps her inside what she is authorised to do."]}], "ask_b": "Read the method feature. Which of these bites hardest for {who}?", "ask_c": "Now choose what changes in practice for {who}, because of that.", "status": "{n} of 3 projects worked out.", "done_head": "All three worked out. The notes draw two lessons from the table.", "done1": {"t": "Each triggers a different provision, and each reason comes entirely from the method."}, "done2": {"t": "Least legal exposure is not least ethical exposure."}, "done_note": "Now ask the same two questions about your own method. What bites hardest? What does that change in what you will do?"}</script>
+<script>
+(function () {
+  var D = JSON.parse(document.getElementById('nb-data').textContent);
+  var $ = function (id) { return document.getElementById(id); };
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  var cur = 0, st = [];
+  function reset() { st = D.cases.map(function () { return { b: false, c: false }; }); }
+  function solved() { return st.filter(function (s) { return s.b && s.c; }).length; }
+  function opts(kind, list, order) {
+    return order.map(function (k) { return '<button type="button" class="btn alt" id="' + kind + '-' + k + '" data-kind="' + kind + '" data-k="' + k + '">' + esc(list[k].t) + '</button>'; }).join('');
+  }
+  function draw() {
+    var c = D.cases[cur], s = st[cur];
+    $('wb-cases').innerHTML = D.cases.map(function (x, i) {
+      return '<button type="button" class="btn' + (i === cur ? '' : ' alt') + '" id="case-' + i + '" data-case="' + i + '" aria-pressed="' + (i === cur ? 'true' : 'false') + '">' + (i + 1) + '. ' + esc(x.who) + (st[i].b && st[i].c ? ' (done)' : '') + '</button>';
+    }).join('');
+    $('wb-who').textContent = c.label.t; $('wb-feature').textContent = c.feature.t;
+    $('wb-ask-b').textContent = D.ask_b.replace('{who}', c.who); $('wb-ask-c').textContent = D.ask_c.replace('{who}', c.who);
+    $('wb-bites').innerHTML = opts('bite', D.bites, c.order_b); $('wb-changes').innerHTML = opts('change', D.changes, c.order_c);
+    $('wb-pane-c').hidden = !s.b;
+    $('wb-pane-b').className = 'pane' + (s.b ? ' done' : ''); $('wb-pane-c').className = 'pane' + (s.c ? ' done' : '');
+    var n = solved(); $('wb-status').textContent = D.status.replace('{n}', n);
+    $('wb-done').hidden = n !== D.cases.length;
+    if (n === D.cases.length) $('wb-done').innerHTML = '<p><strong>' + esc(D.done_head) + '</strong></p><p class="quoteq">' + esc(D.done1.t) + '</p><p class="quoteq">' + esc(D.done2.t) + '</p><p>' + esc(D.done_note) + '</p>';
+  }
+  function clearFb() { ['fb-bite', 'fb-change'].forEach(function (id) { $(id).className = 'fb'; $(id).textContent = ''; }); }
+  function show(i) { cur = i; clearFb(); draw(); }
+  $('wb-cases').addEventListener('click', function (e) { var b = e.target.closest('button[data-case]'); if (b) show(+b.getAttribute('data-case')); });
+  function answer(e) {
+    var b = e.target.closest('button[data-kind]'); if (!b) return;
+    var kind = b.getAttribute('data-kind'), k = +b.getAttribute('data-k'), c = D.cases[cur], right = k === cur;
+    var fb = $(kind === 'bite' ? 'fb-bite' : 'fb-change');
+    if (right) st[cur][kind === 'bite' ? 'b' : 'c'] = true;
+    draw();
+    fb.className = 'fb ' + (right ? 'ok' : 'no'); fb.textContent = (kind === 'bite' ? c.why_b : c.why_c)[k];
+  }
+  $('wb-bites').addEventListener('click', answer); $('wb-changes').addEventListener('click', answer);
+  $('wb-restart').addEventListener('click', function () { reset(); show(0); });
+  reset(); show(0);
+})();
+</script>
+</div></main>
+<footer class="site"><div class="wrap"><p>NB6015CEM Research Project Preparation. BSc (Hons) Ethical Hacking &amp; Network Security.</p><p>Niranga Dharmaratna, <a href="mailto:niranga@nibm.lk">niranga@nibm.lk</a>.</p><p>&copy; 2026 Niranga Dharmaratna. Content licensed under CC BY-NC-ND 4.0; code under MIT. <a href="../../licence.html">Licence and use</a>.</p></div></footer>
+</body>
+</html>

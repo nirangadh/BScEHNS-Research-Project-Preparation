@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Milestone Planner | NB6015CEM Research Project Preparation</title>
+<link rel="stylesheet" href="../../assets/css/portal.css?v=d3ad175228c5">
+<style>
+.mp-line { display: block; width: 100%; height: auto; background: var(--white); border: 1px solid var(--steel-blue); border-radius: 8px; margin: 2px 0 8px; }
+.mp-line .axis { stroke: var(--ink-blue); stroke-width: 4; stroke-linecap: round; }
+.mp-line .tick { stroke: var(--dark-grey); stroke-width: 2; }
+.mp-line .m { fill: var(--ink-blue); } .mp-line .m.e1 { fill: var(--orange); } .mp-line .m.e2 { fill: var(--green); }
+ol.mp-list { padding-left: 0; list-style: none; margin: 8px 0; }
+ol.mp-list li { border-left: 4px solid var(--steel-blue); padding: 4px 0 4px 10px; margin: 6px 0; }
+ol.mp-list .when { font-weight: 700; color: var(--ink-blue); }
+.mp-row { border: 1px solid var(--steel-blue); border-radius: 8px; padding: 8px 12px 12px; margin: 10px 0; background: var(--white); }
+.mp-sel { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+.mp-sel label { font-size: 0.88rem; margin-top: 8px; }
+.art select { font: inherit; width: 100%; min-height: 44px; padding: 6px 8px; border: 2px solid var(--steel-blue); border-radius: 6px; background: var(--white); color: var(--near-black); }
+ul.mp-notes { margin: 8px 0; }
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap">
+<div class="inst">National Institute of Business Management (NIBM) | Coventry University (CU)</div>
+<div class="mod"><a href="../../index.html">NB6015CEM Research Project Preparation</a></div>
+<div class="prog">BSc (Hons) Ethical Hacking &amp; Network Security</div>
+</div></header>
+<nav class="site" aria-label="Portal"><div class="wrap"><a href="../../index.html">Home</a><a href="../../map.html">Module map</a><a href="../../licence.html">Licence</a></div></nav>
+<main><div class="wrap">
+<p class="crumb"><a href="../../notes/s4.html">Back to the Session 4 notes</a></p>
+<h1>Milestone Planner</h1>
+<div class="bars"><span class="a"></span><span class="b"></span></div>
+<p class="label">[Illustrative example - do not cite] Chathura is an invented student, and Pahana Retail is an invented business. His plan is invented too.</p>
+<div class="box learn" data-nb-concept><span class="tag">One idea</span><p>A milestone is a verifiable deliverable with a date. It sits on one point of the plan, on one of two week scales: P-weeks in this module and D-weeks in the delivery module.</p></div>
+<figure class="sect" data-nb-opening><img class="scene" src="../../assets/illus/s4_a_planner.svg" alt="A person points at a line in two parts: a short dark part and a longer blue part, separated by a dashed vertical line. Two diamonds, one orange and one green, sit above the short part, and four dark diamonds sit above the long part."><figcaption>The picture: one plan across two modules. The short part is this module, and the long part is the delivery module. Each diamond is a milestone on a single point of the line.</figcaption></figure>
+<div class="box notice" data-nb-not-a-grader><span class="tag">Not a grader</span><p>This tool does not read, judge or mark your plan. It only places your milestones on the line and points out a few things that a machine can see: a date range, a missing dependency, a week that comes too early. Whether your plan is realistic is for you and your supervisor to decide.</p></div>
+<div class="art" data-nb-artefact><div class="btns">
+  <button type="button" class="btn" id="tab-ex" aria-pressed="true">1. Chathura's plan</button>
+  <button type="button" class="btn alt" id="tab-own" aria-pressed="false">2. Your own plan</button>
+</div>
+<section id="view-ex">
+  <h2>Chathura's seven milestones</h2>
+  <p class="hint" id="ex-p-label"></p>
+  <svg class="mp-line" id="ex-p" viewBox="0 0 360 46" role="img" aria-label="A line of thirteen preparation weeks with milestones marked on it"></svg>
+  <p class="hint" id="ex-d-label"></p>
+  <svg class="mp-line" id="ex-d" viewBox="0 0 360 46" role="img" aria-label="A line of delivery weeks with milestones marked on it"></svg>
+  <ol class="mp-list" id="ex-list"></ol>
+  <p class="quoteq" id="ex-note"></p>
+</section>
+<section id="view-own" hidden>
+  <h2>Your own milestones</h2>
+  <p>The first two are the same for every project in this module. Add up to five more. For each one, write what will exist, and choose its week and what it depends on.</p>
+  <ol class="mp-list"><li id="own-m1"></li><li id="own-m2"></li></ol>
+  <div id="own-rows"></div>
+  <h2>Your plan on the line</h2>
+  <p class="hint" id="own-p-label"></p>
+  <svg class="mp-line" id="own-p" viewBox="0 0 360 46" role="img" aria-label="A line of thirteen preparation weeks with milestones marked on it"></svg>
+  <p class="hint" id="own-d-label"></p>
+  <svg class="mp-line" id="own-d" viewBox="0 0 360 46" role="img" aria-label="A line of delivery weeks with milestones marked on it"></svg>
+  <p id="own-status" aria-live="polite"></p>
+  <h2>Things to look at</h2>
+  <ul class="mp-notes" id="own-notes" aria-live="polite"></ul>
+</section></div>
+<div class="box store" data-nb-store-notice><p>What you type here stays on this device. It is never sent anywhere.</p><div class="btns"><button type="button" class="btn alt" id="nb-reset" data-nb-reset>Clear my answers from this device</button></div></div>
+<p class="crumb"><a href="../../notes/s4.html">Back to the Session 4 notes</a></p>
+<script type="application/json" id="nb-data">{"example": [{"id": "M1", "what": {"t": "Ethics application submitted with method annexe"}, "scale": "P", "week": 7, "dep": {"t": "Method fixed in Session 3"}}, {"id": "M2", "what": {"t": "Ethics approval received and filed as Appendix A"}, "scale": "P", "week": 10, "dep": {"t": "Hard dependency. No data generation or evaluation run may execute before this, in either module."}}, {"id": "M3", "what": {"t": "Testbed built: domain controller, two workstations, isolated host-only network, baseline snapshot taken"}, "scale": "D", "week": 2, "dep": {"t": "M2 in hand at hand-over; first build milestone of delivery"}}, {"id": "M4", "what": {"t": "Technique set defined and validated against the unhardened baseline"}, "scale": "D", "week": 5, "dep": {"t": "M3"}}, {"id": "M5", "what": {"t": "Hardened configuration applied and second snapshot taken"}, "scale": "D", "week": 8, "dep": {"t": "M4"}}, {"id": "M6", "what": {"t": "Comparative run complete, results recorded against both snapshots"}, "scale": "D", "week": 12, "dep": {"t": "M5"}}, {"id": "M7", "what": {"t": "Analysis and write-up complete"}, "scale": "D", "week": 16, "dep": {"t": "M6"}}], "ex_note": {"t": "Every row names something that either exists or does not on the date given, so slippage is visible the week it happens."}, "dep_label": "Depends on:", "p_label": "This module: P1 to P13", "d_label": "The delivery module: D1 onward", "own_m1": "M1, P7: your ethics application, submitted.", "own_m2": "M2, around P10: your ethics approval, received and filed as Appendix A.", "own_status": "{n} of 5 milestones filled.", "none": "Nothing to point out. That does not mean that the plan is realistic: show it to your supervisor.", "empty": "Fill a milestone to see it on the line.", "msg_range": "{m}: this text holds a range of weeks.", "q_range": {"t": "A date range with an activity beside it is not a milestone."}, "msg_short": "{m}: say in a few more words what will exist on that day, so that someone else could check it.", "msg_week": "{m}: choose its week.", "msg_before": "{m} is placed before your ethics approval (M2, around P10). If it generates data or runs an evaluation, it cannot happen yet.", "q_before": {"t": "No data generation or evaluation run may execute before this, in either module."}, "msg_prep": "{m} sits in a P-week. In the plan in the notes, only the two ethics milestones do. Check that this work does not need approval first.", "msg_dep": "{m}: say what it depends on. In the plan in the notes, every milestone names one.", "msg_order": "{m} depends on {d}, but it is placed in the same week as {d} or before it.", "msg_early": "Your last milestone is in the first four weeks of delivery.", "q_early": {"t": "A plan whose final milestone lands in the first month of delivery has not planned the project; it has planned the proposal, and Criterion 4 will read it as one."}}</script>
+<script data-nb-storage-helper>
+(function () {
+  var NS = "nb6015cem.s4.milestone_planner.";
+  function store() { try { return window.localStorage; } catch (e) { return null; } }
+  window.NBStore = {
+    ns: NS,
+    get: function (k) { var s = store(); if (!s) return null; try { return JSON.parse(s.getItem(NS + k)); } catch (e) { return null; } },
+    set: function (k, v) { var s = store(); if (!s) return false; try { s.setItem(NS + k, JSON.stringify(v)); return true; } catch (e) { return false; } },
+    reset: function () { var s = store(); if (!s) return; var d = []; for (var i = 0; i < s.length; i++) { var k = s.key(i); if (k && k.indexOf(NS) === 0) d.push(k); } d.forEach(function (k) { s.removeItem(k); }); }
+  };
+  document.addEventListener('click', function (e) { var b = e.target.closest ? e.target.closest('[data-nb-reset]') : null; if (b) { window.NBStore.reset(); document.dispatchEvent(new CustomEvent('nb-reset')); } });
+})();
+</script>
+<script>
+(function () {
+  var D = JSON.parse(document.getElementById('nb-data').textContent);
+  var $ = function (id) { return document.getElementById(id); };
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  var IDS = [3, 4, 5, 6, 7], PW = 13, DMIN = 16, DMAX = 26;
+  // ---- one line of weeks: ticks, and a diamond for each milestone in that week ----
+  function line(svg, scale, marks) {
+    var n = scale === 'P' ? PW : Math.max(DMIN, Math.max.apply(null, [0].concat(marks.map(function (m) { return m.week; }))));
+    var x = function (w) { return 14 + (w - 1) * (332 / (n - 1)); }, h = '<path class="axis" d="M14,30 L346,30"/>';
+    for (var w = 1; w <= n; w++) h += '<path class="tick" d="M' + x(w).toFixed(1) + ',30 v8"/>';
+    marks.forEach(function (m) { var cx = x(m.week).toFixed(1); h += '<path class="m' + (m.cls ? ' ' + m.cls : '') + '" d="M' + cx + ',6 l9,9 l-9,9 l-9,-9 Z"/>'; });
+    svg.innerHTML = h;
+    svg.setAttribute('aria-label', (scale === 'P' ? 'The preparation weeks, P1 to P' + n : 'The delivery weeks, D1 to D' + n) + '. ' +
+      (marks.length ? 'Milestones at: ' + marks.map(function (m) { return m.id + ' in ' + scale + m.week; }).join(', ') + '.' : 'No milestone is placed on this line yet.'));
+  }
+  function lines(prefix, ms) {
+    ['P', 'D'].forEach(function (s) { line($(prefix + '-' + s.toLowerCase()), s, ms.filter(function (m) { return m.scale === s; })); });
+    $(prefix + '-p-label').textContent = D.p_label; $(prefix + '-d-label').textContent = D.d_label;
+  }
+  // ---- part 1: the plan in the notes ----
+  function drawEx() {
+    lines('ex', D.example.map(function (m, i) { return { id: m.id, scale: m.scale, week: m.week, cls: i === 0 ? 'e1' : i === 1 ? 'e2' : '' }; }));
+    $('ex-list').innerHTML = D.example.map(function (m) {
+      return '<li><span class="when">' + esc(m.id) + ', ' + m.scale + m.week + ':</span> ' + esc(m.what.t) + '<br><span class="hint">' + esc(D.dep_label) + ' ' + esc(m.dep.t) + '</span></li>';
+    }).join('');
+    $('ex-note').textContent = D.ex_note.t;
+  }
+  // ---- part 2: the learner's own plan: placed and checked for a few mechanical things, never judged; kept on the device ----
+  var own = window.NBStore.get('plan') || {};
+  function row(k) { return own[k] || {}; }
+  function posOf(scale, week) { return scale === 'P' ? week : PW + week; }
+  function buildRows() {
+    $('own-rows').innerHTML = IDS.map(function (k) {
+      var weeks = '<option value="">choose</option>'; for (var w = 1; w <= DMAX; w++) weeks += '<option value="' + w + '">' + w + '</option>';
+      var deps = '<option value="">choose</option>'; for (var d = 1; d < k; d++) deps += '<option value="' + d + '">M' + d + '</option>';
+      return '<div class="mp-row"><label for="own-what-' + k + '">M' + k + ': what will exist?</label><input type="text" id="own-what-' + k + '" data-k="' + k + '" data-f="what" autocomplete="off">' +
+        '<div class="mp-sel"><div><label for="own-scale-' + k + '">Scale</label><select id="own-scale-' + k + '" data-k="' + k + '" data-f="scale"><option value="D">D-week</option><option value="P">P-week</option></select></div>' +
+        '<div><label for="own-week-' + k + '">Week</label><select id="own-week-' + k + '" data-k="' + k + '" data-f="week">' + weeks + '</select></div>' +
+        '<div><label for="own-dep-' + k + '">Depends on</label><select id="own-dep-' + k + '" data-k="' + k + '" data-f="dep">' + deps + '</select></div></div></div>';
+    }).join('');
+  }
+  function fill() {
+    IDS.forEach(function (k) { var r = row(k);
+      $('own-what-' + k).value = r.what || ''; $('own-scale-' + k).value = r.scale || 'D'; $('own-week-' + k).value = r.week || ''; $('own-dep-' + k).value = r.dep || ''; });
+    drawOwn();
+  }
+  function findings() {
+    var out = [], filled = IDS.filter(function (k) { return (row(k).what || '').length > 0; });
+    function add(msg, k, q, d) { out.push({ text: msg.replace('{m}', 'M' + k).replace(/\{d\}/g, 'M' + d), quote: q }); }
+    filled.forEach(function (k) {
+      var r = row(k), scale = r.scale || 'D', week = +r.week || 0, dep = +r.dep || 0;
+      if (/\b[PD]?\d+\s*(?:to|-)\s*[PD]?\d+\b/i.test(r.what)) add(D.msg_range, k, D.q_range.t);
+      else if (r.what.split(/\s+/).length < 3) add(D.msg_short, k);
+      if (!week) { add(D.msg_week, k); return; }
+      if (scale === 'P' && week < 10) add(D.msg_before, k, D.q_before.t);
+      else if (scale === 'P') add(D.msg_prep, k);
+      if (!dep) { add(D.msg_dep, k); return; }
+      var dr = dep === 1 ? { scale: 'P', week: 7 } : dep === 2 ? { scale: 'P', week: 10 } : { scale: row(dep).scale || 'D', week: +row(dep).week || 0 };
+      if (dr.week && posOf(dr.scale, dr.week) >= posOf(scale, week)) add(D.msg_order, k, null, dep);
+    });
+    var placed = filled.filter(function (k) { return +row(k).week; });
+    if (filled.length === IDS.length && placed.length === IDS.length && Math.max.apply(null, placed.map(function (k) { return posOf(row(k).scale || 'D', +row(k).week); })) <= PW + 4) out.push({ text: D.msg_early, quote: D.q_early.t });
+    return { out: out, filled: filled.length };
+  }
+  function drawOwn() {
+    var ms = [{ id: 'M1', scale: 'P', week: 7, cls: 'e1' }, { id: 'M2', scale: 'P', week: 10, cls: 'e2' }];
+    IDS.forEach(function (k) { var r = row(k); if ((r.what || '').length && +r.week) ms.push({ id: 'M' + k, scale: r.scale || 'D', week: +r.week }); });
+    lines('own', ms);
+    var f = findings();
+    $('own-status').textContent = D.own_status.replace('{n}', f.filled);
+    $('own-notes').innerHTML = f.filled === 0 ? '<li>' + esc(D.empty) + '</li>' : f.out.length === 0 ? '<li>' + esc(D.none) + '</li>' :
+      f.out.map(function (x) { return '<li>' + esc(x.text) + (x.quote ? ' The notes say:<div class="quoteq">' + esc(x.quote) + '</div>' : '') + '</li>'; }).join('');
+  }
+  function onEdit(e) {
+    var k = e.target.getAttribute('data-k'), f = e.target.getAttribute('data-f'); if (!k || !f) return;
+    var r = own[k] || {}; r[f] = f === 'what' ? e.target.value.trim() : e.target.value; own[k] = r;
+    window.NBStore.set('plan', own); drawOwn();
+  }
+  $('view-own').addEventListener('input', onEdit); $('view-own').addEventListener('change', onEdit);
+  document.addEventListener('nb-reset', function () { own = {}; fill(); });
+  // ---- the two views ----
+  function show(which) {
+    $('view-ex').hidden = which !== 'ex'; $('view-own').hidden = which !== 'own';
+    [['tab-ex', 'ex'], ['tab-own', 'own']].forEach(function (t) { var on = t[1] === which; $(t[0]).className = 'btn' + (on ? '' : ' alt'); $(t[0]).setAttribute('aria-pressed', on ? 'true' : 'false'); });
+  }
+  $('tab-ex').addEventListener('click', function () { show('ex'); });
+  $('tab-own').addEventListener('click', function () { show('own'); });
+  $('own-m1').textContent = D.own_m1; $('own-m2').textContent = D.own_m2;
+  drawEx(); buildRows(); fill();
+})();
+</script>
+</div></main>
+<footer class="site"><div class="wrap"><p>NB6015CEM Research Project Preparation. BSc (Hons) Ethical Hacking &amp; Network Security.</p><p>Niranga Dharmaratna, <a href="mailto:niranga@nibm.lk">niranga@nibm.lk</a>.</p><p>&copy; 2026 Niranga Dharmaratna. Content licensed under CC BY-NC-ND 4.0; code under MIT. <a href="../../licence.html">Licence and use</a>.</p></div></footer>
+</body>
+</html>

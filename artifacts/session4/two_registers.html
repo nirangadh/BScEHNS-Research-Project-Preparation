@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Two Registers | NB6015CEM Research Project Preparation</title>
+<link rel="stylesheet" href="../../assets/css/portal.css?v=d3ad175228c5">
+<style>
+.tr-opts { display: grid; gap: 8px; margin: 8px 0; }
+.tr-opts button { text-align: left; }
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap">
+<div class="inst">National Institute of Business Management (NIBM) | Coventry University (CU)</div>
+<div class="mod"><a href="../../index.html">NB6015CEM Research Project Preparation</a></div>
+<div class="prog">BSc (Hons) Ethical Hacking &amp; Network Security</div>
+</div></header>
+<nav class="site" aria-label="Portal"><div class="wrap"><a href="../../index.html">Home</a><a href="../../map.html">Module map</a><a href="../../licence.html">Licence</a></div></nav>
+<main><div class="wrap">
+<p class="crumb"><a href="../../notes/s4.html">Back to the Session 4 notes</a></p>
+<h1>Two Registers</h1>
+<div class="bars"><span class="a"></span><span class="b"></span></div>
+<p class="label">[Illustrative example - do not cite] Tharindu, Chathura and Dilini are invented students. Their projects, and every risk and mitigation shown here, are invented too.</p>
+<div class="box learn" data-nb-concept><span class="tag">One idea</span><p>A proposal needs two kinds of risk. Register A holds risks to finishing the project. Register B holds the technical and security risks of the thing that you build, and those belong to one project only.</p></div>
+<figure class="sect" data-nb-opening><img class="scene" src="../../assets/illus/s4_a_registers.svg" alt="A person points at two trays. Three cards that look the same stand in the blue tray. One card with an orange diamond stands in the orange tray."><figcaption>The picture: two trays for two kinds of risk. The cards in the first tray look alike, because any project could hold them. The card in the second tray carries its own mark.</figcaption></figure>
+<div class="art" data-nb-artefact><div class="pane">
+  <h2 id="tr-count"></h2>
+  <p id="tr-ask"></p>
+  <p class="quoteq" id="tr-risk"></p>
+  <p class="hint" id="tr-who"></p>
+  <div class="btns" id="tr-sort">
+    <button type="button" class="btn alt" id="reg-a">Register A: delivery and project risks</button>
+    <button type="button" class="btn alt" id="reg-b">Register B: technical and security risks</button>
+  </div>
+  <div class="tr-opts" id="tr-match" hidden>
+    <button type="button" class="btn alt" id="mit-0"></button>
+    <button type="button" class="btn alt" id="mit-1"></button>
+    <button type="button" class="btn alt" id="mit-2"></button>
+  </div>
+  <div class="fb" id="fb-tr" aria-live="polite"></div>
+  <div class="btns"><button type="button" class="btn" id="tr-next" hidden>Next card</button></div>
+</div>
+<p id="tr-status" aria-live="polite"></p>
+<div class="fb ok" id="tr-done" hidden></div>
+<div class="btns"><button type="button" class="btn alt" id="tr-restart">Start again</button></div></div>
+<p class="crumb"><a href="../../notes/s4.html">Back to the Session 4 notes</a></p>
+<script type="application/json" id="nb-data">{"cards": [{"kind": "sort", "risk": {"t": "Ethics approval delayed beyond P10"}, "who": "From Chathura's plan.", "reg": "a", "ok": "Yes. This is a risk to finishing on time. Any project that needs ethics approval could have it.", "no": "Not Register B. Nothing in the thing that Chathura builds causes this delay. Any project with an ethics application could meet it."}, {"kind": "sort", "risk": {"t": "The deliberately vulnerable API instance is reachable from the campus network and is found by someone else"}, "who": "From Dilini's project.", "reg": "b", "ok": "Yes. The danger comes from the thing that Dilini builds: an API that is vulnerable on purpose. No other project in the notes could have this risk.", "no": "Not Register A. This is not about time or resources. It is a security risk of the artefact itself: someone else could find and use it."}, {"kind": "sort", "risk": {"t": "time management, illness, and hardware failure"}, "who": "From the passage in Section 5.5.", "reg": "a", "ok": "Yes, and they are the weakest kind of Register A entry. The notes call them risks of being a student, not risks of this project.", "no": "Not Register B. Every student could write these three. Nothing here comes from what the project builds."}, {"kind": "sort", "risk": {"t": "A hardening setting breaks authentication in the domain and the testbed cannot be recovered, destroying the baseline comparison"}, "who": "From Chathura's project.", "reg": "b", "ok": "Yes. The danger comes from the experiment itself: a hardening setting can break the very system that is being measured.", "no": "Not Register A. It would cause a delay, but look at the cause: a setting that Chathura applies breaks his own testbed. That is a technical risk of the implementation."}, {"kind": "sort", "risk": {"t": "Scope creep from adding a second baseline"}, "who": "From Chathura's plan.", "reg": "a", "ok": "Yes. Scope creep is a delivery risk: the project grows until it cannot be finished. It names a baseline, but the danger is to the plan.", "no": "Not Register B. Adding a second baseline does not make the artefact dangerous or fragile. It makes the project larger than the time allows."}, {"kind": "sort", "risk": {"t": "The replayed credential dataset, even hashed, is re-identifiable if the source corpus is known"}, "who": "From Tharindu's project.", "reg": "b", "ok": "Yes. The danger is in the data that Tharindu's method uses. Only a project with this kind of dataset could have it.", "no": "Not Register A. Nothing here is about finishing on time. The risk is that real people could be identified from the dataset."}, {"kind": "sort", "risk": {"t": "Testbed host lacks capacity for the domain and workstation VMs"}, "who": "From Chathura's plan.", "reg": "a", "ok": "Yes. It mentions the testbed, but the danger is that the build cannot go ahead as planned. That is a resource risk, and the notes list it in Register A.", "no": "Not Register B. A host that is too small harms the schedule. It does not make the artefact unsafe."}, {"kind": "sort", "risk": {"t": "The measured technique set constitutes a working attack sequence against a default configuration"}, "who": "From Chathura's project.", "reg": "b", "ok": "Yes. This is the dual-use risk of Section 3, written as a register entry. It comes from the result that the project produces.", "no": "Not Register A. This has nothing to do with delivery. The project's own result could be used as an attack."}, {"kind": "match", "risk": {"t": "The deliberately vulnerable API instance is reachable from the campus network and is found by someone else"}, "who": "From Dilini's project.", "options": [{"t": "keeping regular backups of all work", "ok": false, "why": "Not this one. A backup protects your files. It does nothing to stop someone from reaching the API."}, {"t": "Bound to loopback on an isolated host; no port forwarding; instance destroyed between sessions rather than left running", "ok": true, "why": "Yes. Each part closes a way in: the API listens only to its own machine, nothing is forwarded to it, and it does not stay running."}, {"t": "careful planning", "ok": false, "why": "Not this one. Careful planning is an intention. It names no action that keeps other people away from the API."}]}, {"kind": "match", "risk": {"t": "A hardening setting breaks authentication in the domain and the testbed cannot be recovered, destroying the baseline comparison"}, "who": "From Chathura's project.", "options": [{"t": "Truncation after hashing; source corpus not named in the published output; dataset destroyed at project end", "ok": false, "why": "Not this one. These actions protect a dataset. Chathura's risk is a testbed that breaks and cannot be brought back."}, {"t": "working ahead of schedule wherever possible", "ok": false, "why": "Not this one. The notes call this an intention rather than a control. It does not bring a broken testbed back."}, {"t": "Snapshot before each policy application; settings applied in documented groups so a failure is attributable; baseline snapshot held read-only", "ok": true, "why": "Yes. A snapshot lets him return to the state before the change. Applying the settings in groups shows which group caused the failure. The read-only snapshot protects the baseline that he compares with."}]}, {"kind": "match", "risk": {"t": "Ethics approval delayed beyond P10"}, "who": "From Chathura's plan.", "options": [{"t": "Application submitted P7 with the method annexe complete; supervisor review booked before submission; non-evaluation work sequenced to run during the wait", "ok": true, "why": "Yes. Two parts make a delay less likely, and the third makes it less harmful: other work goes on during the wait."}, {"t": "keeping regular backups of all work", "ok": false, "why": "Not this one. The notes make the same point about illness: a backup protects files, and this risk is about time."}, {"t": "Baseline set fixed at M4 and treated as frozen; any addition deferred to further work", "ok": false, "why": "Not this one. That is the mitigation for scope creep. It does nothing about a late approval."}]}], "ask_sort": "Which register does this risk belong to?", "ask_match": "Which mitigation matches this risk?", "count": "Card {n} of 11", "status": "{n} of 11 done.", "done_head": "Eight risks sorted and three mitigations matched.", "done": {"t": "Name the one risk that only your project could have. If the answer would fit on a neighbour's page, Register B is not finished."}, "done_note": "That is the diagnostic question from the notes. Write your answer down before your next supervision meeting."}</script>
+<script>
+(function () {
+  var D = JSON.parse(document.getElementById('nb-data').textContent);
+  var $ = function (id) { return document.getElementById(id); };
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  var pos = 0, done = 0, answered = false, N = D.cards.length;
+  function draw() {
+    var c = D.cards[pos], sort = c.kind === 'sort';
+    $('tr-count').textContent = D.count.replace('{n}', pos + 1); $('tr-ask').textContent = sort ? D.ask_sort : D.ask_match;
+    $('tr-risk').textContent = c.risk.t; $('tr-who').textContent = c.who;
+    $('tr-sort').hidden = !sort; $('tr-match').hidden = sort;
+    ['reg-a', 'reg-b'].forEach(function (id) { $(id).disabled = answered; });
+    [0, 1, 2].forEach(function (j) { var b = $('mit-' + j); b.disabled = answered; b.textContent = sort ? '' : c.options[j].t; });
+    $('tr-next').hidden = !(answered && pos < N - 1);
+    $('tr-status').textContent = D.status.replace('{n}', done);
+    $('tr-done').hidden = done !== N;
+    if (done === N) $('tr-done').innerHTML = '<p><strong>' + esc(D.done_head) + '</strong></p><p class="quoteq">' + esc(D.done.t) + '</p><p>' + esc(D.done_note) + '</p>';
+  }
+  function result(right, text) {
+    var fb = $('fb-tr'); fb.className = 'fb ' + (right ? 'ok' : 'no'); fb.textContent = text;
+    if (right) { answered = true; done += 1; }
+    draw();
+  }
+  function sortTo(reg) { var c = D.cards[pos]; if (answered || c.kind !== 'sort') return; result(reg === c.reg, reg === c.reg ? c.ok : c.no); }
+  function match(j) { var c = D.cards[pos]; if (answered || c.kind !== 'match') return; result(c.options[j].ok, c.options[j].why); }
+  function go(to) { pos = to; answered = false; $('fb-tr').className = 'fb'; $('fb-tr').textContent = ''; draw(); }
+  $('reg-a').addEventListener('click', function () { sortTo('a'); });
+  $('reg-b').addEventListener('click', function () { sortTo('b'); });
+  [0, 1, 2].forEach(function (j) { $('mit-' + j).addEventListener('click', function () { match(j); }); });
+  $('tr-next').addEventListener('click', function () { go(pos + 1); });
+  $('tr-restart').addEventListener('click', function () { done = 0; go(0); });
+  go(0);
+})();
+</script>
+</div></main>
+<footer class="site"><div class="wrap"><p>NB6015CEM Research Project Preparation. BSc (Hons) Ethical Hacking &amp; Network Security.</p><p>Niranga Dharmaratna, <a href="mailto:niranga@nibm.lk">niranga@nibm.lk</a>.</p><p>&copy; 2026 Niranga Dharmaratna. Content licensed under CC BY-NC-ND 4.0; code under MIT. <a href="../../licence.html">Licence and use</a>.</p></div></footer>
+</body>
+</html>

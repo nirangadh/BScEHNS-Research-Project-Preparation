@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Paste Test | NB6015CEM Research Project Preparation</title>
+<link rel="stylesheet" href="../../assets/css/portal.css?v=d3ad175228c5">
+<style>
+.pt-src { font-size: 0.88rem; color: var(--dark-grey); margin: 6px 0 0; }
+ul.pt-tells { margin: 6px 0 0; }
+.pt-tells strong { color: var(--ink-blue); }
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap">
+<div class="inst">National Institute of Business Management (NIBM) | Coventry University (CU)</div>
+<div class="mod"><a href="../../index.html">NB6015CEM Research Project Preparation</a></div>
+<div class="prog">BSc (Hons) Ethical Hacking &amp; Network Security</div>
+</div></header>
+<nav class="site" aria-label="Portal"><div class="wrap"><a href="../../index.html">Home</a><a href="../../map.html">Module map</a><a href="../../licence.html">Licence</a></div></nav>
+<main><div class="wrap">
+<p class="crumb"><a href="../../notes/s4.html">Back to the Session 4 notes</a></p>
+<h1>The Paste Test</h1>
+<div class="bars"><span class="a"></span><span class="b"></span></div>
+<p class="label">[Illustrative example - do not cite] Both passages are written in the name of Tharindu, an invented student at an invented bank. The passages are invented too.</p>
+<div class="box learn" data-nb-concept><span class="tag">One idea</span><p>A generic sentence could be pasted, unchanged, into another student's proposal. A specific sentence could not, because it names a provision, a thing in this project, or something that the writer will do differently.</p></div>
+<figure class="sect" data-nb-opening><img class="scene" src="../../assets/illus/s4_a_paste.svg" alt="A person points at three pages that stand side by side. An orange strip floats above them, with an arrow down to each page, and every page carries the same orange strip among its grey lines."><figcaption>The picture: one sentence, the orange strip, has been pasted into three different proposals. It fits all three. That is what generic means.</figcaption></figure>
+<div class="art" data-nb-artefact><div class="pane">
+  <h2 id="pt-count"></h2>
+  <p class="quoteq" id="pt-sentence"></p>
+  <p id="pt-ask"></p>
+  <div class="btns">
+    <button type="button" class="btn alt" id="pt-yes"></button>
+    <button type="button" class="btn alt" id="pt-no"></button>
+  </div>
+  <div class="fb" id="fb-pt" aria-live="polite"></div>
+  <div class="btns"><button type="button" class="btn" id="pt-next" hidden>Next sentence</button></div>
+</div>
+<p id="pt-status" aria-live="polite"></p>
+<div class="fb ok" id="pt-done" hidden></div>
+<div class="btns"><button type="button" class="btn alt" id="pt-restart">Start again</button></div></div>
+<p class="crumb"><a href="../../notes/s4.html">Back to the Session 4 notes</a></p>
+<script type="application/json" id="nb-data">{"generic": [{"t": "This project will comply with the Computer Misuse Act 1990 and the General Data Protection Regulation.", "why": "It names two instruments and applies neither. There is no section and no article. Every student in the cohort could write it."}, {"t": "All testing will be conducted ethically and within the law.", "why": "\"Ethically\" and \"within the law\" are assertions. Nothing in the sentence could be checked, and every proposal could say it."}, {"t": "Data will be stored securely and deleted after the project.", "why": "It never says what data. The notes call that the first question that data protection asks. \"Securely\" is an assertion, not an analysis."}, {"t": "Ethical approval will be obtained before any work begins.", "why": "True of every project in this module, so it says nothing about this one. It does not say what the application will state."}], "strong": [{"t": "The evaluation runs entirely on a virtualised testbed built and owned by the researcher, so no access to any third-party system occurs.", "why": "It names the testbed and who owns it, and it states what follows: no third-party system is accessed. Many projects in this module could say something close to this. The sentences that follow are what make the passage Tharindu's.", "hint": "It says where the evaluation runs, who owns that place, and what follows from that.", "tells": {"p": "No provision is named in this sentence.", "a": "The virtualised testbed, built and owned by the researcher.", "c": "No third-party system is accessed."}}, {"t": "Section 1 of the Computer Misuse Act 1990 turns on access being unauthorised, and access here is authorised by the owner of the environment, so the section is not engaged;", "why": "It names a section and applies it to this project's environment. The sentence continues after the semicolon.", "hint": "It names a section of the Act and says why that section does not apply here.", "tells": {"p": "Section 1 of the Computer Misuse Act 1990.", "a": "The environment, and its owner who authorises the access.", "c": "None yet. \"Not engaged\" is a conclusion. What the writer does about it comes in the next part."}}, {"t": "that authorisation is recorded in the project log rather than assumed, and the testbed is held on a host-only network so that no traffic reaches an external host, which keeps section 3 out of scope as well.", "why": "This is the second half of the sentence. It turns the conclusion into two actions and names a second section.", "hint": "It names a log, a network and a second section of the Act.", "tells": {"p": "Section 3.", "a": "The project log, the testbed and its host-only network.", "c": "The authorisation is recorded, and the testbed is isolated so that no traffic leaves it."}}, {"t": "The authentication events the detector consumes are personal data, because each links a credential identifier to an access attempt, so the dataset is generated synthetically rather than captured: no live customer traffic is used at any point, which removes the lawful-basis question under Article 6 instead of answering it.", "why": "It says exactly which data is personal and why, and it changes the method because of that.", "hint": "It names the data, says why that data is personal, and names an article.", "tells": {"p": "Article 6.", "a": "The authentication events and the dataset.", "c": "The dataset is generated synthetically, and no live customer traffic is used."}}, {"t": "Where replayed traffic derives from a published dataset, credential identifiers are hashed and truncated before use, applying data minimisation under Article 5(1)(c).", "why": "One provision, one kind of data, one action. This is the shortest complete example in the passage.", "hint": "It names an article and says what is done to the identifiers.", "tells": {"p": "Article 5(1)(c).", "a": "The replayed traffic and its credential identifiers.", "c": "The identifiers are hashed and truncated before use."}}, {"t": "The dataset is held on an encrypted volume and destroyed at the end of the project, and that retention period is stated in the ethics application.", "why": "It names no provision, and it is still specific: it says what is held, where, and when it is destroyed. A sentence does not need all three tells.", "hint": "It says where the dataset is held and when it is destroyed.", "tells": {"p": "No provision is named in this sentence.", "a": "The dataset, on its encrypted volume.", "c": "It is destroyed at the end of the project, and the retention period is stated in the application."}}, {"t": "One dual-use consequence is recorded: the feature set that makes the detector effective also describes the evasion path an informed attacker would take, so feature weights are reported in aggregate and no tunable detection configuration is published.", "why": "No law is named here at all. The sentence is about dual-use, which Section 3 of the notes explains, and it could only be about a detector with a feature set.", "hint": "It names the feature set and says what will not be published.", "tells": {"p": "No provision is named in this sentence.", "a": "The feature set and its weights.", "c": "Weights are reported in aggregate, and no tunable configuration is published."}}], "order": [["g", 0], ["s", 3], ["g", 2], ["s", 0], ["s", 5], ["g", 1], ["s", 1], ["s", 2], ["g", 3], ["s", 6], ["s", 4]], "ask": {"t": "Could this sentence appear unchanged in someone else's proposal?"}, "yes": "Yes, it fits anyone", "no": "No, only this project", "count": "Sentence {n} of 11", "right_g": "Yes, it fits anyone.", "right_s": "No. It belongs to this project.", "wrong_g": "Look again. Does it name a section or an article? Does it name a thing in this project? Does it say what the writer will do differently? It does none of these, so nothing ties it to one project.", "wrong_s": "Look again. Could a student with a different project write exactly this?", "src_g": "From the generic passage in Section 2.5 of the notes.", "src_s": "From the project-specific passage in Section 2.5 of the notes.", "tell_names": [{"t": "A named provision."}, {"t": "A named artefact of this project."}, {"t": "A consequence that changes what you will actually do."}], "status": "{n} of 11 sentences judged.", "done_head": "Eleven sentences judged: four fit anyone, and seven belong to one project.", "done": {"t": "A longer generic passage scores the same as a short one."}, "done_note": "The four generic sentences are the whole of the weak passage. Notice also that not every strong sentence names a law. Each one names something of the project and says what will be done. Now try the test on your own sentences, in the Responsible Practice Mirror."}</script>
+<script>
+(function () {
+  var D = JSON.parse(document.getElementById('nb-data').textContent);
+  var $ = function (id) { return document.getElementById(id); };
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  var pos = 0, judged = 0, answered = false, N = D.order.length;
+  function item() { var o = D.order[pos]; return { generic: o[0] === 'g', it: (o[0] === 'g' ? D.generic : D.strong)[o[1]] }; }
+  function draw() {
+    var x = item();
+    $('pt-count').textContent = D.count.replace('{n}', pos + 1); $('pt-sentence').textContent = x.it.t; $('pt-ask').textContent = D.ask.t;
+    $('pt-yes').textContent = D.yes; $('pt-no').textContent = D.no;
+    $('pt-yes').disabled = answered; $('pt-no').disabled = answered;
+    $('pt-next').hidden = !(answered && pos < N - 1);
+    $('pt-status').textContent = D.status.replace('{n}', judged);
+    $('pt-done').hidden = judged !== N;
+    if (judged === N) $('pt-done').innerHTML = '<p><strong>' + esc(D.done_head) + '</strong></p><p class="quoteq">' + esc(D.done.t) + '</p><p>' + esc(D.done_note) + '</p>';
+  }
+  function judge(saysGeneric) {
+    if (answered) return;
+    var x = item(), fb = $('fb-pt');
+    if (saysGeneric !== x.generic) {
+      fb.className = 'fb no'; fb.innerHTML = '<p><strong>' + esc(x.generic ? D.wrong_g : D.wrong_s) + '</strong>' + (x.generic ? '' : ' ' + esc(x.it.hint)) + '</p>';
+      return;
+    }
+    answered = true; judged += 1;
+    var h = '<p><strong>' + esc(x.generic ? D.right_g : D.right_s) + '</strong> ' + esc(x.it.why) + '</p>';
+    if (!x.generic) h += '<ul class="pt-tells">' + ['p', 'a', 'c'].map(function (k, i) { return '<li><strong>' + esc(D.tell_names[i].t) + '</strong> ' + esc(x.it.tells[k]) + '</li>'; }).join('') + '</ul>';
+    h += '<p class="pt-src">' + esc(x.generic ? D.src_g : D.src_s) + '</p>';
+    fb.className = 'fb ok'; fb.innerHTML = h; draw();
+  }
+  function go(to) { pos = to; answered = false; $('fb-pt').className = 'fb'; $('fb-pt').innerHTML = ''; draw(); }
+  $('pt-yes').addEventListener('click', function () { judge(true); });
+  $('pt-no').addEventListener('click', function () { judge(false); });
+  $('pt-next').addEventListener('click', function () { go(pos + 1); });
+  $('pt-restart').addEventListener('click', function () { judged = 0; go(0); });
+  go(0);
+})();
+</script>
+</div></main>
+<footer class="site"><div class="wrap"><p>NB6015CEM Research Project Preparation. BSc (Hons) Ethical Hacking &amp; Network Security.</p><p>Niranga Dharmaratna, <a href="mailto:niranga@nibm.lk">niranga@nibm.lk</a>.</p><p>&copy; 2026 Niranga Dharmaratna. Content licensed under CC BY-NC-ND 4.0; code under MIT. <a href="../../licence.html">Licence and use</a>.</p></div></footer>
+</body>
+</html>
